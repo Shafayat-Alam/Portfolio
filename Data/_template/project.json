@@ -1,0 +1,24 @@
+{
+  "_instructions": "Copy this folder, rename it to a unique kebab-case slug (e.g. 'my-project'), then fill in all fields. Add the slug to Data/projects.json under 'projects' in display order. Drop images into images/ named 01.jpg, 02.jpg, 03.jpg (4:3 ratio, 1200x900px). Place any report PDF in this folder and set 'report' to its filename. Wrap key numbers in <strong>...</strong> in results. Delete this _instructions key before saving.",
+
+  "id": "unique-kebab-case-slug",
+  "title": "PROJECT TITLE IN UPPERCASE",
+  "org": "Organization or Team Name",
+  "institution": "University, Company, or Lab",
+  "period": "Month YYYY – Month YYYY",
+  "category": "ROBOTICS | RESEARCH | DESIGN | AEROSPACE",
+  "images": ["images/01.jpg", "images/02.jpg", "images/03.jpg"],
+  "what": [
+    "What was the goal or problem being solved?",
+    "What system or artifact was built or investigated?"
+  ],
+  "how": [
+    "What methods, tools, or techniques were used?",
+    "Any specific models, software, or fabrication approaches?"
+  ],
+  "results": [
+    "What was achieved? Use <strong>numbers</strong> where possible.",
+    "Key findings, performance metrics, or outcomes."
+  ],
+  "report": ""
+}

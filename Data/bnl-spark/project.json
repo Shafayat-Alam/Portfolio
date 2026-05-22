@@ -1,0 +1,24 @@
+{
+  "id": "bnl-spark",
+  "title": "ROCK VARNISH GEOCHEMICAL PROVENANCE ANALYSIS",
+  "org": "BNL SPARK Program",
+  "institution": "Brookhaven National Laboratory",
+  "period": "September 2018 – May 2022",
+  "category": "RESEARCH",
+  "images": [],
+  "what": [
+    "XRD and XRF investigation of Fe/Mn stratigraphic layering in rock varnish",
+    "Provenance analysis of steatite archaeological artifacts"
+  ],
+  "how": [
+    "X-ray diffraction (2.0–7.5 Å) and XRF elemental mapping",
+    "d-spacing fingerprinting for material sourcing",
+    "Comparative elemental analysis across 10+ artifact samples"
+  ],
+  "results": [
+    "Fe/Mn stratigraphic layering identified in 6 samples — consistent with Younger Dryas formation",
+    "10+ steatite artifacts traced to Rhode Island quarry sources",
+    "<strong>10–45× elemental variation</strong> distinguishing regional clay sources and trade patterns"
+  ],
+  "report": ""
+}

@@ -181,6 +181,28 @@ ul    { list-style: none; }
   animation: fadeUp 0.9s var(--ease-out) 0.26s both;
 }
 
+.hero-contacts {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+  animation: fadeUp 0.9s var(--ease-out) 0.34s both;
+}
+
+.hero-contact-link {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border-mid);
+  padding-bottom: 2px;
+  transition: color 200ms, border-color 200ms;
+}
+.hero-contact-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .hero-scroll {
   position: absolute;
   bottom: 0;

@@ -1,0 +1,23 @@
+{
+  "id": "solar-boat",
+  "title": "SOLAR BOAT POWERTRAIN PACKAGING",
+  "org": "Stony Brook Solar Boat Racing Team",
+  "institution": "Stony Brook University",
+  "period": "September 2022 – November 2024",
+  "category": "DESIGN",
+  "images": [],
+  "what": [
+    "Powertrain packaging for a solar-powered competitive racing boat",
+    "Integration and operational readiness for competitive conditions"
+  ],
+  "how": [
+    "Additive manufacturing for structural packaging investigation",
+    "Systematic wet testing and diagnostics for component validation",
+    "Robustness-driven design methodology"
+  ],
+  "results": [
+    "Operational readiness confirmed through systematic wet testing",
+    "Robust packaging solution developed via additive manufacturing"
+  ],
+  "report": ""
+}

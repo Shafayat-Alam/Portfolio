@@ -1,0 +1,47 @@
+{
+  "profile": {
+    "name": "Shafayat Alam",
+    "title": "Mechanical Engineer · Roboticist",
+    "bio": "I'm a Mechanical Engineering student at Stony Brook University with experience across underwater robotics, aerospace systems, and computational fluid dynamics. My work spans the full stack — from soft actuator design and CFD investigations to launch vehicle subsystems and thermal control — always grounded in rigorous testing and analysis.",
+    "location": "Long Island, NY",
+    "email": "shafayatalam2004@gmail.com",
+    "linkedin": "https://linkedin.com/in/shafayata",
+    "github": "https://github.com/Shafayat-Alam",
+    "institution": "Stony Brook University",
+    "degree": "B.E. Mechanical Engineering, May 2026",
+    "education": "B.E. Mechanical Engineering · Stony Brook University · 2026"
+  },
+
+  "projects": [
+    "soft-flyers",
+    "launch-team",
+    "afpel-cfd",
+    "nasa-lspace",
+    "solar-boat",
+    "bnl-spark",
+    "first-robotics"
+  ],
+
+  "skills": [
+    {
+      "category": "DESIGN & ANALYSIS",
+      "items": ["CAD/CAM", "DFM/DFA", "GD&T", "ASME Y14.5", "Engineering Drawings", "Basic FEA"]
+    },
+    {
+      "category": "FLUID DYNAMICS",
+      "items": ["OpenFOAM", "CFD (RANS)", "Paraview", "Meshlab", "HPC", "Parallel Computing"]
+    },
+    {
+      "category": "CONTROL & ESTIMATION",
+      "items": ["MATLAB/Simulink", "Control System Toolbox", "ROS2", "Basic Sensor Fusion"]
+    },
+    {
+      "category": "FABRICATION & TEST",
+      "items": ["Additive Manufacturing", "Subtractive Manufacturing", "Basic Mechatronics", "Systematic Test Procedures"]
+    },
+    {
+      "category": "PROGRAMMING",
+      "items": ["MATLAB", "Python", "Git", "Linux/Unix"]
+    }
+  ]
+}

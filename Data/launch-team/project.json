@@ -1,0 +1,23 @@
+{
+  "id": "launch-team",
+  "title": "COMPETITIVE LAUNCH VEHICLE",
+  "org": "Stony Brook Student Launch Team",
+  "institution": "Stony Brook University",
+  "period": "September 2025 – Present",
+  "category": "AEROSPACE",
+  "images": [],
+  "what": [
+    "Numerical characterization of launch vehicle flight envelope",
+    "Mechanical design, fabrication, and integration of competitive subsystems"
+  ],
+  "how": [
+    "Aerodynamic simulation and flight envelope analysis",
+    "Subsystem mechanical design and fabrication",
+    "Integration testing and ground verification"
+  ],
+  "results": [
+    "Aerodynamic behavior characterized across full flight envelope",
+    "Competitive subsystems fabricated, integrated, and verified"
+  ],
+  "report": ""
+}

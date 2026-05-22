@@ -1,0 +1,24 @@
+{
+  "id": "afpel-cfd",
+  "title": "COMPRESSIBLE CFD: TRAPEZOIDAL FIN AERODYNAMICS",
+  "org": "Advanced Fluid Dynamics & Propulsion Lab",
+  "institution": "Stony Brook University",
+  "period": "October 2025 – January 2026",
+  "category": "RESEARCH",
+  "images": [],
+  "what": [
+    "Numerical investigation of trapezoidal fin aerodynamics in compressible flow",
+    "Meshing support for Triply Periodic Minimal Surface heat exchangers"
+  ],
+  "how": [
+    "Compressible RANS with Spalart-Allmaras turbulence closure",
+    "OpenFOAM on HPC cluster with parallel computing",
+    "Systematic geometric parameter sweep"
+  ],
+  "results": [
+    "<strong>30.7% drag reduction</strong> identified at a 46% lift-to-drag ratio penalty",
+    "Quantified aerodynamic trade-space for fin geometry optimization",
+    "Advanced TPMS heat exchanger meshing methodology"
+  ],
+  "report": ""
+}

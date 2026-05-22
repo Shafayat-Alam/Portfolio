@@ -1,0 +1,24 @@
+{
+  "id": "soft-flyers",
+  "title": "UNDERWATER SOFT ROBOTIC SYSTEM",
+  "org": "Soft Flyers Group",
+  "institution": "Stony Brook University",
+  "period": "January 2025 – Present",
+  "category": "ROBOTICS",
+  "images": [],
+  "what": [
+    "Full-stack architecture of an underwater robotic system",
+    "Soft actuator design, chassis development, and sensor/electronics integration",
+    "Investigating bio-inspired multimodal locomotion strategies"
+  ],
+  "how": [
+    "Soft actuator design and dynamic characterization",
+    "ROS2-based control software and sensor integration",
+    "Systematic testing protocols across operating and transitioning media"
+  ],
+  "results": [
+    "Novel characterization of actuator dynamics across fluid media",
+    "Ongoing: full system integration from mechanical to software stack"
+  ],
+  "report": ""
+}

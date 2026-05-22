@@ -1,23 +1,38 @@
+const DATA = 'Data';
+
 async function init() {
   try {
-    const res = await fetch('data/content.json');
-    if (!res.ok) throw new Error('Could not load content.json');
-    const data = await res.json();
+    const manifest = await fetchJSON(`${DATA}/projects.json`);
 
-    applyProfile(data.profile);
-    renderWork(data.entries);
-    renderSkills(data.skills);
-    renderAbout(data.profile);
-    renderContact(data.profile);
+    const results = await Promise.allSettled(
+      manifest.projects.map(slug =>
+        fetchJSON(`${DATA}/${slug}/project.json`).then(d => ({ ...d, slug }))
+      )
+    );
+    const entries = results
+      .filter(r => r.status === 'fulfilled')
+      .map(r => r.value);
+
+    applyProfile(manifest.profile);
+    renderWork(entries);
+    renderSkills(manifest.skills);
+    renderAbout(manifest.profile);
+    renderContact(manifest.profile);
 
     document.getElementById('footer-name').textContent =
-      `© ${new Date().getFullYear()} ${data.profile.name}`;
+      `© ${new Date().getFullYear()} ${manifest.profile.name}`;
 
     setupNav();
     setupScrollReveal();
   } catch (err) {
     console.error('Portfolio init error:', err);
   }
+}
+
+async function fetchJSON(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${r.status} ${url}`);
+  return r.json();
 }
 
 /* ── Profile ── */
@@ -29,6 +44,12 @@ function applyProfile(p) {
   document.getElementById('hero-title').textContent = p.title;
   document.getElementById('hero-edu').textContent   = p.education;
   document.getElementById('hero-location').textContent = p.location;
+
+  document.getElementById('hero-contacts').innerHTML = [
+    { href: `mailto:${p.email}`,  text: p.email },
+    { href: p.linkedin,            text: 'LinkedIn ↗', external: true },
+    { href: p.github,              text: 'GitHub ↗',   external: true },
+  ].map(c => `<a href="${c.href}" class="hero-contact-link"${c.external ? ' target="_blank" rel="noopener"' : ''}>${c.text}</a>`).join('');
 }
 
 /* ── Work ── */
@@ -76,11 +97,10 @@ function buildCard(e, num) {
 
     <div class="card-footer">
       <span class="card-period">${e.period}</span>
-      ${e.report ? `<a href="${e.report}" target="_blank" class="card-report">VIEW REPORT ↗</a>` : ''}
+      ${e.report ? `<a href="${DATA}/${e.slug}/${e.report}" target="_blank" class="card-report">VIEW REPORT ↗</a>` : ''}
     </div>
   `;
 
-  /* Attach image error handlers after the HTML is set */
   article.querySelectorAll('.img-slot img').forEach(img => {
     img.addEventListener('error', function () {
       const slot = this.closest('.img-slot');
@@ -96,7 +116,7 @@ function imageSlot(entry, i) {
   const path = entry.images && entry.images[i];
   if (path) {
     return `<div class="img-slot">
-      <img src="${path}" alt="${entry.title} — image ${i + 1}" loading="lazy" data-idx="${i}">
+      <img src="${DATA}/${entry.slug}/${path}" alt="${entry.title} — image ${i + 1}" loading="lazy" data-idx="${i}">
     </div>`;
   }
   return `<div class="img-slot">${placeholder(`IMAGE ${i + 1}`)}</div>`;
@@ -161,8 +181,8 @@ function renderContact(p) {
 
 /* ── Nav scroll state ── */
 function setupNav() {
-  const nav     = document.getElementById('nav');
-  const navAs   = document.querySelectorAll('.nav-links a');
+  const nav      = document.getElementById('nav');
+  const navAs    = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section[id]');
 
   window.addEventListener('scroll', () => {
@@ -181,9 +201,8 @@ function setupNav() {
 /* ── Scroll reveal ── */
 function setupScrollReveal() {
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      /* stagger cards by their order in the grid */
       const delay = entry.target.closest('.work-grid')
         ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 40
         : 0;
@@ -192,7 +211,6 @@ function setupScrollReveal() {
     });
   }, { threshold: 0.04, rootMargin: '0px 0px -30px 0px' });
 
-  /* Observe after DOM is populated */
   requestAnimationFrame(() => {
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   });

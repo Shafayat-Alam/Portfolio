@@ -1,0 +1,24 @@
+{
+  "id": "nasa-lspace",
+  "title": "AUTONOMOUS AEROBOT THERMAL CONTROL SYSTEM",
+  "org": "NASA L'SPACE Mission Concept Academy",
+  "institution": "NASA L'Space",
+  "period": "January 2025 – May 2025",
+  "category": "RESEARCH",
+  "images": [],
+  "what": [
+    "Thermal analysis for an autonomous planetary aerobot",
+    "Passive thermal control system design following the NASA mission lifecycle"
+  ],
+  "how": [
+    "Churchill-Bernstein convection models and heat flow mapping",
+    "Variable geometry radiator with low emissivity coating (ε = 0.008)",
+    "Multi-objective optimization across mass, power, and cost constraints"
+  ],
+  "results": [
+    "<strong>30 kW cooling</strong> and <strong>11 kW heating</strong> requirements quantified across 350–400 K atmospheric profile",
+    "4 kg passive thermal system meeting $6.3M cost constraint",
+    "Design validated against full NASA mission lifecycle requirements"
+  ],
+  "report": ""
+}
