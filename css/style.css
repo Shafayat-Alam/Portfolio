@@ -11,9 +11,9 @@
   --border-mid:   rgba(255,255,255,0.16);
   --border-strong:rgba(255,255,255,0.30);
 
-  --text:         #F0EDE6;
-  --text-2:       #BDB9B2;
-  --text-3:       #7A7670;
+  --text:         #FFFFFF;
+  --text-2:       #E0DDD8;
+  --text-3:       #8A8680;
 
   --accent:       #60A5FA;
   --accent-dim:   rgba(96,165,250,0.15);
@@ -116,11 +116,12 @@ ul    { list-style: none; }
 
 .header-contact-link {
   font-size: 0.6875rem;
-  color: var(--text-2);
+  font-weight: 700;
+  color: var(--accent);
   transition: color 200ms;
   white-space: nowrap;
 }
-.header-contact-link:hover { color: var(--accent); }
+.header-contact-link:hover { color: var(--text); }
 
 /* nav links */
 .header-nav {
@@ -148,7 +149,7 @@ ul    { list-style: none; }
   transition: width 250ms var(--ease-out);
 }
 .header-nav a:hover,
-.header-nav a.active { color: var(--text); }
+.header-nav a.active { color: var(--accent); }
 .header-nav a:hover::after,
 .header-nav a.active::after { width: 100%; }
 
@@ -188,7 +189,7 @@ section {
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.25em;
-  color: var(--text-2);
+  color: var(--text);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -205,12 +206,29 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   WORK SECTION — full bleed, no max-width
+═══════════════════════════════════════════════════════════ */
+#work {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#work .section-header {
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+/* ═══════════════════════════════════════════════════════════
    WORK GRID — 2 columns on wide screens, 1 on narrow
 ═══════════════════════════════════════════════════════════ */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 1px;
 }
 
 @media (max-width: 900px) {
@@ -268,8 +286,8 @@ section {
   font-family: var(--mono);
   font-size: 0.5625rem;
   letter-spacing: 0.18em;
-  color: var(--text-3);
-  border: 1px solid var(--border-mid);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   padding: 0.3rem 0.7rem;
   white-space: nowrap;
   align-self: start;
@@ -368,7 +386,7 @@ section {
 
 .detail-col li {
   font-size: 0.8375rem;
-  color: var(--text-2);
+  color: var(--text);
   line-height: 1.65;
   padding-left: 1.125rem;
   position: relative;
@@ -377,7 +395,7 @@ section {
   content: '—';
   position: absolute;
   left: 0;
-  color: var(--text-3);
+  color: var(--accent);
   font-family: var(--mono);
   font-size: 0.6875rem;
 }
@@ -411,7 +429,7 @@ section {
   font-family: var(--mono);
   font-size: 0.625rem;
   letter-spacing: 0.1em;
-  color: var(--text-3);
+  color: var(--text);
 }
 
 .card-report {
@@ -484,11 +502,18 @@ section {
 .about-text p {
   font-size: 1.05rem;
   line-height: 1.9;
-  color: var(--text-2);
+  color: var(--text);
 }
-.about-text p strong { color: var(--text); font-weight: 500; }
+.about-text p strong { color: var(--text); font-weight: 700; }
 
 .about-meta { display: flex; flex-direction: column; }
+
+.about-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 2rem;
+}
 
 .about-meta-row {
   display: flex;
@@ -503,12 +528,12 @@ section {
   font-family: var(--mono);
   font-size: 0.5625rem;
   letter-spacing: 0.18em;
-  color: var(--text-3);
+  color: var(--accent);
   text-transform: uppercase;
 }
 .about-meta-value {
   font-size: 0.875rem;
-  color: var(--text-2);
+  color: var(--text);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -539,21 +564,21 @@ section {
   font-family: var(--mono);
   font-size: 0.5625rem;
   letter-spacing: 0.18em;
-  color: var(--text-3);
+  color: var(--accent);
   text-transform: uppercase;
   min-width: 6rem;
 }
 .contact-link-value {
   font-size: 0.9375rem;
-  color: var(--text-2);
+  color: var(--text);
   flex: 1;
   transition: color 200ms;
 }
-.contact-link:hover .contact-link-value { color: var(--text); }
+.contact-link:hover .contact-link-value { color: var(--accent); }
 
 .contact-arrow {
   font-size: 0.75rem;
-  color: var(--text-3);
+  color: var(--text);
   transition: transform 200ms, color 200ms;
 }
 .contact-link:hover .contact-arrow {

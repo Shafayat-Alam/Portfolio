@@ -17,7 +17,6 @@ async function init() {
     renderWork(entries);
     renderSkills(manifest.skills);
     renderAbout(manifest.profile);
-    renderContact(manifest.profile);
 
     document.getElementById('footer-name').textContent =
       `© ${new Date().getFullYear()} ${manifest.profile.name}`;
@@ -144,6 +143,12 @@ function renderSkills(skills) {
 
 /* ── About ── */
 function renderAbout(p) {
+  const contactLinks = [
+    { label: 'Email',    value: p.email,    href: `mailto:${p.email}` },
+    { label: 'LinkedIn', value: p.linkedin.replace('https://', ''), href: p.linkedin },
+    { label: 'GitHub',   value: p.github.replace('https://', ''),   href: p.github },
+  ];
+
   document.getElementById('about-content').innerHTML = `
     <div class="about-text reveal">
       <p>${p.bio}</p>
@@ -153,28 +158,20 @@ function renderAbout(p) {
         ['Institution', p.institution],
         ['Degree',      p.degree],
         ['Location',    p.location],
-        ['GitHub',      p.github.replace('https://', '')],
       ].map(([label, value]) => `
         <div class="about-meta-row">
           <span class="about-meta-label">${label}</span>
           <span class="about-meta-value">${value}</span>
         </div>`).join('')}
+      <div class="about-contact-links">
+        ${contactLinks.map(l => `
+          <a href="${l.href}" class="contact-link" ${l.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+            <span class="contact-link-label">${l.label}</span>
+            <span class="contact-link-value">${l.value}</span>
+            <span class="contact-arrow">↗</span>
+          </a>`).join('')}
+      </div>
     </div>`;
-}
-
-/* ── Contact ── */
-function renderContact(p) {
-  const links = [
-    { label: 'Email',    value: p.email,    href: `mailto:${p.email}` },
-    { label: 'LinkedIn', value: p.linkedin.replace('https://', ''), href: p.linkedin },
-    { label: 'GitHub',   value: p.github.replace('https://', ''),   href: p.github },
-  ];
-  document.getElementById('contact-content').innerHTML = links.map(l => `
-    <a href="${l.href}" class="contact-link" ${l.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
-      <span class="contact-link-label">${l.label}</span>
-      <span class="contact-link-value">${l.value}</span>
-      <span class="contact-arrow">↗</span>
-    </a>`).join('');
 }
 
 /* ── Nav active state ── */
