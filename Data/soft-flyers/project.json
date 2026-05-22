@@ -3,7 +3,7 @@
   "title": "UNDERWATER SOFT ROBOTIC SYSTEM",
   "org": "Soft Flyers Group",
   "institution": "Stony Brook University",
-  "period": "January 2025 – Present",
+  "period": "January 2025 \u2013 Present",
   "category": "ROBOTICS",
   "images": [],
   "what": [
@@ -21,5 +21,10 @@
     "Ongoing: full system integration from mechanical to software stack"
   ],
   "report": "",
-  "github": "https://github.com/Shafayat-Alam/compliant-propulsors-control"
+  "links": [
+    {
+      "label": "GITHUB",
+      "url": "https://github.com/Shafayat-Alam/compliant-propulsors-control"
+    }
+  ]
 }

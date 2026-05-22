@@ -21,5 +21,8 @@
     "Key findings, performance metrics, or outcomes."
   ],
   "report": "",
-  "github": "https://github.com/..."
+  "links": [
+    { "label": "GITHUB", "url": "https://github.com/..." },
+    { "label": "PAPER",  "url": "https://..." }
+  ]
 }
