@@ -95,7 +95,7 @@ function buildCard(e, num) {
     <div class="card-footer">
       <span class="card-period">${e.period}</span>
       <div class="card-links">
-        ${(e.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="card-link">${l.label} ↗</a>`).join('')}
+        ${(e.links || []).map(url => `<a href="${url}" target="_blank" rel="noopener" class="card-link">${url.replace(/^https?:\/\//, '')} ↗</a>`).join('')}
         ${e.report ? `<a href="${DATA}/${e.slug}/${e.report}" target="_blank" rel="noopener" class="card-link">VIEW REPORT ↗</a>` : ''}
       </div>
     </div>

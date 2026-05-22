@@ -22,9 +22,6 @@
   ],
   "report": "",
   "links": [
-    {
-      "label": "GITHUB",
-      "url": "https://github.com/Shafayat-Alam/compliant-propulsors-control"
-    }
+    "https://github.com/Shafayat-Alam/compliant-propulsors-control"
   ]
 }

@@ -22,7 +22,7 @@
   ],
   "report": "",
   "links": [
-    { "label": "GITHUB", "url": "https://github.com/..." },
-    { "label": "PAPER",  "url": "https://..." }
+    "https://github.com/...",
+    "https://..."
   ]
 }
