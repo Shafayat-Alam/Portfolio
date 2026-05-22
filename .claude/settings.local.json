@@ -10,7 +10,18 @@
       "Bash(sudo -E bash -)",
       "Bash(sudo apt-get install -y nodejs)",
       "Bash(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)",
-      "Bash(bash)"
+      "Bash(bash)",
+      "Bash(python3 -)",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=ShafayatPortfolio\")",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayat-portfolio\")",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayat_portfolio\")",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=portfolio_shafayat\")",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayatfolio\")",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=salam_portfolio\")",
+      "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayat_works\")",
+      "Bash(curl -s \"https://v.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayat_portfolio\")",
+      "Bash(curl -s \"https://tinyurl.com/api-create.php?url=https://shafayat-alam.github.io/Resume-Portfolio/\")",
+      "Bash(git remote *)"
     ]
   }
 }
