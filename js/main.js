@@ -94,7 +94,10 @@ function buildCard(e, num) {
 
     <div class="card-footer">
       <span class="card-period">${e.period}</span>
-      ${e.report ? `<a href="${DATA}/${e.slug}/${e.report}" target="_blank" class="card-report">VIEW REPORT ↗</a>` : ''}
+      <div class="card-links">
+        ${e.github ? `<a href="${e.github}" target="_blank" rel="noopener" class="card-link">GITHUB ↗</a>` : ''}
+        ${e.report  ? `<a href="${DATA}/${e.slug}/${e.report}" target="_blank" rel="noopener" class="card-link">VIEW REPORT ↗</a>` : ''}
+      </div>
     </div>
   `;
 

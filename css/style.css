@@ -420,7 +420,12 @@ section {
   color: var(--text);
 }
 
-.card-report {
+.card-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-link {
   font-family: var(--mono);
   font-size: 0.625rem;
   letter-spacing: 0.14em;
@@ -429,10 +434,9 @@ section {
   padding: 0.375rem 0.875rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   transition: border-color 200ms, color 200ms;
 }
-.card-report:hover {
+.card-link:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
