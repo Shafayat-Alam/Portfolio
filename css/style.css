@@ -205,18 +205,23 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   WORK GRID
+   WORK GRID — 2 columns on wide screens, 1 on narrow
 ═══════════════════════════════════════════════════════════ */
 .work-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px;
+}
+
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════════
    PROJECT CARD
 ═══════════════════════════════════════════════════════════ */
 .card {
+  container-type: inline-size;
   background: var(--surface);
   border: 1px solid var(--border);
   padding: 2.25rem;
@@ -379,6 +384,19 @@ section {
 
 .detail-col.results li       { color: var(--text); }
 .detail-col.results li strong { color: #93C5FD; font-weight: 500; }
+
+/* Container queries — card internals reflow based on card width, not viewport */
+@container (max-width: 620px) {
+  .card-details { grid-template-columns: 1fr; }
+  .card-images  { grid-template-columns: repeat(2, 1fr); }
+}
+
+@container (max-width: 420px) {
+  .card-header { grid-template-columns: 2.5rem 1fr; }
+  .card-tag    { grid-column: 2; }
+  .card-images { grid-template-columns: 1fr; }
+  .card-images .img-slot:not(:first-child) { display: none; }
+}
 
 /* Card footer */
 .card-footer {
@@ -564,27 +582,17 @@ footer {
    RESPONSIVE
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 960px) {
-  .card-details  { grid-template-columns: 1fr; }
   .about-content { grid-template-columns: 1fr; gap: 3rem; }
 }
 
-@media (max-width: 900px) {
-  .card-header { grid-template-columns: 2.5rem 1fr; }
-  .card-tag    { grid-column: 2; }
-}
-
 @media (max-width: 768px) {
-  /* Collapse header: hide sub-line, keep name + nav */
-  .header-sub   { display: none; }
-  .header-nav   { gap: 1.25rem; }
-  --header-h: 56px;
+  .header-sub { display: none; }
+  .header-nav { gap: 1.25rem; }
 }
 
 @media (max-width: 640px) {
-  section       { padding: 2.5rem var(--px) 4rem; }
-  .card         { padding: 1.5rem; }
-  .card-images  { grid-template-columns: 1fr; }
-  .card-images .img-slot:not(:first-child) { display: none; }
-  .skills-grid  { grid-template-columns: 1fr; }
-  .header-nav   { gap: 1rem; }
+  section      { padding: 2.5rem var(--px) 4rem; }
+  .card        { padding: 1.5rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .header-nav  { gap: 1rem; }
 }
