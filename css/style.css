@@ -215,9 +215,6 @@ section {
 }
 
 #work .section-header {
-  max-width: var(--max-w);
-  margin-left: auto;
-  margin-right: auto;
   padding-left: var(--px);
   padding-right: var(--px);
 }
