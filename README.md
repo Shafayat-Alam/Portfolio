@@ -1,6 +1,6 @@
 # Shafayat Alam — Portfolio
 
-**Live site:** https://shafayat-alam.github.io/Resume-Portfolio/
+**Live site:** https://shafayat-alam.github.io/Portfolio/
 
 A data-driven portfolio hosted on GitHub Pages. All content lives in `Data/` — edit JSON files and push; the site updates automatically. Changing any data file also triggers automatic PDF portfolio generation.
 
