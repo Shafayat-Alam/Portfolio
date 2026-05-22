@@ -46,6 +46,9 @@ function applyProfile(p) {
   document.getElementById('hero-edu').textContent   = p.education;
   document.getElementById('hero-location').textContent = p.location;
 
+  const navFull = document.getElementById('nav-logo-full');
+  if (navFull) navFull.textContent = p.name.toUpperCase();
+
   document.getElementById('hero-contacts').innerHTML = [
     { href: `mailto:${p.email}`,  text: p.email },
     { href: p.linkedin,            text: 'LinkedIn ↗', external: true },

@@ -78,15 +78,39 @@ ul    { list-style: none; }
 }
 
 .nav-logo {
+  display: grid;
+  place-items: start;
+  opacity: 0.5;
+  transition: opacity 200ms;
+}
+.nav-logo:hover { opacity: 1; }
+
+.nav-logo-short,
+.nav-logo-full {
+  grid-area: 1 / 1;
   font-family: var(--mono);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--text);
-  opacity: 0.45;
-  transition: opacity 200ms;
+  white-space: nowrap;
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
 }
-.nav-logo:hover { opacity: 1; }
+
+.nav-logo-full {
+  opacity: 0;
+  transform: translateY(7px);
+}
+
+#nav.scrolled .nav-logo-short {
+  opacity: 0;
+  transform: translateY(-7px);
+}
+
+#nav.scrolled .nav-logo-full {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .nav-links {
   display: flex;
@@ -125,7 +149,11 @@ ul    { list-style: none; }
   top: 0;
   z-index: 1;
   background: var(--bg);
-  padding: calc(var(--nav-h) + 2.5rem) var(--px) 3.5rem;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 2rem) var(--px) 5rem;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
@@ -303,6 +331,36 @@ ul    { list-style: none; }
 .preview-cta:hover {
   color: var(--accent);
   border-color: var(--accent);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  animation: fadeUp 1s var(--ease-out) 0.7s both;
+}
+.hero-scroll span {
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  color: var(--text-3);
+  writing-mode: vertical-rl;
+}
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--border-mid), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 0.7; }
 }
 
 @keyframes fadeUp {
@@ -742,7 +800,7 @@ footer {
 
 /* Mobile */
 @media (max-width: 640px) {
-  #hero { position: relative; padding: calc(var(--nav-h) + 1.75rem) var(--px) 2.5rem; }
+  #hero { position: relative; min-height: 100svh; justify-content: flex-end; padding: calc(var(--nav-h) + 1.5rem) var(--px) 4rem; }
   .hero-name span   { font-size: clamp(2.5rem, 11vw, 4rem); }
   .hero-sub         { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
   .hero-sep         { display: none; }
