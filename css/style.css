@@ -214,9 +214,9 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  margin-left:  calc(-1 * var(--px));
-  margin-right: calc(-1 * var(--px));
-  width: calc(100% + 2 * var(--px));
+  /* full-bleed: 50% = half of section content, 50vw = half of viewport */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 @media (max-width: 900px) {
