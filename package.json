@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-tools",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "pdf":   "node scripts/generate-pdf.js",
+    "watch": "node scripts/watch.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "puppeteer": "^22.0.0"
+  }
+}

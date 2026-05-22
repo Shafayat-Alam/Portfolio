@@ -206,26 +206,17 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   WORK SECTION — full bleed, no max-width
-═══════════════════════════════════════════════════════════ */
-#work {
-  max-width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#work .section-header {
-  padding-left: var(--px);
-  padding-right: var(--px);
-}
-
-/* ═══════════════════════════════════════════════════════════
    WORK GRID — 2 columns on wide screens, 1 on narrow
+   Negative margins break the grid out of section padding so cards
+   go edge-to-edge while WORK header stays aligned with other sections
 ═══════════════════════════════════════════════════════════ */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
+  margin-left:  calc(-1 * var(--px));
+  margin-right: calc(-1 * var(--px));
+  width: calc(100% + 2 * var(--px));
 }
 
 @media (max-width: 900px) {
