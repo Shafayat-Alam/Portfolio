@@ -29,7 +29,7 @@ async function init() {
 }
 
 async function fetchJSON(url) {
-  const r = await fetch(url);
+  const r = await fetch(url, { cache: 'no-cache' });
   if (!r.ok) throw new Error(`${r.status} ${url}`);
   return r.json();
 }
@@ -54,7 +54,6 @@ function renderWork(entries) {
   const grid = document.getElementById('work-grid');
   entries.forEach((entry, i) => {
     const card = buildCard(entry, String(i + 1).padStart(2, '0'));
-    card.classList.add('reveal');
     grid.appendChild(card);
   });
 }
