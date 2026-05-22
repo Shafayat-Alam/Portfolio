@@ -1,118 +1,111 @@
-\documentclass[10pt,letterpaper]{article}
-\usepackage[margin=0.5in]{geometry}
+\documentclass[11pt]{article}
+\usepackage[letterpaper,top=0.35in,bottom=0.25in,left=0.5in,right=0.5in]{geometry}
 \usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{titlesec}
-\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{setspace}
+\usepackage[colorlinks=true,urlcolor=black]{hyperref}
+\setstretch{0.98}
 
-% Formatting
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\itemsep}{0pt}
-\setlength{\parsep}{0pt}
-\setlength{\topsep}{0pt}
-\setlength{\partopsep}{0pt}
-
-% Section formatting
-\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{8pt}{4pt}
-
-% Custom commands
-\newcommand{\resumeSubheading}[4]{
-  \textbf{#1} \hfill #2 \\
-  \textit{#3} \hfill \textit{#4}
-}
+\setlength{\tabcolsep}{0pt}
 
 \begin{document}
 
-% Header
 \begin{center}
-    {\LARGE \textbf{Shafayat Alam}} \\
-    \vspace{2pt}
-    \href{mailto:shafayatalam2004@gmail.com}{shafayatalam2004@gmail.com} |
-    \href{https://linkedin.com/in/shafayata}{linkedin.com/in/shafayata} |
-    \href{https://github.com/Shafayat-Alam}{github.com/Shafayat-Alam} |
-    Long Island, NY
+{\Large \textbf{Shafayat Alam}}\\[2pt]
+{\small Long Island, NY\enspace$\cdot$\enspace shafayatalam2004@gmail.com\enspace$\cdot$\enspace \href{https://linkedin.com/in/shafayata}{linkedin.com/in/shafayata}\enspace$\cdot$\enspace \href{https://github.com/Shafayat-Alam}{github.com/Shafayat-Alam}}
 \end{center}
 
-\vspace{-10pt}
-
-\section*{EDUCATION}
-\resumeSubheading{Stony Brook University}{Stony Brook, NY}{Bachelor of Engineering in Mechanical Engineering}{May 2026}
-\vspace{1pt}
-\textbf{Relevant Coursework:} Fundamentals of Machining, Experimental Mechanics, Engineering Mechanics (Planar Dynamics, Solid/Fluid Mechanics, Heat Transfer, Thermodynamics), Control Systems, Numerical Methods
-
-\vspace{2pt}
-
-\section*{EXPERIENCE}
-
-\resumeSubheading{Soft Flyers Group}{Stony Brook University}{Robotics Researcher}{January 2025 - Present}
 \vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Architecting an underwater robotic system including that of soft actuator design, system integration/testing, chassis development, electronics/sensors, and control software.
-    \item Investigating the dynamics of bio-inspired multimodal soft actuators to characterize how the operating and transitioning medium shapes dynamic behavior.
-\end{itemize}
 
+\noindent\textsc{\textbf{Education}}
 \vspace{1pt}
+\hrule height 0.5pt
+\vspace{3pt}
 
-\resumeSubheading{Stony Brook Student Launch Team}{Stony Brook University}{Launch Vehicle Design Engineer}{September 2025 - Present}
-\vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Performing numerical investigations of the launch vehicle flight envelope to characterize aerodynamic behavior.
-    \item Performed mechanical design, fabrication, integration, and testing of competitive launch vehicle subsystems.
-\end{itemize}
+\noindent\textbf{Stony Brook University} \hfill Stony Brook, NY\\
+\textit{Bachelor of Engineering, Mechanical Engineering} \hfill \textit{May 2026}\\
+\textit{Relevant Coursework:} Fundamentals of Machining, Experimental Mechanics, Engineering Mechanics (Planar Dynamics, Solid/Fluid Mechanics, Heat Transfer, Thermodynamics), Control Systems, Numerical Methods
 
+\vspace{5pt}
+
+\noindent\textsc{\textbf{Technical Skills}}
 \vspace{1pt}
+\hrule height 0.5pt
+\vspace{3pt}
 
-\resumeSubheading{Advanced Fluid Dynamics and Propulsion Lab (AFPEL)}{Stony Brook University}{Computational Fluid Dynamics Researcher}{October 2025 - January 2026}
-\vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Conducted numerical investigation of trapezoidal fin aerodynamics using compressible RANS Spalart-Allmaras turbulence closure model, uncovering a 30.7\% drag reduction for a 46\% lift/drag ratio penalty.
-    \item Collaborated to advance research in Triply Periodic Heat Exchangers by supporting meshing efforts.
-\end{itemize}
-
-\vspace{1pt}
-
-\resumeSubheading{NASA L'SPACE Mission Concept Academy}{NASA L'Space}{Thermal Engineer}{January 2025 - May 2025}
-\vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Performed thermal analysis for an autonomous aerobot, applying Churchill-Bernstein convection models and heat flow maps to quantify 30 kW cooling and 11 kW heating requirements across 350-400K atmospheric profile.
-    \item Designed a passive thermal control system following the NASA mission lifecycle, using a variable geometry radiator \& low emissivity coating ($\varepsilon = 0.008$) balancing mass (4 kg), power, \& cost (\$6.3M) constraints.
-\end{itemize}
-
-\vspace{1pt}
-
-\resumeSubheading{Stony Brook Solar Boat Racing Team}{Stony Brook University}{Mechanical Design Engineer}{September 2022 - November 2024}
-\vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Performed systemic wet tests to troubleshoot integrated components and ensure operational readiness for competitive racing.
-    \item Developed packaging for the powertrain of a solar powered boat to support integration and performance requirements by investigating robustness based on additive manufacturing techniques.
-\end{itemize}
-
-\vspace{1pt}
-
-\resumeSubheading{BNL SPARK Program}{Brookhaven National Laboratory}{High School Student Researcher}{September 2018 - May 2022}
-\vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Identified Fe/Mn stratigraphic layering in 6 rock varnish samples via XRD (2.0-7.5 Å) and XRF mapping, with Mn-enriched outer layers over Fe substrates consistent with Younger Dryas formation.
-    \item Established Rhode Island quarry sourcing for 10+ steatite artifacts through d-spacing fingerprinting (2.43-3.81 Å), revealing 10-45x elemental variations distinguishing regional clay sources and trade patterns.
-\end{itemize}
-
-\vspace{1pt}
-
-\resumeSubheading{FIRST Robotics}{Longwood High School}{Robotics Mechanical Engineer}{September 2018 - May 2022}
-\vspace{-2pt}
-\begin{itemize}[leftmargin=12pt,itemsep=0pt,parsep=0pt,topsep=2pt]
-    \item Collaborated within a multidisciplinary team to design and test robotic systems for FIRST Robotics competitions through the engineering design process.
-\end{itemize}
-
-\vspace{2pt}
-
-\section*{TECHNICAL SKILLS}
-\textbf{Design \& Analysis:} CAD, DFM/DFA, Engineering Drawings (GD\&T, ASME Y14.5) \\
-\textbf{Control/State-Estimation:} MATLAB/Simulink (Control System Toolbox), ROS2, Basic Sensor Fusion \\
-\textbf{Simulation \& Analysis:} Basic FEA, CFD (Meshlab, Paraview, OpenFOAM, HPC, Parallel Computing) \\
-\textbf{Rapid Prototyping:} Additive/Subtractive Manufacturing, Basic Mechatronics \\
+\noindent\textbf{Design \& Analysis:} CAD/CAM, DFM/DFA, Engineering Drawings (GD\&T, ASME Y14.5), CFD (Meshlab, Paraview, OpenFOAM, HPC, Parallel Computing), Basic FEA\\[1pt]
+\textbf{Control/State-Estimation:} MATLAB/Simulink (Control System Toolbox), ROS2, Basic Sensor Fusion\\[1pt]
+\textbf{Fabrication \& Test:} Additive/Subtractive Manufacturing, Basic Mechatronics, Systematic Testing Procedures\\[1pt]
 \textbf{Programming \& Scripting:} MATLAB, Python, Git (version control), Linux/Unix
+
+\vspace{5pt}
+
+\noindent\textsc{\textbf{Experience}}
+\vspace{1pt}
+\hrule height 0.5pt
+\vspace{3pt}
+
+\noindent\textbf{Soft Flyers Group} \hfill Stony Brook University\\
+\textit{Robotics Researcher} \hfill \textit{January 2025\,--\,Present}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Architecting an underwater robotic system including that of soft actuator design, system integration/testing, chassis development, electronics/sensors, and control software.
+\item Investigating the dynamics of bio-inspired multimodal soft actuators to characterize how the operating and transitioning medium shapes dynamic behavior.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent\textbf{Stony Brook Student Launch Team} \hfill Stony Brook University\\
+\textit{Launch Vehicle Design Engineer} \hfill \textit{September 2025\,--\,Present}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Performing numerical investigations of the launch vehicle flight envelope to characterize aerodynamic behavior.
+\item Performed mechanical design, fabrication, integration, and testing of competitive launch vehicle subsystems.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent\textbf{Advanced Fluid Dynamics and Propulsion Lab (AFPEL)} \hfill Stony Brook University\\
+\textit{Computational Fluid Dynamics Researcher} \hfill \textit{October 2025\,--\,January 2026}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Conducted numerical investigation of trapezoidal fin aerodynamics using compressible RANS Spalart-Allmaras turbulence closure model, uncovering a 30.7\% drag reduction for a 46\% lift/drag ratio penalty.
+\item Collaborated to advance research in Triply Periodic Heat Exchangers by supporting meshing efforts.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent\textbf{NASA L'SPACE Mission Concept Academy} \hfill NASA L'Space\\
+\textit{Thermal Engineer} \hfill \textit{January 2025\,--\,May 2025}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Performed thermal analysis for an autonomous aerobot, applying Churchill-Bernstein convection models and heat flow maps to quantify 30 kW cooling and 11 kW heating requirements across 350 -- 400K atmospheric profile.
+\item Designed a passive thermal control system following the NASA mission lifecycle, using a variable geometry radiator \& low emissivity coating ($\varepsilon = 0.008$) balancing mass (4 kg), power, \& cost (\$6.3M) constraints.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent\textbf{Stony Brook Solar Boat Racing Team} \hfill Stony Brook University\\
+\textit{Mechanical Design Engineer} \hfill \textit{September 2022\,--\,November 2024}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Performed systemic wet tests to troubleshoot.diagnose integrated components and ensure operational readiness for competitive racing.
+\item Developed packaging for the powertrain of a solar powered boat to support integration and performance requirements by investigating robustness based on additive manufacturing techniques.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent\textbf{BNL SPARK Program} \hfill Brookhaven National Laboratory\\
+\textit{High School Student Researcher} \hfill \textit{September 2018\,--\,May 2022}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Identified Fe/Mn stratigraphic layering in 6 rock varnish samples via XRD (2.0 -- 7.5 \AA) and XRF mapping, with Mn-enriched outer layers over Fe substrates consistent with Younger Dryas formation.
+\item Established Rhode Island quarry sourcing for 10+ steatite artifacts through d-spacing fingerprinting (2.43 -- 3.81 \AA), revealing 10 -- 45x elemental variations distinguishing regional clay sources and trade patterns.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent\textbf{FIRST Robotics} \hfill Longwood High School\\
+\textit{Robotics Mechanical Engineer} \hfill \textit{September 2018\,--\,May 2022}
+\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
+\item Collaborated within a multidisciplinary team to design and test robotic systems for FIRST Robotics competitions through the engineering design process.
+\end{itemize}
 
 \end{document}

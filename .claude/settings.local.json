@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(npm install *)",
+      "Bash(curl -fsSL https://deb.nodesource.com/setup_20.x)",
+      "Bash(sudo -E bash -)",
+      "Bash(sudo apt-get install -y nodejs)",
+      "Bash(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)",
+      "Bash(bash)"
+    ]
+  }
+}
