@@ -1,0 +1,44 @@
+{
+  "_instructions": "Copy the entry object below and paste it into the 'entries' array in content.json. Fill in all fields. For images, drop files into assets/images/[id]/ named 01.jpg, 02.jpg, 03.jpg. For reports, drop PDFs into assets/reports/ and set the 'report' field. Leave 'report' as '' if none. In 'results', wrap key numbers/metrics in <strong>...</strong> to highlight them in accent color.",
+
+  "entry_template": {
+    "id": "unique-kebab-case-id",
+    "title": "PROJECT TITLE IN UPPERCASE",
+    "org": "Organization or Team Name",
+    "institution": "University, Company, or Lab Name",
+    "period": "Month YYYY – Month YYYY",
+    "category": "ROBOTICS | RESEARCH | DESIGN | AEROSPACE | (or any short label)",
+    "images": [
+      "assets/images/unique-kebab-case-id/01.jpg",
+      "assets/images/unique-kebab-case-id/02.jpg",
+      "assets/images/unique-kebab-case-id/03.jpg"
+    ],
+    "what": [
+      "What was the goal or problem being solved?",
+      "What system or artifact was built/investigated?"
+    ],
+    "how": [
+      "What methods, tools, or techniques were used?",
+      "Any specific models, software, or fabrication approaches?"
+    ],
+    "results": [
+      "What was achieved? Use <strong>numbers</strong> where possible.",
+      "Key findings, performance metrics, or outcomes."
+    ],
+    "report": "assets/reports/unique-kebab-case-id.pdf"
+  },
+
+  "image_guide": {
+    "location": "assets/images/[id]/",
+    "naming": "01.jpg, 02.jpg, 03.jpg (up to 3 per entry)",
+    "format": "JPG or WebP",
+    "recommended_size": "1200 x 900 px (4:3 ratio)",
+    "note": "If fewer than 3 images exist, missing slots render as placeholders automatically."
+  },
+
+  "report_guide": {
+    "location": "assets/reports/",
+    "naming": "[id].pdf",
+    "note": "Set the 'report' field in the entry to the path, e.g. 'assets/reports/afpel-cfd.pdf'. Leave as '' to hide the button."
+  }
+}
