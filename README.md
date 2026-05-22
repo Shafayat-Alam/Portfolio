@@ -1,112 +1,165 @@
-\documentclass[11pt]{article}
-\usepackage[letterpaper,top=0.35in,bottom=0.25in,left=0.5in,right=0.5in]{geometry}
-\usepackage{enumitem}
-\usepackage[T1]{fontenc}
-\usepackage{mathptmx}
-\usepackage{setspace}
-\usepackage[colorlinks=true,urlcolor=black]{hyperref}
-\setstretch{0.98}
+# Shafayat Alam — Portfolio
 
-\pagestyle{empty}
-\setlength{\parindent}{0pt}
-\setlength{\tabcolsep}{0pt}
+**Live site:** https://shafayat-alam.github.io/Portfolio/
 
-\begin{document}
+A data-driven portfolio hosted on GitHub Pages. All content lives in `Data/` — edit JSON files and push; the site updates automatically. Changing any data file also triggers automatic PDF portfolio generation.
 
-\begin{center}
-{\Large\textbf{Shafayat Alam}}\\[2pt]
-{\small Long Island, NY\enspace$\cdot$\enspace shafayatalam2004@gmail.com\enspace$\cdot$\enspace \href{https://linkedin.com/in/shafayata}{linkedin.com/in/shafayata}}\\[1pt]
-{\small \href{https://shafayat-alam.github.io/Portfolio/}{shafayat-alam.github.io/Portfolio}} \enspace$\cdot$\enspace \href{https://github.com/Shafayat-Alam}{github.com/Shafayat-Alam} 
-\end{center}
+---
 
-\vspace{-2pt}
+## Repo Structure
 
-\noindent\textsc{\textbf{Education}}
-\vspace{1pt}
-\hrule height 0.5pt
-\vspace{3pt}
+```
+Resume-Portfolio/
+├── index.html
+├── css/style.css
+├── js/main.js
+├── Data/
+│   ├── projects.json          ← profile, skills, project order
+│   ├── _template/
+│   │   └── project.json       ← copy this to add a new project
+│   └── {project-slug}/
+│       ├── project.json       ← all content for one card
+│       └── images/            ← 01.jpg, 02.jpg, 03.jpg (4:3, 1200×900px)
+├── Resume/
+│   ├── shafayat_alam_resume.tex        ← LaTeX resume source
+│   └── Shafayat_Alam_Portfolio.pdf     ← auto-generated PDF portfolio
+└── scripts/
+    ├── generate-pdf.js        ← PDF generator
+    └── watch.js               ← file watcher
+```
 
-\noindent\textbf{Stony Brook University} \hfill Stony Brook, NY\\
-\textit{Bachelor of Engineering in Mechanical Engineering} \hfill \textit{May 2026}\\
-\textit{Relevant Coursework:} Fundamentals of Machining, Experimental Mechanics, Engineering Mechanics (Planar Dynamics, Solid/Fluid Mechanics, Heat Transfer, Thermodynamics), Control Systems, Numerical Methods
+---
 
-\vspace{5pt}
+## Editing Content
 
-\noindent\textsc{\textbf{Technical Skills}}
-\vspace{1pt}
-\hrule height 0.5pt
-\vspace{3pt}
+### Your profile, bio, and skills
 
-\noindent\textbf{Design \& Analysis:} CAD, DFM/DFA, Engineering Drawings (GD\&T, ASME Y14.5), CFD (Meshlab, Paraview, OpenFOAM, HPC, Parallel Computing), Basic FEA\\[1pt]
-\textbf{Control/State-Estimation:} MATLAB/Simulink (Control System Toolbox), ROS2, Basic Sensor Fusion\\[1pt]
-\textbf{Fabrication \& Test:} CAM, Additive/Subtractive Manufacturing, End-to-End (E2E) Verification and Validation (V\&V)\\[1pt]
-\textbf{Programming \& Scripting:} MATLAB, Python (software development, automation scripts), Git (version control), Linux/Unix
+Open `Data/projects.json` and edit the `profile` object:
 
-\vspace{5pt}
+```json
+"profile": {
+  "name":        "Shafayat Alam",
+  "title":       "Mechanical Engineer · Roboticist",
+  "bio":         "Your about section text...",
+  "location":    "Long Island, NY",
+  "email":       "you@email.com",
+  "linkedin":    "https://linkedin.com/in/...",
+  "github":      "https://github.com/...",
+  "institution": "Stony Brook University",
+  "degree":      "B.E. Mechanical Engineering, 2026"
+}
+```
 
-\noindent\textsc{\textbf{Experience}}
-\vspace{1pt}
-\hrule height 0.5pt
-\vspace{3pt}
+Skills are in the `skills` array in the same file.
 
-\noindent\textbf{Soft Flyers Group} \hfill Stony Brook University\\
-\textit{Robotics Researcher} \hfill \textit{January 2025\,--\,Present}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Architecting an underwater robotic system including that of soft actuator design, system integration/testing, chassis development, electronics/sensors, and control software.
-\item Investigating the dynamics of bio-inspired multimodal soft actuators to characterize how the operating and transitioning medium shapes dynamic behavior.
-\end{itemize}
+---
 
-\vspace{2pt}
+### Adding a new project card
 
-\noindent\textbf{Stony Brook Student Launch Team} \hfill Stony Brook University\\
-\textit{Launch Vehicle Design Engineer} \hfill \textit{September 2025\,--\,Present}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Performing numerical investigations of the launch vehicle flight envelope to characterize aerodynamic behavior.
-\item Performed mechanical design, fabrication, integration, and testing of competitive launch vehicle subsystems.
-\end{itemize}
+1. Copy `Data/_template/` and rename the folder to a short kebab-case slug (e.g. `my-project`).
+2. Fill in `Data/my-project/project.json`:
 
-\vspace{2pt}
+```json
+{
+  "id":          "my-project",
+  "title":       "PROJECT TITLE IN UPPERCASE",
+  "org":         "Organization or Team Name",
+  "institution": "University, Company, or Lab",
+  "period":      "Month YYYY – Month YYYY",
+  "category":    "ROBOTICS",
+  "images":      ["images/01.jpg", "images/02.jpg", "images/03.jpg"],
+  "what":    ["What was built or investigated?"],
+  "how":     ["What methods or tools were used?"],
+  "results": ["What was achieved? Use <strong>numbers</strong>."],
+  "report":  "",
+  "links":   ["https://github.com/..."]
+}
+```
 
-\noindent\textbf{Advanced Fluid Dynamics and Propulsion Lab (AFPEL)} \hfill Stony Brook University\\
-\textit{Computational Fluid Dynamics Researcher} \hfill \textit{October 2025\,--\,January 2026}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Conducted numerical investigation of trapezoidal fin aerodynamics using compressible RANS Spalart-Allmaras turbulence closure model, uncovering a 30.7\% drag reduction for a 46\% lift/drag ratio penalty.
-\item Collaborated to advance research in Triply Periodic Heat Exchangers by supporting meshing efforts.
-\end{itemize}
+3. Drop images into `Data/my-project/images/` named `01.jpg`, `02.jpg`, `03.jpg`.
+4. Add the slug to the `projects` array in `Data/projects.json` at whatever position you want it to appear.
+5. Push — the site updates automatically.
 
-\vspace{2pt}
+---
 
-\noindent\textbf{NASA L'SPACE Mission Concept Academy} \hfill NASA L'Space\\
-\textit{Thermal Engineer} \hfill \textit{January 2025\,--\,May 2025}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Performed thermal analysis for an autonomous aerobot, applying Churchill-Bernstein convection models and heat flow maps to quantify 30 kW cooling and 11 kW heating requirements across 350 -- 400K atmospheric profile.
-\item Designed a passive thermal control system following the NASA mission lifecycle, using a variable geometry radiator \& low emissivity coating ($\varepsilon = 0.008$) balancing mass (4 kg), power, \& cost (\$6.3M) constraints.
-\end{itemize}
+### Editing an existing card
 
-\vspace{2pt}
+Open `Data/{project-slug}/project.json` and edit any field directly. Every bullet in `what`, `how`, and `results` is a plain string in the array — just change the text. Add or remove bullets freely.
 
-\noindent\textbf{Stony Brook Solar Boat Racing Team} \hfill Stony Brook University\\
-\textit{Mechanical Design Engineer} \hfill \textit{September 2022\,--\,November 2024}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Performed systematic wet tests to troubleshoot/diagnose integrated components and ensure operational readiness for competitive racing.
-\item Developed packaging for the powertrain of a solar powered boat to support integration and performance requirements by investigating robustness based on additive manufacturing techniques.
-\end{itemize}
+To add a link button to a card:
 
-\vspace{2pt}
+```json
+"links": [
+  "https://github.com/Shafayat-Alam/your-repo",
+  "https://arxiv.org/abs/..."
+]
+```
 
-\noindent\textbf{BNL SPARK Program} \hfill Brookhaven National Laboratory\\
-\textit{High School Student Researcher} \hfill \textit{September 2018\,--\,May 2022}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Identified Fe/Mn stratigraphic layering in 6 rock varnish samples via XRD (2.0 -- 7.5 \AA) and XRF mapping, with Mn-enriched outer layers over Fe substrates consistent with Younger Dryas formation.
-\item Established Rhode Island quarry sourcing for 10+ steatite artifacts through d-spacing fingerprinting (2.43 -- 3.81 \AA), revealing 10 -- 45x elemental variations distinguishing regional clay sources and trade patterns.
-\end{itemize}
+Leave it as `[]` for no links. Any number of links is supported.
 
-\vspace{2pt}
+To attach a report PDF, drop the file in the project folder and set:
 
-\noindent\textbf{FIRST Robotics} \hfill Longwood High School\\
-\textit{Robotics Mechanical Engineer} \hfill \textit{September 2018\,--\,May 2022}
-\begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Collaborated within a multidisciplinary team to design and test robotic systems for FIRST Robotics competitions through the engineering design process.
-\end{itemize}
+```json
+"report": "your-report.pdf"
+```
 
-\end{document}
+---
+
+## Resume (LaTeX)
+
+The LaTeX source for the one-page resume is at:
+
+```
+Resume/shafayat_alam_resume.tex
+```
+
+Edit it directly and compile with any LaTeX distribution (`pdflatex`, Overleaf, etc.). It is kept in the same repo so resume and portfolio stay in sync.
+
+---
+
+## PDF Portfolio Generation
+
+The portfolio auto-generates a styled PDF at `Resume/Shafayat_Alam_Portfolio.pdf` whenever data changes.
+
+**Setup (first time only):**
+
+```bash
+# Install Node.js via nvm if not already installed
+curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+nvm install 20
+
+# Install dependencies
+npm install
+```
+
+**Generate once:**
+
+```bash
+npm run pdf
+```
+
+**Watch mode — auto-regenerates on every save to Data/:**
+
+```bash
+npm run watch
+```
+
+The PDF layout mirrors the site: name and contacts appear on every page, followed by the About section, Skills, then project cards (first card solo, then two per page stacked).
+
+---
+
+## Local Development
+
+The site fetches JSON at runtime so you need a local server:
+
+```bash
+python -m http.server 8080
+# then open http://localhost:8080
+```
+
+---
+
+## Deployment
+
+The site is deployed via GitHub Pages from the `main` branch root. Push any change and GitHub rebuilds the site automatically within ~1 minute.
