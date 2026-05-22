@@ -14,6 +14,7 @@ async function init() {
       .map(r => r.value);
 
     applyProfile(manifest.profile);
+    renderHeroPreview(entries[0]);
     renderWork(entries);
     renderSkills(manifest.skills);
     renderAbout(manifest.profile);
@@ -50,6 +51,22 @@ function applyProfile(p) {
     { href: p.linkedin,            text: 'LinkedIn ↗', external: true },
     { href: p.github,              text: 'GitHub ↗',   external: true },
   ].map(c => `<a href="${c.href}" class="hero-contact-link"${c.external ? ' target="_blank" rel="noopener"' : ''}>${c.text}</a>`).join('');
+}
+
+/* ── Hero Preview ── */
+function renderHeroPreview(e) {
+  const el = document.getElementById('hero-preview');
+  if (!el || !e) return;
+  el.innerHTML = `
+    <div class="preview-eyebrow">Featured Project</div>
+    <div class="preview-cat">${e.category}</div>
+    <h2 class="preview-title">${e.title}</h2>
+    <div class="preview-meta">${e.org} · ${e.period}</div>
+    <ul class="preview-bullets">
+      ${e.results.slice(0, 2).map(r => `<li>${r}</li>`).join('')}
+    </ul>
+    <a href="#work" class="preview-cta">View all work ↓</a>
+  `;
 }
 
 /* ── Work ── */
