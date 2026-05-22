@@ -14,7 +14,6 @@ async function init() {
       .map(r => r.value);
 
     applyProfile(manifest.profile);
-    renderHeroPreview(entries[0]);
     renderWork(entries);
     renderSkills(manifest.skills);
     renderAbout(manifest.profile);
@@ -39,37 +38,16 @@ async function fetchJSON(url) {
 /* ── Profile ── */
 function applyProfile(p) {
   document.title = `${p.name} — ${p.title}`;
-  const [first, ...rest] = p.name.split(' ');
-  document.getElementById('hero-first').textContent = first.toUpperCase();
-  document.getElementById('hero-last').textContent  = rest.join(' ').toUpperCase();
-  document.getElementById('hero-title').textContent = p.title;
-  document.getElementById('hero-edu').textContent   = p.education;
-  document.getElementById('hero-location').textContent = p.location;
 
-  const navFull = document.getElementById('nav-logo-full');
-  if (navFull) navFull.textContent = p.name.toUpperCase();
+  document.getElementById('header-name').textContent = p.name.toUpperCase();
+  document.getElementById('header-title').textContent = p.title;
+  document.getElementById('header-location').textContent = p.location;
 
-  document.getElementById('hero-contacts').innerHTML = [
-    { href: `mailto:${p.email}`,  text: p.email },
-    { href: p.linkedin,            text: 'LinkedIn ↗', external: true },
-    { href: p.github,              text: 'GitHub ↗',   external: true },
-  ].map(c => `<a href="${c.href}" class="hero-contact-link"${c.external ? ' target="_blank" rel="noopener"' : ''}>${c.text}</a>`).join('');
-}
-
-/* ── Hero Preview ── */
-function renderHeroPreview(e) {
-  const el = document.getElementById('hero-preview');
-  if (!el || !e) return;
-  el.innerHTML = `
-    <div class="preview-eyebrow">Featured Project</div>
-    <div class="preview-cat">${e.category}</div>
-    <h2 class="preview-title">${e.title}</h2>
-    <div class="preview-meta">${e.org} · ${e.period}</div>
-    <ul class="preview-bullets">
-      ${e.results.slice(0, 2).map(r => `<li>${r}</li>`).join('')}
-    </ul>
-    <a href="#work" class="preview-cta">View all work ↓</a>
-  `;
+  document.getElementById('header-contacts').innerHTML = [
+    { href: `mailto:${p.email}`, text: p.email },
+    { href: p.linkedin,           text: 'LinkedIn ↗', external: true },
+    { href: p.github,             text: 'GitHub ↗',   external: true },
+  ].map(c => `<a href="${c.href}" class="header-contact-link"${c.external ? ' target="_blank" rel="noopener"' : ''}>${c.text}</a>`).join('');
 }
 
 /* ── Work ── */
@@ -199,18 +177,15 @@ function renderContact(p) {
     </a>`).join('');
 }
 
-/* ── Nav scroll state ── */
+/* ── Nav active state ── */
 function setupNav() {
-  const nav      = document.getElementById('nav');
-  const navAs    = document.querySelectorAll('.nav-links a');
+  const navAs    = document.querySelectorAll('.header-nav a');
   const sections = document.querySelectorAll('section[id]');
 
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-
     let current = '';
     sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 140) current = s.id;
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
     });
     navAs.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
