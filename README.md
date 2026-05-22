@@ -37,10 +37,10 @@
 \hrule height 0.5pt
 \vspace{3pt}
 
-\noindent\textbf{Design \& Analysis:} CAD/CAM, DFM/DFA, Engineering Drawings (GD\&T, ASME Y14.5), CFD (Meshlab, Paraview, OpenFOAM, HPC, Parallel Computing), Basic FEA\\[1pt]
+\noindent\textbf{Design \& Analysis:} CAD, DFM/DFA, Engineering Drawings (GD\&T, ASME Y14.5), CFD (Meshlab, Paraview, OpenFOAM, HPC, Parallel Computing), Basic FEA\\[1pt]
 \textbf{Control/State-Estimation:} MATLAB/Simulink (Control System Toolbox), ROS2, Basic Sensor Fusion\\[1pt]
-\textbf{Fabrication \& Test:} Additive/Subtractive Manufacturing, Basic Mechatronics\\[1pt]
-\textbf{Programming \& Scripting:} MATLAB, Python, Git (version control), Linux/Unix
+\textbf{Fabrication \& Test:} CAM, Additive/Subtractive Manufacturing, End-to-End (E2E) Verification and Validation (V\&V)\\[1pt]
+\textbf{Programming \& Scripting:} MATLAB, Python (software development, automation scripts), Git (version control), Linux/Unix
 
 \vspace{5pt}
 
@@ -88,7 +88,7 @@
 \noindent\textbf{Stony Brook Solar Boat Racing Team} \hfill Stony Brook University\\
 \textit{Mechanical Design Engineer} \hfill \textit{September 2022\,--\,November 2024}
 \begin{itemize}[leftmargin=10pt,itemsep=0pt,parsep=0pt,topsep=2pt,label=--]
-\item Performed systemic wet tests to troubleshoot integrated components and ensure operational readiness for competitive racing.
+\item Performed systematic wet tests to troubleshoot/diagnose integrated components and ensure operational readiness for competitive racing.
 \item Developed packaging for the powertrain of a solar powered boat to support integration and performance requirements by investigating robustness based on additive manufacturing techniques.
 \end{itemize}
 
