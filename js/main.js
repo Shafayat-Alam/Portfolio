@@ -150,10 +150,10 @@ function renderAbout(p) {
   ];
 
   document.getElementById('about-content').innerHTML = `
-    <div class="about-text reveal">
+    <div class="about-text">
       <p>${p.bio}</p>
     </div>
-    <div class="about-meta reveal">
+    <div class="about-meta">
       ${[
         ['Institution', p.institution],
         ['Degree',      p.degree],
