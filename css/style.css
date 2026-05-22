@@ -7,13 +7,13 @@
   --surface-2:    #181818;
   --surface-hover:#1E1E1E;
 
-  --border:       rgba(255,255,255,0.06);
-  --border-mid:   rgba(255,255,255,0.11);
-  --border-strong:rgba(255,255,255,0.22);
+  --border:       rgba(255,255,255,0.08);
+  --border-mid:   rgba(255,255,255,0.15);
+  --border-strong:rgba(255,255,255,0.28);
 
-  --text:         #E8E4DC;
-  --text-2:       #9A9690;
-  --text-3:       #4E4E4A;
+  --text:         #EDEAE2;
+  --text-2:       #B0ACA5;
+  --text-3:       #747068;
 
   --accent:       #C8F53A;
 
@@ -184,10 +184,10 @@ section {
 }
 
 .section-title {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
-  color: var(--text-3);
+  letter-spacing: 0.25em;
+  color: var(--text-2);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -243,7 +243,7 @@ section {
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--text);
@@ -347,11 +347,11 @@ section {
   font-family: var(--mono);
   font-size: 0.625rem;
   letter-spacing: 0.18em;
-  color: var(--text-2);
+  color: var(--text);
   text-transform: uppercase;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-mid);
 }
 
 .detail-col ul {
