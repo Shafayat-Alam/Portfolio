@@ -1,59 +1,165 @@
 # Shafayat Alam — Portfolio
 
-Hosted on GitHub Pages.
+**Live site:** https://shafayat-alam.github.io/Resume-Portfolio/
 
-## Adding or Updating Content
+A data-driven portfolio hosted on GitHub Pages. All content lives in `Data/` — edit JSON files and push; the site updates automatically. Changing any data file also triggers automatic PDF portfolio generation.
 
-All content is driven by `data/content.json`. An AI assistant can read this file to understand the current structure and add new entries.
+---
 
-### Workflow for adding a new project
-
-1. **Describe the project** to an AI (Claude, ChatGPT, etc.) and give it access to this repo.
-2. The AI will copy the template from `data/template.json`, fill in the fields, and add the entry to `data/content.json`.
-3. The AI will list what images it needs (up to 3 per project, 4:3 ratio, 1200×900px recommended).
-4. You drop the images into `assets/images/[project-id]/` named `01.jpg`, `02.jpg`, `03.jpg`.
-5. The AI updates the image paths in `content.json`.
-6. Push to GitHub — site updates automatically.
-
-### Adding a report PDF
-
-Drop the PDF into `assets/reports/[project-id].pdf` and set `"report": "assets/reports/[project-id].pdf"` in the entry.
-
-### File structure
+## Repo Structure
 
 ```
-portfolio/
+Resume-Portfolio/
 ├── index.html
 ├── css/style.css
 ├── js/main.js
-├── data/
-│   ├── content.json      ← edit this to update the site
-│   └── template.json     ← blank entry schema for AI reference
-├── assets/
-│   ├── images/
-│   │   └── [project-id]/
-│   │       ├── 01.jpg
-│   │       ├── 02.jpg
-│   │       └── 03.jpg
-│   └── reports/
-│       └── [project-id].pdf
-└── .nojekyll
+├── Data/
+│   ├── projects.json          ← profile, skills, project order
+│   ├── _template/
+│   │   └── project.json       ← copy this to add a new project
+│   └── {project-slug}/
+│       ├── project.json       ← all content for one card
+│       └── images/            ← 01.jpg, 02.jpg, 03.jpg (4:3, 1200×900px)
+├── Resume/
+│   ├── shafayat_alam_resume.tex        ← LaTeX resume source
+│   └── Shafayat_Alam_Portfolio.pdf     ← auto-generated PDF portfolio
+└── scripts/
+    ├── generate-pdf.js        ← PDF generator
+    └── watch.js               ← file watcher
 ```
+
+---
+
+## Editing Content
+
+### Your profile, bio, and skills
+
+Open `Data/projects.json` and edit the `profile` object:
+
+```json
+"profile": {
+  "name":        "Shafayat Alam",
+  "title":       "Mechanical Engineer · Roboticist",
+  "bio":         "Your about section text...",
+  "location":    "Long Island, NY",
+  "email":       "you@email.com",
+  "linkedin":    "https://linkedin.com/in/...",
+  "github":      "https://github.com/...",
+  "institution": "Stony Brook University",
+  "degree":      "B.E. Mechanical Engineering, 2026"
+}
+```
+
+Skills are in the `skills` array in the same file.
+
+---
+
+### Adding a new project card
+
+1. Copy `Data/_template/` and rename the folder to a short kebab-case slug (e.g. `my-project`).
+2. Fill in `Data/my-project/project.json`:
+
+```json
+{
+  "id":          "my-project",
+  "title":       "PROJECT TITLE IN UPPERCASE",
+  "org":         "Organization or Team Name",
+  "institution": "University, Company, or Lab",
+  "period":      "Month YYYY – Month YYYY",
+  "category":    "ROBOTICS",
+  "images":      ["images/01.jpg", "images/02.jpg", "images/03.jpg"],
+  "what":    ["What was built or investigated?"],
+  "how":     ["What methods or tools were used?"],
+  "results": ["What was achieved? Use <strong>numbers</strong>."],
+  "report":  "",
+  "links":   ["https://github.com/..."]
+}
+```
+
+3. Drop images into `Data/my-project/images/` named `01.jpg`, `02.jpg`, `03.jpg`.
+4. Add the slug to the `projects` array in `Data/projects.json` at whatever position you want it to appear.
+5. Push — the site updates automatically.
+
+---
+
+### Editing an existing card
+
+Open `Data/{project-slug}/project.json` and edit any field directly. Every bullet in `what`, `how`, and `results` is a plain string in the array — just change the text. Add or remove bullets freely.
+
+To add a link button to a card:
+
+```json
+"links": [
+  "https://github.com/Shafayat-Alam/your-repo",
+  "https://arxiv.org/abs/..."
+]
+```
+
+Leave it as `[]` for no links. Any number of links is supported.
+
+To attach a report PDF, drop the file in the project folder and set:
+
+```json
+"report": "your-report.pdf"
+```
+
+---
+
+## Resume (LaTeX)
+
+The LaTeX source for the one-page resume is at:
+
+```
+Resume/shafayat_alam_resume.tex
+```
+
+Edit it directly and compile with any LaTeX distribution (`pdflatex`, Overleaf, etc.). It is kept in the same repo so resume and portfolio stay in sync.
+
+---
+
+## PDF Portfolio Generation
+
+The portfolio auto-generates a styled PDF at `Resume/Shafayat_Alam_Portfolio.pdf` whenever data changes.
+
+**Setup (first time only):**
+
+```bash
+# Install Node.js via nvm if not already installed
+curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+nvm install 20
+
+# Install dependencies
+npm install
+```
+
+**Generate once:**
+
+```bash
+npm run pdf
+```
+
+**Watch mode — auto-regenerates on every save to Data/:**
+
+```bash
+npm run watch
+```
+
+The PDF layout mirrors the site: name and contacts appear on every page, followed by the About section, Skills, then project cards (first card solo, then two per page stacked).
+
+---
 
 ## Local Development
 
-The site fetches `data/content.json` at runtime, so you need a local server (not `file://`):
+The site fetches JSON at runtime so you need a local server:
 
 ```bash
-# Node
-npx serve .
-
-# Python
 python -m http.server 8080
+# then open http://localhost:8080
 ```
 
-## Deploying to GitHub Pages
+---
 
-1. Push this folder to a GitHub repo (e.g. `Shafayat-Alam/portfolio` or `Shafayat-Alam/Shafayat-Alam.github.io`).
-2. Go to **Settings → Pages → Source → Deploy from branch → main / root**.
-3. Site will be live at `https://shafayat-alam.github.io/portfolio` (or `https://shafayat-alam.github.io` if you use the `username.github.io` repo name).
+## Deployment
+
+The site is deployed via GitHub Pages from the `main` branch root. Push any change and GitHub rebuilds the site automatically within ~1 minute.
