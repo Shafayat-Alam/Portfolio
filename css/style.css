@@ -363,13 +363,13 @@ section {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--bg);
+  background: transparent;
   border: 1px solid var(--border);
 }
 
 .card-section-col .detail-col {
   flex: 1;
-  background: transparent;
+  background: var(--bg);
   border: none;
   border-top: 1px solid var(--border);
 }
@@ -391,7 +391,7 @@ section {
   min-height: 0;
   min-width: 0;
   overflow: hidden;
-  background: var(--bg);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -403,6 +403,7 @@ section {
   object-fit: contain;
   display: block;
   flex-shrink: 0;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6));
 }
 
 

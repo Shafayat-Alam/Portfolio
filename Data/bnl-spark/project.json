@@ -3,22 +3,22 @@
   "title": "ROCK VARNISH GEOCHEMICAL PROVENANCE ANALYSIS",
   "org": "BNL SPARK Program",
   "institution": "Brookhaven National Laboratory",
-  "period": "September 2018 \u2013 May 2022",
+  "period": "September 2018 – May 2022",
   "category": "RESEARCH",
   "images": [],
   "what": [
-    "XRD and XRF investigation of Fe/Mn stratigraphic layering in rock varnish",
-    "Provenance analysis of steatite archaeological artifacts"
+    "XRD and XRF investigation of Fe/Mn stratigraphic layering in rock varnish — Late Holocene indigenous material sourcing in collaboration with Stony Brook University Anthropology and Brookhaven National Laboratory",
+    "Provenance analysis of steatite archaeological artifacts spanning Terminal Archaic through Late Woodland periods (3,500–2,400 B.P.)"
   ],
   "how": [
-    "X-ray diffraction (2.0\u20137.5 \u00c5) and XRF elemental mapping",
-    "d-spacing fingerprinting for material sourcing",
-    "Comparative elemental analysis across 10+ artifact samples"
+    "X-ray Diffraction (XRD): 2θ = 20–75° sweeps for crystal structure identification and mineral phase characterization; d-spacing fingerprinting to establish unique crystallographic signatures for material sourcing",
+    "X-ray Fluorescence (XRF): elemental mapping of Fe, Mn, and trace elements across 10+ artifact samples cross-referenced against Rhode Island quarry reference sources",
+    "Comparative stratigraphic and elemental analysis across sample set spanning Terminal Archaic through Late Woodland periods"
   ],
   "results": [
-    "Fe/Mn stratigraphic layering identified in 6 samples \u2014 consistent with Younger Dryas formation",
-    "10+ steatite artifacts traced to Rhode Island quarry sources",
-    "<strong>10\u201345\u00d7 elemental variation</strong> distinguishing regional clay sources and trade patterns"
+    "6 samples with Fe/Mn stratigraphic layering consistent with <strong>Younger Dryas formation</strong> — constraining varnish age and deposition environment",
+    "<strong>10+ steatite artifacts traced to Rhode Island quarry sources</strong>; 10–45% elemental variation distinguishing regional clay sources and trade patterns",
+    "Confirmed <strong>long-distance trade networks (100+ miles)</strong>; published in <strong>NYSAA Bulletin Vol. 138, 2024</strong> and BNL technical report"
   ],
   "report": "",
   "links": []

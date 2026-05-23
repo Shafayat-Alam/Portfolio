@@ -1,9 +1,9 @@
 {
   "id": "nasa-lspace",
   "title": "VENUS AEROBOT THERMAL CONTROL SUBSYSTEM",
-  "org": "Team Igneous Seven \u00b7 NASA L'SPACE Mission Concept Academy",
+  "org": "Team Igneous Seven · NASA L'SPACE Mission Concept Academy",
   "institution": "Stony Brook University",
-  "period": "January 2025 \u2013 May 2025",
+  "period": "January 2025 – May 2025",
   "category": "RESEARCH",
   "images": [],
   "what_images": ["images/01.png"],
@@ -11,17 +11,17 @@
   "how_images_direction": "column",
   "results_images": ["images/03.png"],
   "what": [
-    "Thermal subsystem engineer for the Igneous Seven Venus aerobot, targeting a 370 K equilibrium across a 350\u2013400 K atmospheric profile at 35\u201350 km altitude with 90 m/s sustained winds",
-    "Two-tier passive thermal control architecture combining a low-emissivity chemical coating and an autonomous variable-view-factor radiator \u2014 zero power consumption, no sensors or control logic required"
+    "Thermal subsystem engineer for the Igneous Seven Venus aerobot, targeting a 370 K equilibrium across a 350–400 K atmospheric profile at 35–50 km altitude with 90 m/s sustained winds",
+    "Two-tier passive thermal control architecture combining a low-emissivity chemical coating and an autonomous variable-view-factor radiator — zero power consumption, no sensors or control logic required"
   ],
   "how": [
     "Convective heat flow analysis quantifying a dominant ~30 kW load (97.8% of total thermal input in the hot case) that shaped the entire system design strategy",
-    "Trade studies scoring SilcoNert\u00ae 1040 coating (\u03b5 = 0.008) and ACT variable-view-factor radiator across reliability, performance, cost, and mass \u2014 SilcoNert achieved 100% and ACT scored 84% against competing options",
-    "Requirement validation plan using Venus-analog environmental chamber testing, with \u00b15 K stability around 370 K setpoint as the acceptance criterion"
+    "Trade studies scoring SilcoNert® 1040 coating (ε = 0.008) and ACT variable-view-factor radiator across reliability, performance, cost, and mass — SilcoNert achieved 100% and ACT scored 84% against competing options",
+    "Requirement validation plan using Venus-analog environmental chamber testing, with ±5 K stability around 370 K setpoint as the acceptance criterion"
   ],
   "results": [
-    "<strong>30 kW cooling</strong> and <strong>11 kW heating</strong> capacity delivered at <strong>0 W power draw</strong> \u2014 radiator self-regulates via intrinsic vapor-pressure feedback",
-    "<strong>50\u00d7 radiative heating reduction</strong> via SilcoNert\u00ae 1040 coating (466.64 W \u2192 9.33 W), eliminating radiation as a design concern",
+    "<strong>30 kW cooling</strong> and <strong>11 kW heating</strong> capacity delivered at <strong>0 W power draw</strong> — radiator self-regulates via intrinsic vapor-pressure feedback",
+    "<strong>50× radiative heating reduction</strong> via SilcoNert® 1040 coating (466.64 W → 9.33 W), eliminating radiation as a design concern",
     "All thermal requirements verified at Preliminary Design Review; system mass and cost within mission constraints"
   ],
   "report": "",
