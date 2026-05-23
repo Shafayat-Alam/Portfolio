@@ -23,22 +23,18 @@
   "skills": [
     {
       "category": "DESIGN & ANALYSIS",
-      "items": ["CAD/CAM", "DFM/DFA", "GD&T", "ASME Y14.5", "Engineering Drawings", "Basic FEA"]
+      "items": ["CAD", "DFM/DFA", "Engineering Drawings", "GD&T", "ASME Y14.5", "CFD", "Meshlab", "Paraview", "OpenFOAM", "HPC", "Parallel Computing", "Basic FEA"]
     },
     {
-      "category": "FLUID DYNAMICS",
-      "items": ["OpenFOAM", "CFD (RANS)", "Paraview", "Meshlab", "HPC", "Parallel Computing"]
-    },
-    {
-      "category": "CONTROL & ESTIMATION",
+      "category": "CONTROL & STATE-ESTIMATION",
       "items": ["MATLAB/Simulink", "Control System Toolbox", "ROS2", "Basic Sensor Fusion"]
     },
     {
       "category": "FABRICATION & TEST",
-      "items": ["Additive Manufacturing", "Subtractive Manufacturing", "Basic Mechatronics", "Systematic Test Procedures"]
+      "items": ["CAM", "Additive Manufacturing", "Subtractive Manufacturing", "End-to-End (E2E) Verification & Validation"]
     },
     {
-      "category": "PROGRAMMING",
+      "category": "PROGRAMMING & SCRIPTING",
       "items": ["MATLAB", "Python", "Git", "Linux/Unix"]
     }
   ]
