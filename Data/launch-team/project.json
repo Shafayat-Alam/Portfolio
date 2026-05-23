@@ -16,20 +16,20 @@
   "results_images_direction": "row",
   "results_images_fit": "cover",
   "what": [
-    "Two rockets for 2026 Battle of the Rockets: <strong>Mars Rover</strong> — K-class (≤ 2,560 N·s), 79.125 in, 19.30 lb, J540R-14, 1,000–2,000 ft, rover payload; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class tube fins, 42.75 in, F42-8T, 801 ft AGL",
-    "PDR→CDR: Mars Rover J525-LW → J540R-14, 4-fin → 3-fin PETG-CF, 75→79.125 in, 20.58→19.30 lb, T/W 5.97→6.85; Altitude 3→6 fins (margin recovery), Blue Tube → phenolic, 49→42.75 in, chute 36→24 in, T/W 11.03",
-    "Ongoing Cₗ/Cᴅ/Cₘ database (AeroSim-Stability-Subsonic) via rhoSimpleFoam RANS (Mach 0.1–0.7, AoA/sideslip 0–10°); NASA TM X-195 drag model; EasyMini flight data validation"
+    "Two rockets for 2026 Battle of the Rockets: <strong>Mars Rover</strong> — 79.125 in, 19.30 lb, J540R-14, 1,000–2,000 ft, rover payload; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class tube fins, 42.75 in, 801 ft AGL",
+    "PDR→CDR: Mars Rover J525-LW → J540R-14, 4-fin → 3-fin PETG-CF, 75→79.125 in, 20.58→19.30 lb, T/W 5.97→6.85; Altitude 3→6 fins, Blue Tube → phenolic, 49→42.75 in, chute 36→24 in, T/W 11.03",
+    "Ongoing Cₗ/Cᴅ/Cₘ database via rhoSimpleFoam RANS (Mach 0.1–0.7, AoA/sideslip 0–10°); NASA TM X-195 drag model; EasyMini flight data validation"
   ],
   "how": [
-    "Stability: CAD in SolidWorks; 2.0–2.5 cal static margin via RockSim + MATLAB; Plastalina deadweight aft (Mars Rover CG), front→rear (Altitude); threaded PETG nose cone; both vehicles test-flown pre-competition",
+    "Stability: SolidWorks CAD; 2.0–2.5 cal static margin via RockSim + MATLAB; Plastalina deadweight for CG; threaded PETG nose cone; pre-competition test flights",
     "CFD: rhoSimpleFoam compressible RANS (Spalart-Allmaras, OpenFOAM v2412); snappyHexMesh with Level 7 wake refinement; Mach/α/β sweeps without remeshing; Python/Bash/SLURM on 16-core HPC",
     "Fabrication: Blue Tube → phenolic after warping; 3 centering rings on motor mount; tube fins in aft-airframe slots; BOM/budget managed; motor igniter resolved at competition"
   ],
   "results": [
     "<strong>Altitude: 758 ft apogee</strong> — 43 ft from 801 ft (<strong>&lt;6% error</strong>); Mach 0.2, 3.32 G peak, 2.3 s burn + 4.0 s coast, <strong>22 ft/s descent</strong>; fully recovered",
-    "<strong>Mars Rover: 1,459 ft apogee</strong> (CFD: 1,676 ft → actual 1,459 ft); Mach 0.2, 4.22 G peak, 3.1 s burn + 6.3 s coast, <strong>12 ft/s descent</strong>, 129.7 s total; rover deployed and recovered",
-    "Ongoing CFD building Cₗ/Cᴅ/Cₘ database (Mach 0.1–0.7); ISA-anchored BCs at flight altitudes; feeds stability and GNC integration",
-    "Coordinated CAD, simulation, and build across 5-person team; methodology contributed to BNL publication"
+    "<strong>Mars Rover: 1,459 ft apogee</strong> (CFD 1,676 ft); Mach 0.2, 4.22 G peak, 3.1 s burn + 6.3 s coast, <strong>12 ft/s descent</strong>, 129.7 s total; rover deployed and recovered",
+    "Ongoing Cₗ/Cᴅ/Cₘ database (Mach 0.1–0.7); ISA-anchored BCs at flight altitudes; feeds stability and GNC",
+    "CAD, simulation, and build across 5-person team; contributed to BNL publication"
   ],
   "report": "",
   "links": [
