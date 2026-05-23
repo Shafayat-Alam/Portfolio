@@ -354,40 +354,41 @@ section {
   padding: 0 0.5rem;
 }
 
-/* Sectioned layout: 3 columns, images row = text row = equal height via subgrid */
+/* Sectioned layout: 3 equal columns, each split 50/50 image/text */
 .card-sections {
   flex: 1;
   min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr;
   gap: 2px;
   margin-bottom: 1.5rem;
 }
 
 .card-section-col {
-  display: grid;
-  grid-row: span 2;
-  grid-template-rows: subgrid;
-  background: transparent;
-  min-height: 0;
-}
-
-.card-section-col .detail-col {
-  background: var(--bg);
-  border: none;
-  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
   min-height: 0;
   overflow: hidden;
+  background: transparent;
 }
 
 .section-images {
+  flex: 0 0 50%;
   min-height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 0;
   padding: 0;
+}
+
+.card-section-col .detail-col {
+  flex: 0 0 50%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+  border: none;
+  border-top: 1px solid var(--border);
 }
 .section-images[data-direction="row"] {
   flex-direction: row;
