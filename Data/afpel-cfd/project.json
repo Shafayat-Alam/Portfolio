@@ -1,25 +1,27 @@
 {
   "id": "afpel-cfd",
-  "title": "COMPRESSIBLE CFD: TRAPEZOIDAL FIN AERODYNAMICS",
-  "org": "Advanced Fluid Dynamics & Propulsion Lab",
+  "title": "COMPRESSIBLE CFD: ROCKET FIN AERODYNAMICS",
+  "org": "Advanced Fluid Dynamics, Propulsion, and Energy Lab (AFPEL)",
   "institution": "Stony Brook University",
-  "period": "October 2025 \u2013 January 2026",
+  "period": "October 2025 \u2013 May 2026",
   "category": "RESEARCH",
   "images": [],
   "what": [
-    "Numerical investigation of trapezoidal fin aerodynamics in compressible flow",
-    "Meshing support for Triply Periodic Minimal Surface heat exchangers"
+    "Comparative CFD investigation of blunt-edged vs. streamlined trapezoidal rocket fin geometries at Mach 0.7 (Re = 1.58 \u00d7 10\u2076) to quantify the drag\u2013lift trade-off for mission-phase-specific selection",
+    "Full numerical study from mesh generation through post-processing \u2014 5.88 million cell hexahedral domain, boundary layer refinement, and convergence to 10\u207b\u2076 residual tolerance"
   ],
   "how": [
-    "Compressible RANS with Spalart-Allmaras turbulence closure",
-    "OpenFOAM on HPC cluster with parallel computing",
-    "Systematic geometric parameter sweep"
+    "rhoSimpleFoam steady-state compressible RANS solver (OpenFOAM v2412) with Spalart-Allmaras single-equation turbulence model and 2nd-order linearUpwind discretization",
+    "Hex-dominant mesh with area-weighted y\u207a = 2.905 for the aero fin (viscous sublayer resolution), enabling direct skin friction calculation without wall functions",
+    "Intel Xeon HPC cluster 'Intruder' at Stony Brook University \u2014 ~8 core-hours (blunt) and ~432 core-hours (aero fin); ParaView and Python (NumPy, Matplotlib) for post-processing"
   ],
   "results": [
-    "<strong>30.7% drag reduction</strong> identified at a 46% lift-to-drag ratio penalty",
-    "Quantified aerodynamic trade-space for fin geometry optimization",
-    "Advanced TPMS heat exchanger meshing methodology"
+    "<strong>30.7% total drag reduction</strong> (0.02970 \u2192 0.02057) with the streamlined aero fin \u2014 base separation wake isolated as <strong>59.5% of blunt fin drag</strong>, directly targeting the dominant loss mechanism",
+    "<strong>62.4% lift penalty</strong> (L/D: 6.68 \u2192 3.63) driven by negative viscous shear on the curved trailing edge \u2014 quantified the control-vs-efficiency trade-off for variable-phase flight design",
+    "Established geometry selection framework: blunt fin for control authority, streamlined fin for sustained high-speed efficiency; variable geometry recommended as hybrid solution"
   ],
   "report": "",
-  "links": []
+  "links": [
+    "https://github.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics"
+  ]
 }
