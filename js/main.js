@@ -128,7 +128,7 @@ function buildSectionedDetails(e) {
 
   return `<div class="card-sections">
     ${sections.map(s => `
-      <div class="card-section">
+      <div class="card-section-col ${s.cls}">
         <div class="detail-col ${s.cls}">
           <h4>${s.label}</h4>
           <ul>${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
