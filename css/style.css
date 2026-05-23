@@ -212,15 +212,11 @@ section {
 ═══════════════════════════════════════════════════════════ */
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1px;
   /* full-bleed: 50% = half of section content, 50vw = half of viewport */
   width: 100vw;
   margin-left: calc(50% - 50vw);
-}
-
-@media (max-width: 900px) {
-  .work-grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════════
