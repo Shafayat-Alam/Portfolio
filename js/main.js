@@ -72,8 +72,8 @@ function buildCard(e, num) {
       <span class="card-tag">${e.category}</span>
     </div>
 
-    <div class="card-images">
-      ${[0, 1, 2].map(i => imageSlot(e, i)).join('')}
+    <div class="card-images" data-count="${Math.max(3, (e.images || []).length)}">
+      ${Array.from({ length: Math.max(3, (e.images || []).length) }, (_, i) => imageSlot(e, i)).join('')}
     </div>
 
     <div class="card-details">

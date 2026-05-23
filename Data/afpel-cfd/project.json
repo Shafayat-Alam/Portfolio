@@ -5,7 +5,7 @@
   "institution": "Stony Brook University",
   "period": "October 2025 \u2013 May 2026",
   "category": "RESEARCH",
-  "images": ["images/01.png", "images/02.png", "images/03.png"],
+  "images": ["images/01.png", "images/02.png", "images/03.png", "images/04.png", "images/05.png"],
   "what": [
     "Comparative CFD investigation of blunt-edged vs. streamlined trapezoidal rocket fin geometries at Mach 0.7 (Re = 1.58 \u00d7 10\u2076) to quantify the drag\u2013lift trade-off for mission-phase-specific selection",
     "Full numerical study from mesh generation through post-processing \u2014 5.88 million cell hexahedral domain, boundary layer refinement, and convergence to 10\u207b\u2076 residual tolerance"

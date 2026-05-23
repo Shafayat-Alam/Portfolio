@@ -289,6 +289,12 @@ section {
   gap: 2px;
   margin-bottom: 2px;
 }
+.card-images[data-count="5"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+.card-images[data-count="5"] .img-slot:first-child {
+  grid-column: span 2;
+}
 
 .img-slot {
   aspect-ratio: 4 / 3;
