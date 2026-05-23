@@ -376,6 +376,7 @@ section {
 
 .section-images {
   flex-shrink: 0;
+  height: 44svh;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -383,8 +384,8 @@ section {
 }
 
 .section-img-slot {
-  height: 22svh;
-  flex-shrink: 0;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 
