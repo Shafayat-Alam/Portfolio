@@ -3,9 +3,12 @@
   "title": "UNDERWATER SOFT ROBOTIC SYSTEM",
   "org": "Soft Flyers Group",
   "institution": "Stony Brook University",
-  "period": "January 2025 \u2013 Present",
+  "period": "January 2025 – Present",
   "category": "ROBOTICS",
   "images": [],
+  "what_images": [],
+  "how_images": [],
+  "results_images": [],
   "what": [
     "Full-stack architecture of an underwater robotic system",
     "Soft actuator design, chassis development, and sensor/electronics integration",
