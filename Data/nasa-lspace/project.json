@@ -7,7 +7,8 @@
   "category": "RESEARCH",
   "images": [],
   "what_images": ["images/01.png"],
-  "how_images": ["images/02.png"],
+  "how_images": ["images/hot.png", "images/cold.png"],
+  "how_images_direction": "column",
   "results_images": ["images/03.png"],
   "what": [
     "Thermal subsystem engineer for the Igneous Seven Venus aerobot, targeting a 370 K equilibrium across a 350\u2013400 K atmospheric profile at 35\u201350 km altitude with 90 m/s sustained winds",
