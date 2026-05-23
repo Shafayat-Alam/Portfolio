@@ -5,12 +5,7 @@
   "institution": "Stony Brook University",
   "period": "2024 – 2025",
   "category": "COMPUTATION",
-  "images": [],
-  "what_images": ["images/01.png", "images/02.png"],
-  "what_images_direction": "row",
-  "how_images": ["images/03.png", "images/04.png"],
-  "how_images_direction": "row",
-  "results_images": ["images/05.png", "images/06.png"],
+  "images": ["images/01.png", "images/03.png", "images/05.png"],
   "what": [
     "Five MATLAB implementations of classical numerical methods across real engineering domains: turbine power plant analysis (Newton-Raphson), thermal cost optimization (gradient descent), compressible duct flow (RK-4 ODE), three-mass vibration isolation (Forward Euler), and DC motor speed regulation (PID control)",
     "Each problem reduced to a precise numerical formulation requiring convergence under engineering tolerances — turbine cold-end system solved to 10⁻¹²% and air cooling optimizer converged in under 1,000 iterations"
