@@ -379,8 +379,8 @@ section {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 2px;
+  gap: 0;
+  padding: 0;
 }
 .section-images[data-direction="row"] {
   flex-direction: row;

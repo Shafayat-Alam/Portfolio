@@ -1,6 +1,6 @@
 {
   "id": "afpel-cfd",
-  "title": "COMPRESSIBLE CFD: ROCKET FIN AERODYNAMICS",
+  "title": "COMPRESSIBLE CFD: TRAPEZOIDAL FIN AERODYNAMICS",
   "org": "Advanced Fluid Dynamics, Propulsion, and Energy Lab (AFPEL)",
   "institution": "Stony Brook University",
   "period": "October 2025 \u2013 May 2026",
@@ -8,7 +8,9 @@
   "images": [],
   "what_images": ["images/01.png"],
   "how_images": ["images/02.png", "images/03.png"],
+  "how_images_direction": "row",
   "results_images": ["images/04.png", "images/05.png"],
+  "results_images_direction": "row",
   "what": [
     "Comparative CFD investigation of blunt-edged vs. streamlined trapezoidal rocket fin geometries at Mach 0.7 (Re = 1.58 \u00d7 10\u2076) to quantify the drag\u2013lift trade-off for mission-phase-specific selection",
     "Full numerical study from mesh generation through post-processing \u2014 5.88 million cell hexahedral domain, boundary layer refinement, and convergence to 10\u207b\u2076 residual tolerance"
