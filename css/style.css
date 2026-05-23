@@ -235,8 +235,9 @@ section {
   transition: border-color 300ms, background 300ms;
   display: flex;
   flex-direction: column;
-  height: 100svh;
-  overflow: hidden;
+  min-height: 100svh;
+  height: auto;
+  overflow-x: hidden;
 }
 .card:hover {
   border-color: var(--border-strong);
@@ -357,7 +358,6 @@ section {
 /* Sectioned layout: 3 equal columns, each split 50/50 image/text */
 .card-sections {
   flex: 1;
-  min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
@@ -367,14 +367,11 @@ section {
 .card-section-col {
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  overflow: hidden;
   background: transparent;
 }
 
 .section-images {
-  flex: 0 0 50%;
-  min-height: 0;
+  flex: 0 0 clamp(140px, 40svh, 520px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -383,9 +380,9 @@ section {
 }
 
 .card-section-col .detail-col {
-  flex: 0 0 50%;
-  min-height: 0;
-  overflow: hidden;
+  flex: 1;
+  min-height: fit-content;
+  overflow: visible;
   background: var(--bg);
   border: none;
   border-top: 1px solid var(--border);
@@ -476,8 +473,11 @@ section {
 .detail-col.results li strong { color: #93C5FD; font-weight: 500; }
 
 /* Container queries — card internals reflow based on card width, not viewport */
-@container (max-width: 620px) {
+@container (max-width: 900px) {
   .card-details { grid-template-columns: 1fr; }
+}
+
+@container (max-width: 620px) {
   .card-images  { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -488,19 +488,33 @@ section {
   .card-images .img-slot:not(:first-child) { display: none; }
 }
 
-/* Mobile: auto height, single column, hide non-results images */
-@media (max-width: 700px) {
-  .card {
-    height: auto;
-    min-height: 100svh;
-  }
+/* Tablet: two-column card sections, smaller images */
+@media (max-width: 900px) {
   .card-sections {
     grid-template-columns: 1fr;
-    flex: none;
+  }
+  .section-images {
+    flex: 0 0 clamp(120px, 30svh, 320px);
+  }
+}
+
+/* Mobile: single column, hide what/how images to save space */
+@media (max-width: 600px) {
+  .card {
+    padding: 1.25rem;
+  }
+  .card-header {
+    margin-bottom: 1.25rem;
   }
   .card-section-col.what .section-images,
   .card-section-col.how .section-images {
     display: none;
+  }
+  .section-images {
+    flex: 0 0 clamp(120px, 28svh, 280px);
+  }
+  .detail-col li {
+    font-size: 0.8rem;
   }
 }
 
