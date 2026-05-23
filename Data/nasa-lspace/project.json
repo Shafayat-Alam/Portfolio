@@ -5,7 +5,10 @@
   "institution": "Stony Brook University",
   "period": "January 2025 \u2013 May 2025",
   "category": "RESEARCH",
-  "images": ["images/01.png"],
+  "images": [],
+  "what_images": ["images/01.png"],
+  "how_images": ["images/02.png"],
+  "results_images": ["images/03.png"],
   "what": [
     "Thermal subsystem engineer for the Igneous Seven Venus aerobot, targeting a 370 K equilibrium across a 350\u2013400 K atmospheric profile at 35\u201350 km altitude with 90 m/s sustained winds",
     "Two-tier passive thermal control architecture combining a low-emissivity chemical coating and an autonomous variable-view-factor radiator \u2014 zero power consumption, no sensors or control logic required"
