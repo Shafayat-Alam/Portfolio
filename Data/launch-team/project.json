@@ -16,19 +16,19 @@
   "results_images_direction": "row",
   "results_images_fit": "cover",
   "what": [
-    "Designed, built, and launched two high-power rockets for 2026 Battle of the Rockets (FGE, two distinct mission profiles): <strong>Mars Rover</strong> — K-class (≤ 2,560 N·s), 79.125 in, 19.30 lb, AeroTech J540R-14, 1,000–2,000 ft target, autonomous soil-sampling rover payload integration; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class with tube fins (FGE-mandated), 42.75 in, F42-8T, 801 ft AGL target — both fully recoverable (≤ 20 ft/s descent), PDR/CDR cleared, FGE/NAR/FAA compliant",
-    "Both vehicles iterated PDR→CDR: Mars Rover motor Loki J525-LW → J540R-14, fins 4-fin trapezoidal (curved leading / cusped trailing) → 3-fin PETG-CF, length 75→79.125 in, mass 20.58→19.30 lb, T/W 5.97→6.85:1; Altitude tube fins 3→6 (static margin recovery), airframe Blue Tube → phenolic cardboard, length 49→42.75 in, parachute 36→24 in, T/W 11.03:1",
-    "Ongoing aerodynamic modeling study (AeroSim-Stability-Subsonic) for GNC integration — Cₗ/Cᴅ/Cₘ database via rhoSimpleFoam RANS sweeps (Mach 0.1–0.7, AoA 0–10°, sideslip 0–10°); NASA TM X-195 energy management framework applied to quantify drag-area-to-mass effects on apogee and recovery timing; validated against EasyMini altimeter flight data"
+    "Designed, built, and launched two high-power rockets for 2026 Battle of the Rockets (FGE): <strong>Mars Rover</strong> — K-class (≤ 2,560 N·s), 79.125 in, 19.30 lb, AeroTech J540R-14, 1,000–2,000 ft target, autonomous soil-sampling rover payload; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class with tube fins, 42.75 in, F42-8T, 801 ft AGL target",
+    "Both vehicles iterated PDR→CDR: Mars Rover motor Loki J525-LW → J540R-14, fins 4-fin trapezoidal → 3-fin PETG-CF, length 75→79.125 in, mass 20.58→19.30 lb, T/W 5.97→6.85:1; Altitude tube fins 3→6 (static margin recovery), airframe Blue Tube → phenolic cardboard, length 49→42.75 in, parachute 36→24 in, T/W 11.03:1",
+    "Ongoing aerodynamic modeling (AeroSim-Stability-Subsonic) for GNC integration — Cₗ/Cᴅ/Cₘ database via rhoSimpleFoam RANS sweeps (Mach 0.1–0.7, AoA 0–10°, sideslip 0–10°); NASA TM X-195 framework for drag-area-to-mass effects; validated against EasyMini altimeter flight data"
   ],
   "how": [
     "Aerodynamic design: full vehicle CAD in SolidWorks; stability verified in RockSim and MATLAB targeting 2.0–2.5 cal static margin; Mars Rover Plastalina clay deadweight added aft to tune CG; Altitude deadweight repositioned front→rear; PETG nose cone redesigned with threaded retention mechanism; both vehicles validated via pre-competition test flight",
-    "CFD (ongoing): rhoSimpleFoam steady-state compressible RANS (Spalart-Allmaras, OpenFOAM v2412); blockMesh + snappyHexMesh domain (19.43 × 9.92 × 9.92 m, 210×120×110 base cells, Level 7 feature + wake refinement); Mach/α/β inlet vector decomposition (Uₓ = |U|cosα cosβ, Uᵧ = |U|sinβ, Uᵤ = |U|sinα cosβ) sweeps without remeshing; Python/Bash/SLURM automation on 16-core HPC",
+    "CFD (ongoing): rhoSimpleFoam steady-state compressible RANS (Spalart-Allmaras, OpenFOAM v2412); blockMesh + snappyHexMesh domain (19.43 × 9.92 × 9.92 m, 210×120×110 base cells, Level 7 feature + wake refinement); Mach/α/β inlet vector decomposition sweeps without remeshing; Python/Bash/SLURM automation on 16-core HPC",
     "Fabrication: Blue Tube → phenolic cardboard after warping failure; 3 centering rings epoxied on Mars Rover motor mount for load transfer; Altitude tube fins bonded via longitudinal aft-airframe slots; managed BOM/budget across recovery and payload subteams; debugged motor igniter slippage at competition"
   ],
   "results": [
-    "<strong>Altitude: 758 ft apogee</strong> — 43 ft from 801 ft target (<strong>&lt;6% error</strong>); 194 fps (Mach 0.2), 3.32 G peak / −0.42 G avg boost, 2.3 s burn + 4.0 s coast, <strong>22 ft/s descent</strong>, 35.6 s descent time, 41.9 s total flight; fully recovered",
-    "<strong>Mars Rover: 1,459 ft apogee</strong> (within spec; CFD-simulated 1,676 ft → actual 1,459 ft); 245 fps (Mach 0.2), 4.22 G peak / 0.52 G avg boost, 3.1 s burn + 6.3 s coast, <strong>12 ft/s descent</strong>, 120.3 s descent time, 129.7 s total flight; successful rover deployment and recovery",
-    "Ongoing CFD building Cₗ/Cᴅ/Cₘ database across Mach 0.1–0.7; ISA-anchored BCs (97,737 Pa / 286.17 K at 1,000 ft — Mars Rover; 99,878 Pa / 287.36 K at 410 ft — Altitude); feeds passive stability verification and GNC integration",
+    "<strong>Altitude: 758 ft apogee</strong> — 43 ft from 801 ft target (<strong>&lt;6% error</strong>); 194 fps (Mach 0.2), 3.32 G peak / −0.42 G avg boost, 2.3 s burn + 4.0 s coast, <strong>22 ft/s descent</strong>, 41.9 s total flight; fully recovered",
+    "<strong>Mars Rover: 1,459 ft apogee</strong> (within spec; CFD-simulated 1,676 ft → actual 1,459 ft); 245 fps (Mach 0.2), 4.22 G peak / 0.52 G avg boost, 3.1 s burn + 6.3 s coast, <strong>12 ft/s descent</strong>, 129.7 s total flight; rover deployed and recovered",
+    "Ongoing CFD building Cₗ/Cᴅ/Cₘ database across Mach 0.1–0.7; ISA-anchored BCs at flight altitudes; feeds passive stability verification and GNC integration",
     "Coordinated CAD, simulation, and build across 5-person team; methodology contributed to BNL-level research publication"
   ],
   "report": "",
