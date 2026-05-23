@@ -8,10 +8,13 @@
   "images": [],
   "what_images": ["images/what1.png", "images/what2.png"],
   "what_images_direction": "row",
+  "what_images_fit": "diagram",
   "how_images": ["images/how1.png", "images/how2.png"],
   "how_images_direction": "row",
+  "how_images_fit": "cover",
   "results_images": ["images/why1.png", "images/why2.png"],
   "results_images_direction": "row",
+  "results_images_fit": "cover",
   "what": [
     "Designed, built, and launched two high-power rockets for 2026 Battle of the Rockets (FGE, two distinct mission profiles): <strong>Mars Rover</strong> — K-class (≤ 2,560 N·s), 79.125 in, 19.30 lb, AeroTech J540R-14, 1,000–2,000 ft target, autonomous soil-sampling rover payload integration; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class with tube fins (FGE-mandated), 42.75 in, F42-8T, 801 ft AGL target — both fully recoverable (≤ 20 ft/s descent), PDR/CDR cleared, FGE/NAR/FAA compliant",
     "Both vehicles iterated PDR→CDR: Mars Rover motor Loki J525-LW → J540R-14, fins 4-fin trapezoidal (curved leading / cusped trailing) → 3-fin PETG-CF, length 75→79.125 in, mass 20.58→19.30 lb, T/W 5.97→6.85:1; Altitude tube fins 3→6 (static margin recovery), airframe Blue Tube → phenolic cardboard, length 49→42.75 in, parachute 36→24 in, T/W 11.03:1",

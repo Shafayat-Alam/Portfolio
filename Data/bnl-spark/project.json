@@ -8,10 +8,13 @@
   "images": [],
   "what_images": ["images/steatite_what.png", "images/ceramics_what.png"],
   "what_images_direction": "column",
+  "what_images_fit": "diagram",
   "how_images": ["images/steatite_how.png", "images/ceramics_how.png"],
   "how_images_direction": "row",
+  "how_images_fit": "diagram",
   "results_images": ["images/ceramics_elemental_distribution.png"],
   "results_images_direction": "column",
+  "results_images_fit": "diagram",
   "what": [
     "<strong>Steatite Sourcing</strong> — XRD/XRF investigation of Fe/Mn stratigraphic layering in rock varnish; traced 10+ artifacts to Rhode Island quarries via d-spacing crystallographic fingerprinting",
     "<strong>Ceramic Provenance</strong> — d-spacing fingerprinting revealing regional clay sources and trade patterns across North Fork, South Fork, and Oyster Island sources",

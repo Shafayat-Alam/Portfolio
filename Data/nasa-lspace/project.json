@@ -8,10 +8,13 @@
   "images": [],
   "what_images": ["images/01.png"],
   "what_images_direction": "column",
+  "what_images_fit": "diagram",
   "how_images": ["images/hot.png", "images/cold.png"],
   "how_images_direction": "column",
+  "how_images_fit": "diagram",
   "results_images": ["images/03.png"],
   "results_images_direction": "column",
+  "results_images_fit": "diagram",
   "what": [
     "Thermal subsystem engineer for the Igneous Seven Venus aerobot, targeting a 370 K equilibrium across a 350–400 K atmospheric profile at 35–50 km altitude with 90 m/s sustained winds",
     "Two-tier passive thermal control architecture combining a low-emissivity chemical coating and an autonomous variable-view-factor radiator — zero power consumption, no sensors or control logic required"

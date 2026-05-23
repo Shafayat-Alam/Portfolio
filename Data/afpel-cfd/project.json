@@ -8,10 +8,13 @@
   "images": [],
   "what_images": ["images/01.png"],
   "what_images_direction": "column",
+  "what_images_fit": "diagram",
   "how_images": ["images/02.png", "images/03.png"],
   "how_images_direction": "row",
+  "how_images_fit": "diagram",
   "results_images": ["images/04.png", "images/05.png"],
   "results_images_direction": "row",
+  "results_images_fit": "diagram",
   "what": [
     "Comparative CFD investigation of blunt-edged vs. streamlined trapezoidal rocket fin geometries at Mach 0.7 (Re = 1.58 × 10⁶) to quantify the drag–lift trade-off for mission-phase-specific selection",
     "Full numerical study from mesh generation through post-processing — 5.88 million cell hexahedral domain, boundary layer refinement, and convergence to 10⁻⁶ residual tolerance"
