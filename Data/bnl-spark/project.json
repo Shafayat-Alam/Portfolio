@@ -6,18 +6,24 @@
   "period": "September 2018 – May 2022",
   "category": "RESEARCH",
   "images": [],
+  "what_images": ["images/steatite_what.png", "images/ceramics_what.png"],
+  "what_images_direction": "column",
+  "how_images": ["images/steatite_how.png", "images/ceramics_how.png"],
+  "how_images_direction": "row",
+  "results_images": ["images/ceramics_elemental_distribution.png"],
   "what": [
-    "XRD and XRF investigation of Fe/Mn stratigraphic layering in rock varnish — Late Holocene indigenous material sourcing in collaboration with Stony Brook University Anthropology and Brookhaven National Laboratory",
-    "Provenance analysis of steatite archaeological artifacts spanning Terminal Archaic through Late Woodland periods (3,500–2,400 B.P.)"
+    "<strong>Steatite Sourcing</strong> — XRD/XRF investigation of Fe/Mn stratigraphic layering in rock varnish; traced 10+ artifacts to Rhode Island quarries via d-spacing crystallographic fingerprinting",
+    "<strong>Ceramic Provenance</strong> — d-spacing fingerprinting revealing regional clay sources and trade patterns across North Fork, South Fork, and Oyster Island sources",
+    "Multi-institutional collaboration (BNL + Stony Brook University Anthropology); Late Holocene indigenous material sourcing spanning Terminal Archaic through Late Woodland periods (3,500–2,400 B.P.)"
   ],
   "how": [
-    "X-ray Diffraction (XRD): 2θ = 20–75° sweeps for crystal structure identification and mineral phase characterization; d-spacing fingerprinting to establish unique crystallographic signatures for material sourcing",
-    "X-ray Fluorescence (XRF): elemental mapping of Fe, Mn, and trace elements across 10+ artifact samples cross-referenced against Rhode Island quarry reference sources",
-    "Comparative stratigraphic and elemental analysis across sample set spanning Terminal Archaic through Late Woodland periods"
+    "<strong>XRD</strong>: 2θ = 20–75° sweeps characterizing crystal structure and mineral phases for both steatite rock varnish and ceramic clay mineralogy",
+    "<strong>XRF</strong>: Elemental mapping of Fe, Mn, and trace elements across 10+ samples for both material types; d-spacing fingerprinting across 2.43–3.81 Å range to establish unique sourcing signatures",
+    "Sample preparation involved surface cleaning, thin-section mounting, and powder preparation for XRD/XRF analysis — prepared samples shown are representative of typical surface treatment and mounting protocol"
   ],
   "results": [
-    "6 samples with Fe/Mn stratigraphic layering consistent with <strong>Younger Dryas formation</strong> — constraining varnish age and deposition environment",
-    "<strong>10+ steatite artifacts traced to Rhode Island quarry sources</strong>; 10–45% elemental variation distinguishing regional clay sources and trade patterns",
+    "<strong>Steatite:</strong> 6 samples with Fe/Mn stratigraphic layering consistent with Younger Dryas formation; <strong>10+ artifacts traced to Rhode Island quarries</strong>",
+    "<strong>Ceramics:</strong> elemental distribution mapping (example shown) revealed <strong>10–45% variation</strong> across regional sources, with distinct geochemical signatures separating North Fork, South Fork, and Oyster Island clay sources",
     "Confirmed <strong>long-distance trade networks (100+ miles)</strong>; published in <strong>NYSAA Bulletin Vol. 138, 2024</strong> and BNL technical report"
   ],
   "report": "",
