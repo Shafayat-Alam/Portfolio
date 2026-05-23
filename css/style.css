@@ -382,6 +382,9 @@ section {
   gap: 2px;
   padding: 2px;
 }
+.section-images[data-direction="row"] {
+  flex-direction: row;
+}
 
 .section-img-slot {
   flex: 1;

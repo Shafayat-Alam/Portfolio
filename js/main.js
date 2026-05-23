@@ -121,15 +121,15 @@ function buildCard(e, num) {
 
 function buildSectionedDetails(e) {
   const sections = [
-    { label: 'What?',   cls: 'what',    bullets: e.what,    images: e.what_images    || [] },
-    { label: 'How?',    cls: 'how',     bullets: e.how,     images: e.how_images     || [] },
-    { label: 'Results', cls: 'results', bullets: e.results, images: e.results_images || [] },
+    { label: 'What?',   cls: 'what',    bullets: e.what,    images: e.what_images    || [], dir: e.what_images_direction    || 'column' },
+    { label: 'How?',    cls: 'how',     bullets: e.how,     images: e.how_images     || [], dir: e.how_images_direction     || 'column' },
+    { label: 'Results', cls: 'results', bullets: e.results, images: e.results_images || [], dir: e.results_images_direction || 'column' },
   ];
 
   return `<div class="card-sections">
     ${sections.map(s => `
       <div class="card-section-col ${s.cls}">
-        <div class="section-images">
+        <div class="section-images" data-direction="${s.dir}">
           ${s.images.map((path, i) => `
             <div class="section-img-slot">
               <img src="${DATA}/${e.slug}/${path}" alt="${s.label} — image ${i + 1}" loading="lazy">
