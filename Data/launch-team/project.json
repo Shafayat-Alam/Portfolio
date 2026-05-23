@@ -16,13 +16,13 @@
   "results_images_direction": "row",
   "results_images_fit": "cover",
   "what": [
-    "Designed, built, and launched two high-power rockets for 2026 Battle of the Rockets (FGE): <strong>Mars Rover</strong> — K-class (≤ 2,560 N·s), 79.125 in, 19.30 lb, AeroTech J540R-14, 1,000–2,000 ft target, autonomous soil-sampling rover payload; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class with tube fins, 42.75 in, F42-8T, 801 ft AGL target",
+    "Designed, built, and flew two high-power rockets for 2026 Battle of the Rockets (FGE): <strong>Mars Rover</strong> — K-class (≤ 2,560 N·s), 79.125 in, 19.30 lb, AeroTech J540R-14, 1,000–2,000 ft target, autonomous soil-sampling rover payload; <strong>Altitude \"Blue Phenix Jr\"</strong> — F-class with tube fins, 42.75 in, F42-8T, 801 ft AGL target",
     "Both vehicles iterated PDR→CDR: Mars Rover motor Loki J525-LW → J540R-14, fins 4-fin trapezoidal → 3-fin PETG-CF, length 75→79.125 in, mass 20.58→19.30 lb, T/W 5.97→6.85:1; Altitude tube fins 3→6 (static margin recovery), airframe Blue Tube → phenolic cardboard, length 49→42.75 in, parachute 36→24 in, T/W 11.03:1",
     "Ongoing aerodynamic modeling (AeroSim-Stability-Subsonic) for GNC integration — Cₗ/Cᴅ/Cₘ database via rhoSimpleFoam RANS sweeps (Mach 0.1–0.7, AoA 0–10°, sideslip 0–10°); NASA TM X-195 framework for drag-area-to-mass effects; validated against EasyMini altimeter flight data"
   ],
   "how": [
-    "Aerodynamic design: full vehicle CAD in SolidWorks; stability verified in RockSim and MATLAB targeting 2.0–2.5 cal static margin; Mars Rover Plastalina clay deadweight added aft to tune CG; Altitude deadweight repositioned front→rear; PETG nose cone redesigned with threaded retention mechanism; both vehicles validated via pre-competition test flight",
-    "CFD (ongoing): rhoSimpleFoam steady-state compressible RANS (Spalart-Allmaras, OpenFOAM v2412); blockMesh + snappyHexMesh domain (19.43 × 9.92 × 9.92 m, 210×120×110 base cells, Level 7 feature + wake refinement); Mach/α/β inlet vector decomposition sweeps without remeshing; Python/Bash/SLURM automation on 16-core HPC",
+    "Aerodynamic design: vehicle CAD in SolidWorks; stability verified in RockSim and MATLAB targeting 2.0–2.5 cal static margin; Mars Rover Plastalina clay deadweight added aft to tune CG; Altitude deadweight repositioned front→rear; PETG nose cone redesigned with threaded retention mechanism; both vehicles validated via pre-competition test flight",
+    "CFD (ongoing): rhoSimpleFoam compressible RANS (Spalart-Allmaras, OpenFOAM v2412); blockMesh + snappyHexMesh domain (19.43 × 9.92 × 9.92 m, 210×120×110 base cells, Level 7 feature + wake refinement); Mach/α/β inlet vector decomposition sweeps without remeshing; Python/Bash/SLURM automation on 16-core HPC",
     "Fabrication: Blue Tube → phenolic cardboard after warping failure; 3 centering rings epoxied on Mars Rover motor mount for load transfer; Altitude tube fins bonded via longitudinal aft-airframe slots; managed BOM/budget across recovery and payload subteams; debugged motor igniter slippage at competition"
   ],
   "results": [
