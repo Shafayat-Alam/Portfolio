@@ -23,7 +23,7 @@
   "skills": [
     {
       "category": "DESIGN & ANALYSIS",
-      "items": ["CAD", "DFM", "DFA", "Engineering Drawings (Y14.5)", "GD&T", "CFD", "Basic FEA"]
+      "items": ["CAD", "DFM", "DFA", "Engineering Drawings (Y14.5)", "GD&T", "CFD (HPC)", "Basic FEA"]
     },
     {
       "category": "CONTROL & STATE-ESTIMATION",
