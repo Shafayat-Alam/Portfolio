@@ -360,7 +360,7 @@ section {
   min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 3fr 2fr;
+  grid-template-rows: 1fr 1fr;
   gap: 2px;
   margin-bottom: 1.5rem;
 }
