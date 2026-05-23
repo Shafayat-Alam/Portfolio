@@ -12,20 +12,20 @@
   "how_images_direction": "row",
   "results_images": ["images/why.png"],
   "what": [
-    "Designed, analyzed, and launched two high-power rockets for the 2026 Battle of the Rockets competition (FGE): a Mars Rover delivery vehicle (79.125 in, 19.30 lb, AeroTech J540R-14, K-class, target apogee 1,000\u20132,000 ft) and a Target Altitude rocket (42.75 in, 1.924 lb, F42-8T, target 801 ft using tube fins only) \u2014 both compliant with FGE, NAR, and FAA safety standards and reviewed through PDR and CDR milestones",
-    "Led aerodynamic design through multi-physics simulation, iterative fin configuration optimization (trapezoidal and tube geometries), and full vehicle CAD integration in SolidWorks; both vehicles required \u2265 5:1 thrust-to-weight ratio and full recoverability",
-    "Contributed CFD analysis (unsteady URANS in OpenFOAM) to quantify instantaneous drag under accelerating subsonic flow \u2014 decomposing pressure vs. viscous contributions and validating design choices under non-equilibrium conditions"
+    "Designed, built, and launched two high-power rockets for the 2026 Battle of the Rockets (FGE): <strong>Mars Rover</strong> delivery vehicle (79.125 in, 19.30 lb, AeroTech J540R-14, 6.08 in OD, 1,000\u20132,000 ft target) and <strong>Altitude Rocket \u201cBlue Phenix Jr\u201d</strong> (42.75 in, F42-8T, tube-fin only, 801 ft target) \u2014 both cleared PDR/CDR milestones, compliant with FGE, NAR, and FAA",
+    "Both vehicles underwent full design iteration PDR\u2192CDR: Mars Rover motor swapped (Loki J525-LW \u2192 J540R-14), fins redesigned (4-fin trapezoidal \u2192 3-fin PETG-CF), length grown 75\u219279.125 in, mass reduced 20.58\u219219.30 lb, T/W raised 5.97\u21926.85:1; Altitude rocket tube fins doubled (3\u21926), airframe swapped (Blue Tube \u2192 phenolic cardboard), length reduced 49\u219242.75 in, parachute cut 36\u219224 in, T/W 11.03:1",
+    "Ongoing aerodynamic modeling study (AeroSim-Stability-Subsonic) for GNC integration \u2014 characterizing C\u2097, C\u1d05, C\u2098 across Mach 0.1\u20130.7, AoA 0\u201310\u00b0, and sideslip 0\u201310\u00b0 via steady-state RANS sweeps; applying NASA TM X-195 energy management framework to quantify drag-area-to-mass effects on apogee and recovery timing"
   ],
   "how": [
-    "Aerodynamic design: iterated trapezoidal (4\u21923 PETG-CF fins) and tube fin (3\u21926, doubled mid-project for static margin recovery) geometries in SolidWorks; ran RockSim stability sweeps targeting stability 2.0\u20132.5 cal; final simulated T/W ratios 11.03:1 (Altitude) and 6.85:1 (Mars Rover)",
-    "CFD validation: built custom OpenFOAM URANS pipeline (snappyHexMesh, k-\u03c9 SST turbulence, time-dependent inlet BC); post-processed drag evolution in ParaView to inform nose cone optimization and validate pressure vs. viscous drag decomposition",
-    "Fabrication: transitioned from Blue Tube to phenolic cardboard after warping failure (reduced weight and assembly time); epoxied centering rings and tube fins, added Plastalina clay deadweight aft to optimize CG; reduced Altitude parachute 36\u219224 in for safe descent; managed BOM/budget and coordinated across recovery and payload subteams"
+    "Aerodynamic design: full vehicle CAD in SolidWorks; RockSim stability sweeps targeting 2.0\u20132.5 cal static margin; Plastalina clay deadweight added aft on Mars Rover to optimize CG; Altitude deadweight repositioned front\u2192rear; PETG nose cone retention mechanism redesigned with threaded interface; both vehicles reached \u2265 5:1 T/W",
+    "CFD (ongoing): rhoSimpleFoam steady-state compressible RANS with Spalart-Allmaras turbulence (OpenFOAM v2412); blockMesh + snappyHexMesh domain (19.43 \u00d7 9.92 \u00d7 9.92 m, base 210\u00d7120\u00d7110 cells, Level 7 feature + wake refinement); Mach/\u03b1/\u03b2 swept via inlet velocity vector decomposition to preserve mesh integrity; automated with Python/Bash/SLURM on 16-core HPC cluster",
+    "Fabrication: transitioned Blue Tube \u2192 phenolic cardboard after warping failure; epoxied centering rings and tube fins; managed BOM/budget; coordinated across recovery and payload subteams; debugged motor igniter slippage at competition"
   ],
   "results": [
-    "<strong>Mars Rover: 1,459 ft apogee</strong> (within 1,000\u20132,000 ft spec) \u2014 Mach 0.2, 4.22 G peak boost, <strong>12 ft/s descent</strong>, 129.7 s total flight; successful rover deployment and recovery",
-    "<strong>Altitude Rocket: 758 ft apogee</strong> \u2014 43 ft from 801 ft target (<strong>&lt;6% error</strong>), Mach 0.2, 3.32 G peak boost, 22 ft/s descent, 41.9 s total flight; fully recovered",
-    "CFD identified nose cone pressure drag as dominant contributor for the Altitude vehicle (higher C_D than Mars Rover); validated smooth flow attachment (no separation) and quadratic drag scaling under acceleration",
-    "Coordinated CAD, simulation, and physical build across 5-person team; debugged motor igniter slippage failure at competition; methodology contributed to BNL-level research publication"
+    "<strong>Mars Rover: 1,459 ft apogee</strong> (within 1,000\u20132,000 ft spec; simulated 1,676 ft \u2192 actual 1,459 ft) \u2014 Mach 0.2, 4.22 G peak boost, <strong>12 ft/s descent</strong>, 129.7 s total flight; successful rover deployment and recovery",
+    "<strong>Altitude Rocket: 758 ft apogee</strong> \u2014 43 ft from 801 ft target (<strong>&lt;6% error</strong>; predicted ~757 ft), Mach 0.2, 3.32 G peak boost, 22 ft/s descent, 41.9 s total flight; fully recovered",
+    "Ongoing CFD sweep building full C\u2097/C\u1d05/C\u2098 aerodynamic database for both configurations; ISA-anchored thermophysics (97,737 Pa / 286.17 K at 1,000 ft for Mars Rover; 99,878 Pa / 287.36 K at 410 ft for Altitude); results feed GNC verification and passive stability validation",
+    "Coordinated CAD, simulation, and build across 5-person team; methodology contributed to BNL-level research publication"
   ],
   "report": "",
   "links": [
