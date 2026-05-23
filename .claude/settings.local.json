@@ -21,7 +21,31 @@
       "Bash(curl -s \"https://is.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayat_works\")",
       "Bash(curl -s \"https://v.gd/create.php?format=simple&url=https://shafayat-alam.github.io/Resume-Portfolio/&shorturl=shafayat_portfolio\")",
       "Bash(curl -s \"https://tinyurl.com/api-create.php?url=https://shafayat-alam.github.io/Resume-Portfolio/\")",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(gh api *)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(git -C /home/shafa/resume_portfolio status)",
+      "Bash(git -C /home/shafa/resume_portfolio add Data/afpel-cfd/project.json Data/nasa-lspace/project.json)",
+      "Bash(git -C /home/shafa/resume_portfolio commit -m ' *)",
+      "Bash(git -C /home/shafa/resume_portfolio push origin main)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Venus-Aerobot-Thermal-Subsystem/main/Heat%20Flow%20Maps.png\" -o \"/home/shafa/resume_portfolio/Data/nasa-lspace/images/01.png\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/aero_streamline.png\" -o \"01.png\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/blunt_streamline.png\" -o \"02.png\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/fin_planform.png\" -o \"03.png\")",
+      "Bash(git -C /home/shafa/resume_portfolio add Data/nasa-lspace/images/01.png Data/afpel-cfd/images/01.png Data/afpel-cfd/images/02.png Data/afpel-cfd/images/03.png Data/nasa-lspace/project.json Data/afpel-cfd/project.json)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/aero_mesh_zoom.png\" -o \"02.png\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/blunt_mesh_zoom.png\" -o \"03.png\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/aero_streamline.png\" -o \"04.png\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/blunt_streamline.png\" -o \"05.png\")",
+      "Bash(git -C /home/shafa/resume_portfolio add Data/afpel-cfd/images/ Data/afpel-cfd/project.json js/main.js css/style.css)",
+      "Bash(git -C /home/shafa/resume_portfolio add css/style.css)",
+      "Bash(git -C /home/shafa/resume_portfolio log --oneline -5)",
+      "Bash(git -C /home/shafa/resume_portfolio ls-remote origin HEAD)",
+      "Bash(git -C /home/shafa/resume_portfolio add Data/afpel-cfd/project.json js/main.js css/style.css)",
+      "Bash(git -C /home/shafa/resume_portfolio add js/main.js css/style.css Data/afpel-cfd/project.json)",
+      "Bash(git -C /home/shafa/resume_portfolio add js/main.js css/style.css)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Shafayat-Alam/Numerical-Investigation-of-Control-Surfaces-External-Aerodynamics/main/image_files/fin_planform.png\" -o \"/home/shafa/resume_portfolio/Data/afpel-cfd/images/01.png\")"
     ]
   }
 }
