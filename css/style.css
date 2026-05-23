@@ -205,10 +205,15 @@ section {
   transform: translateY(0);
 }
 
+/* Work section flush against header — no padding */
+#work {
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
 /* ═══════════════════════════════════════════════════════════
-   WORK GRID — 2 columns on wide screens, 1 on narrow
-   Negative margins break the grid out of section padding so cards
-   go edge-to-edge while WORK header stays aligned with other sections
+   WORK GRID
 ═══════════════════════════════════════════════════════════ */
 .work-grid {
   display: grid;
@@ -349,34 +354,36 @@ section {
   padding: 0 0.5rem;
 }
 
-/* Sectioned layout: 3 columns side by side, text top + images stacked below */
+/* Sectioned layout: 3 columns, images row = text row = equal height via subgrid */
 .card-sections {
   flex: 1;
   min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
   gap: 2px;
   margin-bottom: 1.5rem;
 }
 
 .card-section-col {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
   background: transparent;
-  border: 1px solid var(--border);
+  min-height: 0;
 }
 
 .card-section-col .detail-col {
-  flex: 1;
   background: var(--bg);
   border: none;
   border-top: 1px solid var(--border);
+  min-height: 0;
+  overflow: hidden;
 }
 
 .section-images {
-  flex: 1;
   min-height: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 0;
