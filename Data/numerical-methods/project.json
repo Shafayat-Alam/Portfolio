@@ -7,16 +7,18 @@
   "category": "COMPUTATION",
   "images": ["images/01.png", "images/03.png", "images/05.png"],
   "what": [
-    "Five MATLAB implementations of classical numerical methods across real engineering domains: turbine power plant analysis (Newton-Raphson), thermal cost optimization (gradient descent), compressible duct flow (RK-4 ODE), three-mass vibration isolation (Forward Euler), and DC motor speed regulation (PID control)",
-    "Each problem reduced to a precise numerical formulation requiring convergence under engineering tolerances — turbine cold-end system solved to 10⁻¹²% and air cooling optimizer converged in under 1,000 iterations"
+    "Five MATLAB implementations of classical numerical methods applied to real engineering systems: Newton-Raphson (6-equation turbine cold-end), steepest-descent optimization (3-component air cooling, 9→2 constraints), RK-4 ODE solver (compressible duct flow, 3 phenomena), Forward Euler multi-body dynamics (3-mass shock damper, 300 s), and PID motor control (P / PI / PID comparison, −85→+85 RPM transition)",
+    "Each problem formulated to tight tolerances — turbine cold-end solved to <strong>10⁻¹²%</strong> where standard Newton-Raphson diverged at 100,000 iterations; cooling optimizer converged in &lt;1,000 iterations; RK-4 achieves O(h⁴) global error vs. O(h) for Forward Euler"
   ],
   "how": [
-    "Newton-Raphson: 4-stage decomposition strategy to solve 6 coupled nonlinear equations (condenser pressure, heat rate, power output) — overcame oscillation and divergence that defeated standard root-finding approaches; gradient descent reduced 9 constraints to 2 via algebraic substitution before minimization",
-    "RK-4 4th-order integration (O(h⁴) accuracy) applied to three compressible flow phenomena — area change, friction, and heat transfer — in variable-area ducts; Forward Euler integration of coupled spring-damper ODEs with sinusoidal and Gaussian forcing over 300 s; PID validated with practical op-amp R/C networks"
+    "Newton-Raphson: custom 3×3 Jacobian with 4-stage sequential decomposition (polynomial NR → direct calculation → scalar NR → algebraic) to isolate nonlinearity and eliminate oscillation; gradient descent with α=0.01, h=10⁻⁵ finite-difference gradient, 9 constraints algebraically collapsed to a single-variable objective before minimization",
+    "RK-4 integrates dM/dx across area change (de Laval geometry, α=0.25 cm/cm), friction (Fanno, f=0.005), and heat transfer (Rayleigh, β=50 J/cm) over 21 grid points in [0,5] cm; Forward Euler at Δt=0.1 s over 3,001 steps under sinusoidal (20 s period) + Gaussian pulse (t=50 s, σ≈3.87 s) forcing on m₁=108.9 kg",
+    "PID implemented with physical op-amp R/C network (Rp2=5,660 Ω, Ri=1,112 Ω, Ci=1 μF, Cd=0.1 μF → Kp=5.66, Ki=5,091.71 s⁻¹, Kd=2.83×10⁻⁴ s); P, PI, and PID all simulated on the same step input to isolate each mode's contribution to settling behavior"
   ],
   "results": [
-    "<strong>Turbine cold-end system</strong> converged to <strong>10⁻¹²% tolerance</strong>; air cooling cost minimized to <strong>$8,186.99</strong> in &lt;1,000 iterations",
-    "RK-4 compressible flow: subsonic and supersonic Mach responses to area change, friction, and heat transfer quantified and contrasted — directly applicable to rocket nozzle design; 3-mass shock damper: full transient-to-steady-state energy cascade tracked under sinusoidal and Gaussian forcing over 300 s"
+    "<strong>Turbine:</strong> CP=1.447 inHg, NKW=253,335.95 kW, NHR=7,973.97 BTU/kWh — all converged to 10⁻¹²%; <strong>cooling cost: $8,186.99</strong> total (refrigeration $4,988.87, precooler −$1.64 net benefit via heat recovery, tower $3,199.76)",
+    "<strong>RK-4:</strong> subsonic M₀=0.7 decelerates to ~0.1 in diverging duct; supersonic M₀=1.5 accelerates to ~3.5 — opposing behavior confirmed; friction and heat addition both drive flow to M=1 (Fanno/Rayleigh choking) — directly applicable to rocket nozzle and scramjet design",
+    "<strong>Shock damper:</strong> minimum separation 3.087 m (collision prevention), max velocity 0.779 m/s in Mass 3 despite zero direct forcing (energy cascade via spring coupling), Mass 2 ±4 m range, steady-state onset ~100 s; <strong>PID</strong> outperformed P (persistent error) and PI (overshoot) for optimal step settling"
   ],
   "report": "",
   "links": [
