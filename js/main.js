@@ -62,6 +62,30 @@ function buildCard(e, num) {
   const article = document.createElement('article');
   article.className = 'card';
 
+  const hasSectionImages = e.what_images || e.how_images || e.results_images;
+
+  const imagesBlock = hasSectionImages ? '' : `
+    <div class="card-images" data-count="${Math.max(3, (e.images || []).length)}">
+      ${Array.from({ length: Math.max(3, (e.images || []).length) }, (_, i) => imageSlot(e, i)).join('')}
+    </div>`;
+
+  const detailsBlock = hasSectionImages
+    ? buildSectionedDetails(e)
+    : `<div class="card-details">
+        <div class="detail-col what">
+          <h4>What?</h4>
+          <ul>${e.what.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>
+        <div class="detail-col how">
+          <h4>How?</h4>
+          <ul>${e.how.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>
+        <div class="detail-col results">
+          <h4>Results</h4>
+          <ul>${e.results.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>
+      </div>`;
+
   article.innerHTML = `
     <div class="card-header">
       <span class="card-num">${num}</span>
@@ -72,24 +96,8 @@ function buildCard(e, num) {
       <span class="card-tag">${e.category}</span>
     </div>
 
-    <div class="card-images" data-count="${Math.max(3, (e.images || []).length)}">
-      ${Array.from({ length: Math.max(3, (e.images || []).length) }, (_, i) => imageSlot(e, i)).join('')}
-    </div>
-
-    <div class="card-details">
-      <div class="detail-col what">
-        <h4>What?</h4>
-        <ul>${e.what.map(b => `<li>${b}</li>`).join('')}</ul>
-      </div>
-      <div class="detail-col how">
-        <h4>How?</h4>
-        <ul>${e.how.map(b => `<li>${b}</li>`).join('')}</ul>
-      </div>
-      <div class="detail-col results">
-        <h4>Results</h4>
-        <ul>${e.results.map(b => `<li>${b}</li>`).join('')}</ul>
-      </div>
-    </div>
+    ${imagesBlock}
+    ${detailsBlock}
 
     <div class="card-footer">
       <span class="card-period">${e.period}</span>
@@ -109,6 +117,30 @@ function buildCard(e, num) {
   });
 
   return article;
+}
+
+function buildSectionedDetails(e) {
+  const sections = [
+    { label: 'What?',   cls: 'what',    bullets: e.what,    images: e.what_images    || [] },
+    { label: 'How?',    cls: 'how',     bullets: e.how,     images: e.how_images     || [] },
+    { label: 'Results', cls: 'results', bullets: e.results, images: e.results_images || [] },
+  ];
+
+  return `<div class="card-sections">
+    ${sections.map(s => `
+      <div class="card-section">
+        <div class="detail-col ${s.cls}">
+          <h4>${s.label}</h4>
+          <ul>${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>
+        <div class="section-images">
+          ${s.images.map((path, i) => `
+            <div class="section-img-slot">
+              <img src="${DATA}/${e.slug}/${path}" alt="${s.label} — image ${i + 1}" loading="lazy">
+            </div>`).join('')}
+        </div>
+      </div>`).join('')}
+  </div>`;
 }
 
 function imageSlot(entry, i) {

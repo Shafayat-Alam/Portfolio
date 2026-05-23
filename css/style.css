@@ -343,6 +343,39 @@ section {
   padding: 0 0.5rem;
 }
 
+/* Sectioned layout: each row = text left + images right */
+.card-sections {
+  margin-bottom: 1.5rem;
+}
+
+.card-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.section-images {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.section-img-slot {
+  flex: 1;
+  min-height: 160px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.section-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Card details: What / How / Results */
 .card-details {
   display: grid;
