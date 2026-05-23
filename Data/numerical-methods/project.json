@@ -7,18 +7,18 @@
   "category": "COMPUTATION",
   "images": ["images/01.png", "images/03.png", "images/05.png"],
   "what": [
-    "Five MATLAB implementations of classical numerical methods applied to real engineering systems: Newton-Raphson (6-equation turbine cold-end), steepest-descent optimization (3-component air cooling, 9→2 constraints), RK-4 ODE solver (compressible duct flow, 3 phenomena), Forward Euler multi-body dynamics (3-mass shock damper, 300 s), and PID motor control (P / PI / PID comparison, −85→+85 RPM transition)",
+    "Five MATLAB implementations of classical numerical methods applied to real engineering systems: <strong>Newton-Raphson</strong> [fig. 1] (6-equation turbine cold-end), steepest-descent optimization (3-component air cooling, 9→2 constraints), <strong>RK-4 ODE solver</strong> [fig. 2] (compressible duct flow, 3 phenomena), <strong>Forward Euler</strong> [fig. 3] multi-body dynamics (3-mass shock damper, 300 s), and PID motor control (P / PI / PID comparison, −85→+85 RPM)",
     "Each problem formulated to tight tolerances — turbine cold-end solved to <strong>10⁻¹²%</strong> where standard Newton-Raphson diverged at 100,000 iterations; cooling optimizer converged in &lt;1,000 iterations; RK-4 achieves O(h⁴) global error vs. O(h) for Forward Euler"
   ],
   "how": [
-    "Newton-Raphson: custom 3×3 Jacobian with 4-stage sequential decomposition (polynomial NR → direct calculation → scalar NR → algebraic) to isolate nonlinearity and eliminate oscillation; gradient descent with α=0.01, h=10⁻⁵ finite-difference gradient, 9 constraints algebraically collapsed to a single-variable objective before minimization",
-    "RK-4 integrates dM/dx across area change (de Laval geometry, α=0.25 cm/cm), friction (Fanno, f=0.005), and heat transfer (Rayleigh, β=50 J/cm) over 21 grid points in [0,5] cm; Forward Euler at Δt=0.1 s over 3,001 steps under sinusoidal (20 s period) + Gaussian pulse (t=50 s, σ≈3.87 s) forcing on m₁=108.9 kg",
-    "PID implemented with physical op-amp R/C network (Rp2=5,660 Ω, Ri=1,112 Ω, Ci=1 μF, Cd=0.1 μF → Kp=5.66, Ki=5,091.71 s⁻¹, Kd=2.83×10⁻⁴ s); P, PI, and PID all simulated on the same step input to isolate each mode's contribution to settling behavior"
+    "<strong>[fig. 1]</strong> Newton-Raphson: custom 3×3 Jacobian with 4-stage sequential decomposition (polynomial NR → direct → scalar NR → algebraic) to isolate nonlinearity and eliminate oscillation; gradient descent with α=0.01, h=10⁻⁵ finite-difference gradient, 9 constraints algebraically collapsed to a single-variable objective",
+    "<strong>[fig. 2]</strong> RK-4 integrates dM/dx across area change (de Laval, α=0.25 cm/cm), friction (Fanno, f=0.005), and heat transfer (Rayleigh, β=50 J/cm) over 21 grid points in [0,5] cm; <strong>[fig. 3]</strong> Forward Euler at Δt=0.1 s over 3,001 steps under sinusoidal (20 s period) + Gaussian pulse (t=50 s) forcing on m₁=108.9 kg",
+    "PID (not depicted) implemented with physical op-amp R/C network (Rp2=5,660 Ω, Ri=1,112 Ω, Ci=1 μF → Kp=5.66, Ki=5,091.71 s⁻¹, Kd=2.83×10⁻⁴ s); P, PI, and PID compared on same step input to isolate each mode's contribution"
   ],
   "results": [
-    "<strong>Turbine:</strong> CP=1.447 inHg, NKW=253,335.95 kW, NHR=7,973.97 BTU/kWh — all converged to 10⁻¹²%; <strong>cooling cost: $8,186.99</strong> total (refrigeration $4,988.87, precooler −$1.64 net benefit via heat recovery, tower $3,199.76)",
-    "<strong>RK-4:</strong> subsonic M₀=0.7 decelerates to ~0.1 in diverging duct; supersonic M₀=1.5 accelerates to ~3.5 — opposing behavior confirmed; friction and heat addition both drive flow to M=1 (Fanno/Rayleigh choking) — directly applicable to rocket nozzle and scramjet design",
-    "<strong>Shock damper:</strong> minimum separation 3.087 m (collision prevention), max velocity 0.779 m/s in Mass 3 despite zero direct forcing (energy cascade via spring coupling), Mass 2 ±4 m range, steady-state onset ~100 s; <strong>PID</strong> outperformed P (persistent error) and PI (overshoot) for optimal step settling"
+    "<strong>[fig. 1] Turbine:</strong> CP=1.447 inHg, NKW=253,335.95 kW, NHR=7,973.97 BTU/kWh — converged to 10⁻¹²%; cooling (not depicted): total cost <strong>$8,186.99</strong> (refrigeration $4,988.87, precooler −$1.64 net benefit, tower $3,199.76)",
+    "<strong>[fig. 2] RK-4:</strong> subsonic M₀=0.7 decelerates to ~0.1 in diverging duct; supersonic M₀=1.5 accelerates to ~3.5 — opposing behavior confirmed; friction and heat addition both drive flow to M=1 — applicable to rocket nozzle and scramjet design",
+    "<strong>[fig. 3] Shock damper:</strong> min separation 3.087 m, max velocity 0.779 m/s in Mass 3 (no direct forcing — energy cascade via springs), Mass 2 ±4 m range, steady-state at ~100 s; PID (not depicted) outperformed P (error) and PI (overshoot) for optimal settling"
   ],
   "report": "",
   "links": [
