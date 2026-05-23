@@ -1,24 +1,29 @@
 {
   "id": "launch-team",
-  "title": "COMPETITIVE LAUNCH VEHICLE",
+  "title": "BATTLE OF THE ROCKETS 2026",
   "org": "Stony Brook Student Launch Team",
   "institution": "Stony Brook University",
   "period": "September 2025 \u2013 Present",
   "category": "AEROSPACE",
   "images": [],
   "what": [
-    "Numerical characterization of launch vehicle flight envelope",
-    "Mechanical design, fabrication, and integration of competitive subsystems"
+    "Designed, analyzed, and launched two high-power rockets for the 2026 Battle of the Rockets competition: a Mars Rover delivery vehicle (target apogee 1,000\u20132,000 ft) and a Target Altitude rocket (801 ft, tube fins only)",
+    "Led aerodynamic design through multi-physics simulation, fin configuration optimization, and full vehicle CAD integration",
+    "Contributed CFD analysis (unsteady URANS in OpenFOAM) to quantify instantaneous drag under accelerating subsonic flow \u2014 decomposing pressure vs. viscous contributions and validating design choices under non-equilibrium conditions"
   ],
   "how": [
-    "Aerodynamic simulation and flight envelope analysis",
-    "Subsystem mechanical design and fabrication",
-    "Integration testing and ground verification"
+    "Aerodynamic design: iterated trapezoidal and tube fin geometries in SolidWorks; ran RockSim stability sweeps to balance drag, stability margin, and manufacturability",
+    "CFD validation: built custom OpenFOAM URANS pipeline (snappyHexMesh, k-\u03c9 SST turbulence, time-dependent inlet BC); post-processed drag evolution in ParaView to inform nose cone optimization",
+    "Fabrication: epoxied tube fins to phenolic airframe, managed budget/BOM tracking, coordinated with recovery and payload subteams; transitioned from Blue Tube to phenolic after warping failure and redesigned aft section from 3-fin to 6-fin mid-project to recover static margin"
   ],
   "results": [
-    "Aerodynamic behavior characterized across full flight envelope",
-    "Competitive subsystems fabricated, integrated, and verified"
+    "<strong>Mars Rover: 1,459 ft apogee</strong> (within 1,000\u20132,000 ft spec) \u2014 successful rover deployment and recovery, &lt;20 ft/s descent",
+    "<strong>Altitude Rocket: 758 ft apogee</strong> \u2014 43 ft from 801 ft target (<strong>&lt;6% error</strong>), fully recovered",
+    "CFD identified nose cone pressure drag as dominant contributor for the Altitude vehicle; validated smooth flow attachment (no separation) and quadratic drag scaling under acceleration",
+    "Coordinated CAD, simulation, and physical build across 5-person team; debugged motor igniter slippage at competition; methodology contributed to BNL-level research publication"
   ],
   "report": "",
-  "links": []
+  "links": [
+    "https://github.com/Shafayat-Alam/AeroSim-Stability-Subsonic"
+  ]
 }
