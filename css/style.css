@@ -371,7 +371,7 @@ section {
   flex-shrink: 0;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
 .section-images {

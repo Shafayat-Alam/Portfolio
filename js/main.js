@@ -129,15 +129,15 @@ function buildSectionedDetails(e) {
   return `<div class="card-sections">
     ${sections.map(s => `
       <div class="card-section-col ${s.cls}">
-        <div class="detail-col ${s.cls}">
-          <h4>${s.label}</h4>
-          <ul>${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-        </div>
         <div class="section-images">
           ${s.images.map((path, i) => `
             <div class="section-img-slot">
               <img src="${DATA}/${e.slug}/${path}" alt="${s.label} — image ${i + 1}" loading="lazy">
             </div>`).join('')}
+        </div>
+        <div class="detail-col ${s.cls}">
+          <h4>${s.label}</h4>
+          <ul>${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
         </div>
       </div>`).join('')}
   </div>`;
