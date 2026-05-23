@@ -1,0 +1,30 @@
+{
+  "id": "numerical-methods",
+  "title": "NUMERICAL METHODS IN ENGINEERING ANALYSIS",
+  "org": "Department of Mechanical Engineering",
+  "institution": "Stony Brook University",
+  "period": "2024 – 2025",
+  "category": "COMPUTATION",
+  "images": [],
+  "what_images": ["images/01.png", "images/02.png"],
+  "what_images_direction": "row",
+  "how_images": ["images/03.png", "images/04.png"],
+  "how_images_direction": "row",
+  "results_images": ["images/05.png", "images/06.png"],
+  "what": [
+    "Five MATLAB implementations of classical numerical methods across real engineering domains: turbine power plant analysis (Newton-Raphson), thermal cost optimization (gradient descent), compressible duct flow (RK-4 ODE), three-mass vibration isolation (Forward Euler), and DC motor speed regulation (PID control)",
+    "Each problem reduced to a precise numerical formulation requiring convergence under engineering tolerances — turbine cold-end system solved to 10⁻¹²% and air cooling optimizer converged in under 1,000 iterations"
+  ],
+  "how": [
+    "Newton-Raphson: 4-stage decomposition strategy to solve 6 coupled nonlinear equations (condenser pressure, heat rate, power output) — overcame oscillation and divergence that defeated standard root-finding approaches; gradient descent reduced 9 constraints to 2 via algebraic substitution before minimization",
+    "RK-4 4th-order integration (O(h⁴) accuracy) applied to three compressible flow phenomena — area change, friction, and heat transfer — in variable-area ducts; Forward Euler integration of coupled spring-damper ODEs with sinusoidal and Gaussian forcing over 300 s; PID validated with practical op-amp R/C networks"
+  ],
+  "results": [
+    "<strong>Turbine cold-end system</strong> converged to <strong>10⁻¹²% tolerance</strong>; air cooling cost minimized to <strong>$8,186.99</strong> in &lt;1,000 iterations",
+    "RK-4 compressible flow: subsonic and supersonic Mach responses to area change, friction, and heat transfer quantified and contrasted — directly applicable to rocket nozzle design; 3-mass shock damper: full transient-to-steady-state energy cascade tracked under sinusoidal and Gaussian forcing over 300 s"
+  ],
+  "report": "",
+  "links": [
+    "https://github.com/Shafayat-Alam/Basic-Numerical-Methods-Engineering-Analysis"
+  ]
+}
