@@ -23,7 +23,7 @@
   "skills": [
     {
       "category": "DESIGN & ANALYSIS",
-      "items": ["CAD", "DFM/DFA", "Engineering Drawings", "GD&T", "ASME Y14.5", "CFD", "Meshlab", "Paraview", "OpenFOAM", "HPC", "Parallel Computing", "Basic FEA"]
+      "items": ["CAD", "DFM", "DFA", "Engineering Drawings (Y14.5)", "GD&T", "CFD", "Basic FEA"]
     },
     {
       "category": "CONTROL & STATE-ESTIMATION",
@@ -31,7 +31,7 @@
     },
     {
       "category": "FABRICATION & TEST",
-      "items": ["CAM", "Additive Manufacturing", "Subtractive Manufacturing", "End-to-End (E2E) Verification & Validation"]
+      "items": ["CAM", "Additive/Subtractive Manufacturing", "End-to-End (E2E) Verification & Validation"]
     },
     {
       "category": "PROGRAMMING & SCRIPTING",
