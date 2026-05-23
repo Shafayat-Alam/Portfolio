@@ -397,20 +397,18 @@ section {
   flex: 1;
   min-height: 0;
   min-width: 0;
+  position: relative;
   overflow: hidden;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .section-img-slot img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.55));
 }
 
 

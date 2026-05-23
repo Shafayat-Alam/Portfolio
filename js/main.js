@@ -46,15 +46,16 @@ function applyProfile(p) {
     { href: `mailto:${p.email}`, text: p.email },
     { href: p.linkedin,           text: 'LinkedIn ↗', external: true },
     { href: p.github,             text: 'GitHub ↗',   external: true },
-  ].map(c => `<a href="${c.href}" class="header-contact-link"${c.external ? ' target="_blank" rel="noopener"' : ''}>${c.text}</a>`).join('');
+  ].map(c =>
+    `<a href="${c.href}" class="header-contact-link"${c.external ? ' target="_blank" rel="noopener"' : ''}>${c.text}</a>`
+  ).join('');
 }
 
 /* ── Work ── */
 function renderWork(entries) {
   const grid = document.getElementById('work-grid');
   entries.forEach((entry, i) => {
-    const card = buildCard(entry, String(i + 1).padStart(2, '0'));
-    grid.appendChild(card);
+    grid.appendChild(buildCard(entry, String(i + 1).padStart(2, '0')));
   });
 }
 
@@ -62,7 +63,12 @@ function buildCard(e, num) {
   const article = document.createElement('article');
   article.className = 'card';
 
-  const hasSectionImages = e.what_images || e.how_images || e.results_images;
+  /* An entry uses sectioned layout only if at least one section has images */
+  const hasSectionImages = !!(
+    (e.what_images    && e.what_images.length)    ||
+    (e.how_images     && e.how_images.length)     ||
+    (e.results_images && e.results_images.length)
+  );
 
   const imagesBlock = hasSectionImages ? '' : `
     <div class="card-images" data-count="${Math.max(3, (e.images || []).length)}">
@@ -102,17 +108,18 @@ function buildCard(e, num) {
     <div class="card-footer">
       <span class="card-period">${e.period}</span>
       <div class="card-links">
-        ${(e.links || []).map(url => `<a href="${url}" target="_blank" rel="noopener" class="card-link">${url.replace(/^https?:\/\//, '')} ↗</a>`).join('')}
+        ${(e.links || []).map(url =>
+          `<a href="${url}" target="_blank" rel="noopener" class="card-link">${url.replace(/^https?:\/\//, '')} ↗</a>`
+        ).join('')}
         ${e.report ? `<a href="${DATA}/${e.slug}/${e.report}" target="_blank" rel="noopener" class="card-link">VIEW REPORT ↗</a>` : ''}
       </div>
     </div>
   `;
 
+  /* Fallback placeholder for broken flat-layout images */
   article.querySelectorAll('.img-slot img').forEach(img => {
     img.addEventListener('error', function () {
-      const slot = this.closest('.img-slot');
-      const idx  = this.dataset.idx;
-      slot.innerHTML = placeholder(`IMAGE ${Number(idx) + 1}`);
+      this.closest('.img-slot').innerHTML = placeholder(`IMAGE ${Number(this.dataset.idx) + 1}`);
     });
   });
 
@@ -129,7 +136,7 @@ function buildSectionedDetails(e) {
   return `<div class="card-sections">
     ${sections.map(s => `
       <div class="card-section-col ${s.cls}">
-        <div class="section-images" data-direction="${s.dir}">
+        <div class="section-images" data-direction="${s.dir}" data-count="${s.images.length}">
           ${s.images.map((path, i) => `
             <div class="section-img-slot">
               <img src="${DATA}/${e.slug}/${path}" alt="${s.label} — image ${i + 1}" loading="lazy">
