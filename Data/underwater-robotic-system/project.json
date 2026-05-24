@@ -21,7 +21,7 @@
     "Soft actuator design"
   ],
   "how": [
-    "Compliant materials, DFA-driven mechanical design, and subtractive manufacturing for actuator and structural fabrication",
+    "Compliant materials, design for assembly (DFA)-driven mechanical design, and subtractive manufacturing for actuator and structural fabrication",
     "ROS2-based control software and sensor integration",
     "Automated/Systematic testing procedures across air, underwater, and transitioning media"
   ],
