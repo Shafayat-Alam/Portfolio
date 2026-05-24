@@ -12,7 +12,9 @@
   "how_images": ["images/how_crab.png"],
   "how_images_direction": "column",
   "how_images_fit": "cover",
-  "results_images": [],
+  "results_images": ["images/results_crab.png"],
+  "results_images_direction": "column",
+  "results_images_fit": "cover",
   "what": [
     "Full-stack architecture and development of an underwater robotic system",
     "Bio-inspired gait behavior and chassis development",
