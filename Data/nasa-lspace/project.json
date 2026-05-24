@@ -1,7 +1,7 @@
 {
   "id": "nasa-lspace",
-  "title": "VENUS AEROBOT THERMAL CONTROL SUBSYSTEM",
-  "org": "Team Igneous Seven · NASA L'SPACE Mission Concept Academy",
+  "title": "AUTONOMOUS AEROBOT: THERMAL CONTROL SUBSYSTEM",
+  "org": "NASA L'SPACE Mission Concept Academy",
   "institution": "Stony Brook University",
   "period": "January 2025 – May 2025",
   "category": "RESEARCH",
@@ -10,13 +10,13 @@
   "what_images_direction": "column",
   "what_images_fit": "diagram",
   "how_images": ["images/hot.png", "images/cold.png"],
-  "how_images_direction": "column",
+  "how_images_direction": "row",
   "how_images_fit": "diagram",
   "results_images": ["images/03.png"],
   "results_images_direction": "column",
   "results_images_fit": "diagram",
   "what": [
-    "Thermal subsystem lead, Igneous Seven Venus aerobot — 370 K equilibrium target, 350–400 K profile, 35–50 km altitude, 90 m/s; Re_hot = 6.43×10⁶ / Re_cold = 4.02×10⁶ (turbulent Venus CO₂)",
+    "Thermal engineer, fully autonomous Venus aerobot — 370 K equilibrium target, 350–400 K profile, 35–50 km altitude, 90 m/s; Re_hot = 6.43×10⁶ / Re_cold = 4.02×10⁶ (turbulent Venus CO₂)",
     "Two-tier passive: SilcoNert® 1040 (ε = 0.008, α = 0.008, T_max = 450 K, TRL 5, 1 m²) + ACT variable-view-factor radiator (4.0 kg, 0.8×0.3×0.3 m, TRL 5) — 0 W, no sensors or control logic"
   ],
   "how": [

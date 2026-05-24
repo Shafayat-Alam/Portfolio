@@ -1,6 +1,6 @@
 {
   "id": "afpel-cfd",
-  "title": "COMPRESSIBLE CFD: TRAPEZOIDAL FIN AERODYNAMICS",
+  "title": "3D COMPRESSIBLE CFD: TRAPEZOIDAL FIN AERODYNAMICS",
   "org": "Advanced Fluid Dynamics, Propulsion, and Energy Lab (AFPEL)",
   "institution": "Stony Brook University",
   "period": "October 2025 – May 2026",
@@ -17,7 +17,7 @@
   "results_images_fit": "diagram",
   "what": [
     "Comparative CFD of blunt-edged vs. streamlined trapezoidal fins at Mach 0.7 (Re = 1.58 × 10⁶, AoA = 0°): blunt — flat 90° edges, 5.50/2.144 in chord, AR = 0.720; aero — curved leading + cusped trailing, identical planform",
-    "Flow at 236.6 m/s / 283.19 K / 94,212 Pa (2,000 ft ISA); full RANS study from mesh generation through post-processing — pressure/viscous decomposition to isolate wake and BL mechanisms"
+    "Flow at 236.6 m/s / 283.19 K / 94,212 Pa (2,000 ft ISA); full RANS study from mesh generation through post-processing — pressure/viscous decomposition to isolate wake and boundary layer mechanisms"
   ],
   "how": [
     "rhoSimpleFoam RANS (Spalart-Allmaras, OpenFOAM v2412); linearUpwind convection, GAMG multigrid; inlet 236.6 m/s / 283.19 K, outlet 94,212 Pa, no-slip adiabatic walls",
