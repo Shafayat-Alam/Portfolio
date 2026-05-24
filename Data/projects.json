@@ -13,11 +13,11 @@
   },
 
   "projects": [
-    "soft-flyers",
-    "launch-team",
-    "afpel-cfd",
-    "nasa-lspace",
-    "bnl-spark"
+    "underwater-robotic-system",
+    "launch-vehicle-design",
+    "3d-compressible-cfd-trapezoidal-fin-aerodynamics",
+    "autonomous-aerobot-thermal-control-subsystem",
+    "geochemical-provenance-analysis"
   ],
 
   "skills": [
