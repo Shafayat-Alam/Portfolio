@@ -391,6 +391,10 @@ section {
   padding: 0;
 }
 
+.section-images[data-count="0"] {
+  display: none;
+}
+
 .card-section-col .detail-col {
   flex: 1;
   min-height: fit-content;
