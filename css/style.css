@@ -383,8 +383,8 @@ section {
 }
 
 .section-images {
-  flex: 0 0 clamp(140px, 40svh, 520px);
-  overflow: hidden;
+  flex: none;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -403,35 +403,29 @@ section {
   border: none;
   border-top: 1px solid var(--border);
 }
+
 .section-images[data-direction="row"] {
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .section-img-slot {
   flex: 1;
-  min-height: 0;
   min-width: 0;
-  position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
-/* Photos / renders — fill slot, crop to fit */
+/* Images: natural aspect ratio, never cropped — scale down to fit width only */
 .section-img-slot img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  height: auto;
+  object-fit: initial;
 }
 
-/* Technical diagrams — fill slot, no crop, dark bg fills letterbox */
+/* Technical diagrams — transparent bg so image floats */
 .section-images[data-fit="diagram"] .section-img-slot {
-  background: var(--surface-2);
-}
-
-.section-images[data-fit="diagram"] .section-img-slot img {
-  object-fit: contain;
+  background: transparent;
 }
 
 
@@ -575,10 +569,6 @@ section {
     margin-bottom: 1.5rem;
   }
 
-  .section-images {
-    flex: 0 0 clamp(120px, 30svh, 320px);
-  }
-
   /* Show only the active section */
   .card-section-col {
     display: none;
@@ -596,9 +586,6 @@ section {
   }
   .card-header {
     margin-bottom: 1.25rem;
-  }
-  .section-images {
-    flex: 0 0 clamp(120px, 28svh, 280px);
   }
   .detail-col li {
     font-size: 0.8rem;
