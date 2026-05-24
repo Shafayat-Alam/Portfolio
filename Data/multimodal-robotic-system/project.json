@@ -1,5 +1,5 @@
 {
-  "id": "underwater-robotic-system",
+  "id": "multimodal-robotic-system",
   "title": "MULTIMODAL ROBOTIC SYSTEM",
   "org": "Soft Flyers Group",
   "institution": "Stony Brook University",
@@ -11,17 +11,17 @@
   "what_images_fit": "diagram",
   "how_images": ["images/how_crab.png"],
   "how_images_direction": "column",
-  "how_images_fit": "cover",
+  "how_images_fit": "diagram",
   "results_images": ["images/results_crab.png"],
   "results_images_direction": "column",
-  "results_images_fit": "cover",
+  "results_images_fit": "diagram",
   "what": [
     "Full-stack architecture and development of a multimodal robotic system",
     "Bio-inspired air and underwater gait behavior — chassis development for transitioning media",
     "Soft actuator design"
   ],
   "how": [
-    "Compliant materials, design for assembly (DFA)-driven mechanical design, and subtractive manufacturing for actuator and structural fabrication",
+    "Compliant materials, design for assembly (DFA) driven mechanical design, and subtractive manufacturing",
     "ROS2-based control software and sensor integration",
     "Automated/Systematic testing procedures across air, underwater, and transitioning media"
   ],

@@ -11,7 +11,7 @@
   "what_images_fit": "diagram",
   "how_images": ["images/how1.png", "images/how2.png"],
   "how_images_direction": "row",
-  "how_images_fit": "cover",
+  "how_images_fit": "diagram",
   "results_images": ["images/why1.png", "images/why2.png"],
   "results_images_direction": "row",
   "results_images_fit": "cover",
