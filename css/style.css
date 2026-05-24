@@ -367,8 +367,7 @@ section {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 2px;
-  row-gap: 0;
+  gap: 2px;
   margin-bottom: 1.5rem;
 }
 
@@ -377,29 +376,28 @@ section {
   display: none;
 }
 
-/* display:contents makes children direct grid participants —
-   all 3 image areas share row 1 (height = tallest image),
-   all 3 text areas share row 2 (height = tallest text block) */
 .card-section-col {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
 }
 
+/* Fixed height gives consistent proportions across all 3 columns */
 .section-images {
-  grid-row: 1;
-  overflow: visible;
+  flex: 0 0 clamp(140px, 40svh, 520px);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 0;
   padding: 0;
 }
 
-/* No images: keep grid cell but invisible so row 1 heights stay in sync */
 .section-images[data-count="0"] {
-  visibility: hidden;
+  display: none;
 }
 
 .card-section-col .detail-col {
-  grid-row: 2;
+  flex: 1;
   min-height: fit-content;
   overflow: visible;
   background: var(--bg);
@@ -409,20 +407,24 @@ section {
 
 .section-images[data-direction="row"] {
   flex-direction: row;
-  align-items: flex-start;
 }
 
 .section-img-slot {
   flex: 1;
+  min-height: 0;
   min-width: 0;
-  overflow: visible;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Images: natural aspect ratio, scale to column width — never cropped */
+/* contain = full image always visible, scales to fit box, never crops */
 .section-img-slot img {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 /* Technical diagrams — transparent bg so image floats */
@@ -571,6 +573,10 @@ section {
     margin-bottom: 1.5rem;
   }
 
+  .section-images {
+    flex: 0 0 clamp(120px, 30svh, 320px);
+  }
+
   /* Show only the active section */
   .card-section-col {
     display: none;
@@ -588,6 +594,9 @@ section {
   }
   .card-header {
     margin-bottom: 1.25rem;
+  }
+  .section-images {
+    flex: 0 0 clamp(120px, 28svh, 280px);
   }
   .detail-col li {
     font-size: 0.8rem;
