@@ -367,7 +367,8 @@ section {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  column-gap: 2px;
+  row-gap: 0;
   margin-bottom: 1.5rem;
 }
 
@@ -376,14 +377,15 @@ section {
   display: none;
 }
 
+/* display:contents makes children direct grid participants —
+   all 3 image areas share row 1 (height = tallest image),
+   all 3 text areas share row 2 (height = tallest text block) */
 .card-section-col {
-  display: flex;
-  flex-direction: column;
-  background: transparent;
+  display: contents;
 }
 
 .section-images {
-  flex: none;
+  grid-row: 1;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -391,12 +393,13 @@ section {
   padding: 0;
 }
 
+/* No images: keep grid cell but invisible so row 1 heights stay in sync */
 .section-images[data-count="0"] {
-  display: none;
+  visibility: hidden;
 }
 
 .card-section-col .detail-col {
-  flex: 1;
+  grid-row: 2;
   min-height: fit-content;
   overflow: visible;
   background: var(--bg);
@@ -415,12 +418,11 @@ section {
   overflow: visible;
 }
 
-/* Images: natural aspect ratio, never cropped — scale down to fit width only */
+/* Images: natural aspect ratio, scale to column width — never cropped */
 .section-img-slot img {
   display: block;
   width: 100%;
   height: auto;
-  object-fit: initial;
 }
 
 /* Technical diagrams — transparent bg so image floats */
