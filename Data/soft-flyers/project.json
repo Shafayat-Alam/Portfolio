@@ -10,18 +10,19 @@
   "how_images": [],
   "results_images": [],
   "what": [
-    "Full-stack architecture of an underwater robotic system",
-    "Soft actuator design, chassis development, and sensor/electronics integration",
-    "Investigating bio-inspired multimodal locomotion strategies"
+    "Full-stack architecture and development of an underwater robotic system",
+    "Compliant actuator design, chassis development, and sensor/electronics integration",
+    "Investigating bio-inspired multimodal gait behavior"
   ],
   "how": [
-    "Soft actuator design and dynamic characterization",
+    "Compliant materials design and dynamic characterization",
+    "Subtractive manufacturing as primary fabrication technique",
     "ROS2-based control software and sensor integration",
     "Systematic testing protocols across operating and transitioning media"
   ],
   "results": [
-    "Novel characterization of actuator dynamics across fluid media",
-    "Ongoing: full system integration from mechanical to software stack"
+    "<strong>Expected:</strong> novel underwater gait behavior characterization and robotic architecture validation across fluid media",
+    "<strong>Ongoing:</strong> autonomous gait behavior testing; full-system integration from mechanics to software stack"
   ],
   "report": "",
   "links": [

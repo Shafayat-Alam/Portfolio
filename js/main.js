@@ -71,9 +71,9 @@ function buildCard(e, num) {
     (e.results_images && e.results_images.length)
   );
 
-  const imagesBlock = hasSectionImages ? '' : `
-    <div class="card-images" data-count="${Math.max(3, (e.images || []).length)}">
-      ${Array.from({ length: Math.max(3, (e.images || []).length) }, (_, i) => imageSlot(e, i)).join('')}
+  const imagesBlock = (hasSectionImages || !(e.images && e.images.length)) ? '' : `
+    <div class="card-images" data-count="${Math.max(3, e.images.length)}">
+      ${Array.from({ length: Math.max(3, e.images.length) }, (_, i) => imageSlot(e, i)).join('')}
     </div>`;
 
   const detailsBlock = hasSectionImages
