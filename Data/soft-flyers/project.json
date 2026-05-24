@@ -9,7 +9,7 @@
   "what_images": ["images/what_crab.png"],
   "what_images_direction": "column",
   "what_images_fit": "diagram",
-  "how_images": ["images/how_crab.JPG"],
+  "how_images": ["images/how_crab.png"],
   "how_images_direction": "column",
   "how_images_fit": "cover",
   "results_images": [],
