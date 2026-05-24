@@ -27,7 +27,7 @@
     },
     {
       "category": "CONTROL & STATE-ESTIMATION",
-      "items": ["MATLAB/Simulink", "Control System Toolbox", "ROS2", "Basic Sensor Fusion"]
+      "items": ["MATLAB/Simulink", "ROS2", "Basic Sensor Fusion"]
     },
     {
       "category": "FABRICATION & TEST",
