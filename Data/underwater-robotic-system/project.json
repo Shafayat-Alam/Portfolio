@@ -17,18 +17,17 @@
   "results_images_fit": "cover",
   "what": [
     "Full-stack architecture and development of a multimodal robotic system",
-    "Bio-inspired air and water gait behavior — chassis development for transitioning media",
+    "Bio-inspired air and underwater gait behavior — chassis development for transitioning media",
     "Soft actuator design"
   ],
   "how": [
-    "Compliant materials and subtractive manufacturing for actuator and structural component fabrication",
-    "Design for assembly (DFA) across mechanical, electrical, and software subsystems",
+    "Compliant materials, DFA-driven mechanical design, and subtractive manufacturing for actuator and structural fabrication",
     "ROS2-based control software and sensor integration",
-    "Automated/Systematic testing procedures across air, water, and transitioning media"
+    "Automated/Systematic testing procedures across air, underwater, and transitioning media"
   ],
   "results": [
-    "<strong>Expected:</strong> novel multimodal gait behavior characterization across air and water media",
-    "<strong>Ongoing:</strong> autonomous air and water gait behavior testing; full-system integration from mechanics to software stack"
+    "<strong>Expected:</strong> novel multimodal gait behavior characterization across air and underwater media",
+    "<strong>Ongoing:</strong> autonomous air and underwater gait behavior testing; full-system integration from mechanics to software stack"
   ],
   "report": "",
   "links": [
