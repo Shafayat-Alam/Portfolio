@@ -23,6 +23,7 @@ async function init() {
 
     setupNav();
     setupScrollReveal();
+    setupSectionCarousel();
   } catch (err) {
     console.error('Portfolio init error:', err);
   }
@@ -133,20 +134,31 @@ function buildSectionedDetails(e) {
     { label: 'Results', cls: 'results', bullets: e.results, images: e.results_images || [], dir: e.results_images_direction || 'column', fit: e.results_images_fit || 'cover' },
   ];
 
-  return `<div class="card-sections">
-    ${sections.map(s => `
-      <div class="card-section-col ${s.cls}">
-        <div class="section-images" data-direction="${s.dir}" data-fit="${s.fit}" data-count="${s.images.length}">
-          ${s.images.map((path, i) => `
-            <div class="section-img-slot">
-              <img src="${DATA}/${e.slug}/${path}" alt="${s.label} — image ${i + 1}" loading="lazy">
-            </div>`).join('')}
-        </div>
-        <div class="detail-col ${s.cls}">
-          <h4>${s.label}</h4>
-          <ul>${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-        </div>
-      </div>`).join('')}
+  const navLabels = sections.map((s, i) =>
+    `<span class="carousel-label${i === 0 ? ' active' : ''}" data-idx="${i}">${s.label.replace('?', '').toUpperCase()}</span>`
+  ).join('<span class="carousel-sep">→</span>');
+
+  return `<div class="card-sections-wrapper">
+    <nav class="section-carousel-nav" aria-label="Section navigation">
+      <button class="carousel-btn carousel-prev" aria-label="Previous section" disabled>←</button>
+      <div class="carousel-labels">${navLabels}</div>
+      <button class="carousel-btn carousel-next" aria-label="Next section">→</button>
+    </nav>
+    <div class="card-sections">
+      ${sections.map(s => `
+        <div class="card-section-col ${s.cls}">
+          <div class="section-images" data-direction="${s.dir}" data-fit="${s.fit}" data-count="${s.images.length}">
+            ${s.images.map((path, i) => `
+              <div class="section-img-slot">
+                <img src="${DATA}/${e.slug}/${path}" alt="${s.label} — image ${i + 1}" loading="lazy">
+              </div>`).join('')}
+          </div>
+          <div class="detail-col ${s.cls}">
+            <h4>${s.label}</h4>
+            <ul>${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+          </div>
+        </div>`).join('')}
+    </div>
   </div>`;
 }
 
@@ -229,6 +241,31 @@ function setupNav() {
       a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
     });
   }, { passive: true });
+}
+
+/* ── Section carousel (mobile) ── */
+function setupSectionCarousel() {
+  document.querySelectorAll('.card-sections-wrapper').forEach(wrapper => {
+    const cols    = Array.from(wrapper.querySelectorAll('.card-section-col'));
+    const labels  = Array.from(wrapper.querySelectorAll('.carousel-label'));
+    const prevBtn = wrapper.querySelector('.carousel-prev');
+    const nextBtn = wrapper.querySelector('.carousel-next');
+    let current = 0;
+
+    function show(idx) {
+      cols.forEach((c, i)   => c.classList.toggle('carousel-active', i === idx));
+      labels.forEach((l, i) => l.classList.toggle('active', i === idx));
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === cols.length - 1;
+      current = idx;
+    }
+
+    show(0);
+
+    prevBtn.addEventListener('click', () => { if (current > 0)               show(current - 1); });
+    nextBtn.addEventListener('click', () => { if (current < cols.length - 1) show(current + 1); });
+    labels.forEach((l, i) => l.addEventListener('click', () => show(i)));
+  });
 }
 
 /* ── Scroll reveal ── */

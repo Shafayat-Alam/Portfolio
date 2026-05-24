@@ -356,12 +356,24 @@ section {
 }
 
 /* Sectioned layout: 3 equal columns, each split 50/50 image/text */
+.card-sections-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .card-sections {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-bottom: 1.5rem;
+}
+
+/* Carousel nav — hidden at desktop, shown on narrow screens */
+.section-carousel-nav {
+  display: none;
 }
 
 .card-section-col {
@@ -488,27 +500,98 @@ section {
   .card-images .img-slot:not(:first-child) { display: none; }
 }
 
-/* Tablet: two-column card sections, smaller images */
+/* Carousel nav buttons */
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--border-mid);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 200ms, color 200ms;
+}
+.carousel-btn:disabled {
+  color: var(--text-3);
+  border-color: var(--border);
+  cursor: default;
+}
+.carousel-btn:not(:disabled):hover {
+  border-color: var(--border-strong);
+  color: var(--accent);
+}
+
+.carousel-labels {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: color 200ms;
+}
+.carousel-label.active {
+  color: var(--text);
+}
+.carousel-label:hover:not(.active) {
+  color: var(--text-2);
+}
+
+.carousel-sep {
+  font-size: 0.6rem;
+  color: var(--border-strong);
+  font-family: var(--mono);
+  user-select: none;
+}
+
+/* Tablet/narrow: carousel mode */
 @media (max-width: 900px) {
+  .section-carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
   .card-sections {
     grid-template-columns: 1fr;
+    margin-bottom: 1.5rem;
   }
+
   .section-images {
     flex: 0 0 clamp(120px, 30svh, 320px);
   }
+
+  /* Show only the active section */
+  .card-section-col {
+    display: none;
+  }
+  .card-section-col.carousel-active {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-/* Mobile: single column, hide what/how images to save space */
+/* Mobile */
 @media (max-width: 600px) {
   .card {
     padding: 1.25rem;
   }
   .card-header {
     margin-bottom: 1.25rem;
-  }
-  .card-section-col.what .section-images,
-  .card-section-col.how .section-images {
-    display: none;
   }
   .section-images {
     flex: 0 0 clamp(120px, 28svh, 280px);
