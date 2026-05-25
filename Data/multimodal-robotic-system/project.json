@@ -22,7 +22,7 @@
   ],
   "how": [
     "Compliant materials, design for assembly (DFA) driven design, and subtractive manufacturing",
-    "ROS2-based control software and sensor integration",
+    "ROS2 control software and sensor integration",
     "Automated/Systematic testing procedures across air, underwater, and transitioning media"
   ],
   "results": [
