@@ -6,29 +6,30 @@
   "period": "September 2018 – May 2022",
   "category": "RESEARCH",
   "images": [],
-  "what_images": ["images/steatite_what.png", "images/ceramics_what.png"],
-  "what_images_direction": "column",
+  "what_images": ["images/steatite_what.png", "images/steatite_how.png", "images/ceramics_what.png", "images/ceramics_how.png", "images/rock_varnish_what.png"],
+  "what_images_direction": "row",
   "what_images_fit": "diagram",
-  "how_images": ["images/steatite_how.png", "images/ceramics_how.png"],
-  "how_images_direction": "row",
+  "how_images": ["images/rock_varnish_how.png"],
+  "how_images_direction": "column",
   "how_images_fit": "diagram",
-  "results_images": ["images/ceramics_elemental_distribution.png"],
-  "results_images_direction": "column",
+  "results_images": ["images/ceramics_results.png", "images/rock_varnish_results1.png", "images/rock_varnish_results2.png"],
+  "results_images_direction": "row",
   "results_images_fit": "diagram",
   "what": [
-    "<strong>Steatite Sourcing</strong> — XRD/XRF investigation of Fe/Mn stratigraphic layering in rock varnish; traced 10+ artifacts to Rhode Island quarries via d-spacing crystallographic fingerprinting",
-    "<strong>Ceramic Provenance</strong> — d-spacing fingerprinting revealing regional clay sources and trade patterns across North Fork, South Fork, and Oyster Island sources",
-    "Multi-institutional collaboration (BNL + Stony Brook University Anthropology); Late Holocene indigenous material sourcing spanning Terminal Archaic through Late Woodland periods (3,500–2,400 B.P.)"
+    "<strong>Steatite Sourcing</strong> — XPD d-spacing crystallographic fingerprinting of steatite artifacts from 8 Long Island sites; preliminary grouping of samples to Rhode Island quarry sources contributing to multi-institutional collaborative study; work cited in NYSAA Bull. 138, 2024",
+    "<strong>Ceramic Provenance</strong> — TES XRF elemental characterization of Early, Middle, and Late Long Island ceramic sherds across regional sites to identify clay source variations and trade patterns; multi-institutional collaboration (BNL + Stony Brook University Anthropology)",
+    "<strong>Rock Varnish Characterization</strong> — XPD/SRX/XFM investigation of Fe/Mn stratigraphic layering in rock samples from Eastern Long Island; established preliminary evidence for presence of varnished rocks consistent with Younger Dryas glacial period formation"
   ],
   "how": [
-    "<strong>XRD</strong>: 2θ = 20–75° sweeps characterizing crystal structure and mineral phases for both steatite rock varnish and ceramic clay mineralogy",
-    "<strong>XRF</strong>: Elemental mapping of Fe, Mn, and trace elements across 10+ samples for both material types; d-spacing fingerprinting across 2.43–3.81 Å range to establish unique sourcing signatures",
-    "Sample preparation involved surface cleaning, thin-section mounting, and powder preparation for XRD/XRF analysis — prepared samples shown are representative of typical surface treatment and mounting protocol"
+    "<strong>Steatite — XPD</strong> (0.1874 Å, NSLS-II/BNL): sherds crushed to fine powder, loaded into Kapton tubing, mounted for analysis; each sample analyzed 60 seconds across 3 tube positions; Dioptas used to generate d-spacing vs intensity profiles; Bragg's Law applied in Excel to calculate d-spacings from 2θ values; major peaks compared against Oaklawn and Ochee Springs quarry reference samples",
+    "<strong>Ceramics — TES beamline</strong> (4100 eV, 6 μm spot, 0.1s/point, NSLS-II/BNL): beam directed toward etched surface areas of sherds taped to sample mounts; element maps generated for Al, Ca, Cl, K, Mg, P, S, U; IDL program used for individual element distribution analysis; whole-map statistical means computed with normalized min/max settings for direct cross-sample comparison",
+    "<strong>Rock Varnish — XPD</strong> (0.193 Å, 64.2 keV, NSLS-II/BNL): samples analyzed 60 seconds across 3 tube positions; Dioptas used to generate d-spacing vs intensity profiles; Bragg's Law applied to identify mineral phases via American Mineralogist Database",
+    "<strong>Rock Varnish — SRX/XFM</strong>: SRX (13.5 keV) elemental maps generated using Larch software mapping Mn, Fe, Ni spatial distribution across varnish cross-sections; XFM (9.65 keV) PyXRF-generated elemental maps showing Mn concentrated at outer varnish edge over Fe substrate"
   ],
   "results": [
-    "<strong>Steatite:</strong> 6 samples with Fe/Mn stratigraphic layering consistent with Younger Dryas formation; <strong>10+ artifacts traced to Rhode Island quarries</strong>",
-    "<strong>Ceramics:</strong> elemental distribution mapping (example shown) revealed <strong>10–45% variation</strong> across regional sources, with distinct geochemical signatures separating North Fork, South Fork, and Oyster Island clay sources",
-    "Confirmed <strong>long-distance trade networks (100+ miles)</strong>; Contributed to collaborative <strong>NYSAA Bulletin Vol. 138 (2024)</strong> publication archived by OSTI"
+    "<strong>Steatite:</strong> 8 sites separated into two quarry-matched groups — <strong>Oaklawn</strong> (d-spacings: 2.43, 2.76, 2.81, 2.92, 3.13, 3.38, 3.81 Å) and <strong>Ochee Springs</strong> (2.76, 2.99, 3.13, 3.26, 3.37, 3.81 Å); preliminary d-spacing evidence confirmed by subsequent SRX elemental analysis in NYSAA Bull. 138, 2024; results support Rhode Island quarry sourcing for Long Island Native American steatite artifacts spanning Nassau and Suffolk Counties through Shelter Island",
+    "<strong>Ceramics:</strong> elemental differences observed across all 8 elements (Al, Ca, Cl, K, Mg, P, S, U) for Glen Cove, Aquebogue, North Haven, and Orient sherds; compositional differences enable preliminary clay source discrimination across regional sites; Al, Ti, Fe, Mg, K, Ca, Co identified as priority elements for follow-up SRX and XFM analysis to finalize provenance determination",
+    "<strong>Rock Varnish:</strong> all 6 samples matched Fe/Mn-rich mineral phases (Braunite, Laueite, Pseudolaueite) consistent with rock varnish composition; SRX and XFM maps confirmed Mn-enriched outer layers over Fe substrates — characteristic varnish microstratigraphy; Younger Dryas dry tundra conditions on Long Island identified as probable varnish formation mechanism; implications for Clovis period geoarchaeological record"
   ],
   "report": "",
   "links": []
