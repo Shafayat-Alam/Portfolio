@@ -17,9 +17,8 @@
   "results_images_fit": "cover",
   "what": [
     "Two competition rockets for 2026 Battle of the Rockets: <strong>Mars Rover</strong> — 6 in dia., 79 in, J540R-14, 1,000–2,000 ft, PETG-CF fins, rover payload; <strong>Altitude \"Blue Phenix Jr\"</strong> — F67-C, 6 tube fins, 801 ft AGL",
-    "PDR→CDR: iterated trapezoidal → elliptical → 3-fin PETG-CF (Mars Rover); J525-LW → J540R-14, T/W 5.97→6.85; 3→6 tube fins (Altitude); Blue Tube → phenolic; 2.19–2.25 cal",
-    "Ongoing Cₗ/Cᴅ/Cₘ database via rhoSimpleFoam RANS (Mach 0.1–0.7, α/β 0–10°); NASA TM X-195 drag model; EasyMini validation",
-    "<strong>AeroSim-Stability-Subsonic</strong> — open-source aerodynamic simulation and stability analysis framework; actively developed (GitHub)"
+    "Iterated trapezoidal 3-fin PETG-CF (Mars Rover); J525-LW → J540R-14, T/W 5.97→6.85; 3→6 tube fins (Altitude); Blue Tube → phenolic; 2.19–2.25 cal",
+    "Ongoing: Cₗ/Cᴅ/Cₘ database via rhoSimpleFoam RANS (Mach 0.1–0.7, α/β 0–10°); NASA TM X-195 drag model — to investigate aerodynamic energy management and passive stability",
   ],
   "how": [
     "Stability: SolidWorks CAD; 2.19–2.25 cal static margin via RockSim + MATLAB; Plastalina deadweight for CG; pre-competition test flights",
