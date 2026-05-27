@@ -16,18 +16,19 @@
   "results_images_direction": "column",
   "results_images_fit": "diagram",
   "what": [
-    "Thermal engineer, fully autonomous Venus aerobot — 370 K equilibrium target, 350–400 K profile, 35–50 km altitude, 90 m/s; Re_hot = 6.43×10⁶ / Re_cold = 4.02×10⁶ (turbulent Venus CO₂)",
-    "Two-tier passive: SilcoNert® 1040 (ε = 0.008, α = 0.008, T_max = 450 K, TRL 5, 1 m²) + ACT variable-view-factor radiator (4.0 kg, 0.8×0.3×0.3 m, TRL 5) — 0 W, no sensors or control logic"
+    "Thermal subsystem lead for a fully autonomous Venus aerobot mission concept targeting 370 K thermal equilibrium across a 350–400 K atmospheric profile at 35–50 km altitude",
+    "Two-tier passive thermal control architecture: SilcoNert® 1040 low-emissivity coating (ε = 0.008, α = 0.008, T_max = 450 K, TRL 5, 1 m²) + ACT variable-view-factor radiator (4.0 kg, 0.8×0.3×0.3 m, TRL 5) — 0 W, no sensors or control logic",
+    "Mission requirements defined and verified through NASA systems engineering lifecycle (NPR 7123.1) from MCR through PDR"
   ],
   "how": [
-    "Churchill-Bernstein Nu applied to Venus CO₂ flow (Re = 6.43×10⁶, ρ = 1.96 kg/m³, Pr = 1.13, μ = 27.5×10⁻⁶ Pa·s) → Q_conv = 29.9 kW = 97.8% of 30.6 kW hot-case load",
-    "Trade matrix (reliability/performance 40% each, cost/mass 10%): SilcoNert® 1040 → 100% (vs. Dunmore 82%); ACT radiator 84% — 0 W passive selected over Tempco SHK (92%)",
+    "Churchill-Bernstein Nu applied to Venus CO₂ flow (Re = 6.43×10⁴, ρ = 1.96 kg/m³, Pr = 1.13, μ = 27.5×10⁻⁶ Pa·s) → Q_conv = 29.9 kW = 97.8% of 30.6 kW hot-case load",
+    "Trade matrix (reliability/performance 40% each, cost/mass 10%): SilcoNert® 1040 → 100% vs Dunmore 82%; ACT radiator 84% — 0 W passive selected over Tempco SHK (92%)",
     "Verification: Venus-analog chamber, 350–400 K cycling; acceptance ±5 K at 370 K; TH-2.1 (equilibrium), TH-2.3 (ε ≤ 0.01), TH-2.4 (≥30/11 kW) verified at PDR"
   ],
   "results": [
-    "<strong>≥30 kW cooling</strong> (400 K, hot case) + <strong>≥11 kW heating</strong> (350 K, cold case) at 0 W — ACT vapor-pressure self-regulation, no sensors or control system",
-    "<strong>50× radiative reduction</strong>: 466.64→9.33 W; <strong>200× solar attenuation</strong>: 65→0.325 W — both via SilcoNert® ε = 0.008",
-    "TH-2.1–2.4 verified at PDR; 4.0 kg, 0 W — mass and power within mission allocation"
+    "<strong>≥30 kW cooling</strong> (400 K hot case) + <strong>≥11 kW heating</strong> (350 K cold case) at 0 W — ACT vapor-pressure self-regulation, no sensors or control system",
+    "<strong>50× radiative reduction:</strong> 466.64 → 9.33 W; <strong>200× solar attenuation:</strong> 65 → 0.325 W — both via SilcoNert® ε = 0.008",
+    "TH-2.1–2.4 verified at PDR; 4.0 kg, 0 W — mass and power within mission allocation ($6.3M, 4 kg constraint)"
   ],
   "report": "",
   "links": [
