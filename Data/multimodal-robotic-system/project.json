@@ -16,10 +16,10 @@
   "results_images_direction": "column",
   "results_images_fit": "diagram",
   "what": [
-    "Bio-inspired 2-DOF multimodal robotic system following blue crab physiology with adaptive flipper morphology for air and water environments",
+    "Bio-inspired 2 DOF multimodal robotic system following blue crab physiology with adaptive flipper morphology for aerial and marine environments",
     "Full-stack architecture spanning soft actuator design, chassis development, electronics/sensor integration, and control software through the systems engineering lifecycle",
     "Research objective: characterize how aerial-to-marine medium transitions shape dynamic gait behavior and control requirements",
-    "9 flipper design iterations (air + underwater configurations) and 8 robot CAD iterations across 5 physical prototypes"
+    "9 flipper design iterations (aerial + marine configurations) and 8 robot chassis iterations across 5 physical prototypes"
   ],
   "how": [
     "<strong>Mechanical:</strong> CNC machining + laser cutting for all structural components (brackets, base, electronics board, soft actuators); DFMA-driven design; carbon fiber + Icarex reinforced air flipper; compliant bare soft actuator underwater flipper",
