@@ -30,7 +30,7 @@ async function init() {
 }
 
 async function fetchJSON(url) {
-  const r = await fetch(url, { cache: 'no-cache' });
+  const r = await fetch(`${url}?v=${Date.now()}`, { cache: 'reload' });
   if (!r.ok) throw new Error(`${r.status} ${url}`);
   return r.json();
 }
