@@ -22,9 +22,9 @@
     "9 flipper design iterations (aerial + marine configurations) and 8 robot chassis iterations across 5 physical prototypes"
   ],
   "how": [
-    "<strong>Mechanical:</strong> CNC machining + laser cutting for all structural components (brackets, base, electronics board, soft actuators); DFMA-driven design; carbon fiber + Icarex reinforced air flipper; compliant bare soft actuator underwater flipper",
+    "<strong>Mechanical:</strong> CNC machining + laser cutting for all structural components (brackets, base, electronics board, soft actuators); DFMA-driven design; reinforced aerial flipper and compliant bare soft actuator underwater flipper",
     "<strong>Electronics:</strong> 4× Dynamixel XW430-T200 servos via U2D2 Power Hub (RS-485); Adafruit ICM-20948 9-axis IMU (I2C); DWE StellarHD camera (USB); dual-rail 3S LiPo power distribution; NVIDIA Jetson Orin Nano 8GB compute",
-    "<strong>Control:</strong> 5-node ROS2 Jazzy stack at 400 Hz closed-loop; cascaded PID; telemetry-driven gait engine; Gazebo Harmonic SIL simulation with hybrid real/simulated servo architecture",
+    "<strong>Software:</strong> 5-node ROS2 Jazzy stack at 400 Hz closed-loop control; cascaded PID; telemetry-driven gait engine; Gazebo Harmonic SIL simulation with hybrid real/simulated servo architecture",
     "<strong>V&V:</strong> Layered program per IEEE 1012, MIL-STD-882E, IEC 61508; V-Model from component verification through system validation; SIL, HIL, and CI/CD regression testing"
   ],
   "results": [
