@@ -8,7 +8,7 @@ const ROOT    = path.resolve(__dirname, '..');
 const DATA    = path.join(ROOT, 'Data');
 const OUT_PDF = path.join(ROOT, 'Resume', 'Shafayat_Alam_Portfolio.pdf');
 
-// ── Data loading ───────────────────────────────────────────────────────────────
+// ── Data ───────────────────────────────────────────────────────────────────────
 
 function loadData() {
   const manifest = JSON.parse(fs.readFileSync(path.join(DATA, 'projects.json'), 'utf8'));
@@ -20,18 +20,27 @@ function loadData() {
   return { profile: manifest.profile, skills: manifest.skills, entries };
 }
 
-// ── Puppeteer header / footer (repeated on every page) ────────────────────────
+function imgURI(slug, imgPath) {
+  try {
+    const buf = fs.readFileSync(path.join(DATA, slug, imgPath));
+    const ext = path.extname(imgPath).slice(1).replace('jpg', 'jpeg');
+    return `data:image/${ext};base64,${buf.toString('base64')}`;
+  } catch { return null; }
+}
+
+// ── Puppeteer header / footer ──────────────────────────────────────────────────
 
 function headerTpl(p) {
   return `<div style="
     width:100%; padding:0 0.55in; box-sizing:border-box;
-    font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;
-    border-bottom:1.5pt solid #1D4ED8; padding-bottom:6pt;">
-    <div style="font-family:'Courier New',monospace; font-size:9pt; font-weight:700;
-                letter-spacing:0.12em; color:#0F172A;">
+    background:#0A0A0A; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    border-bottom:1pt solid rgba(96,165,250,0.25); padding-bottom:6pt;">
+    <div style="
+      font-family:'Courier New',monospace; font-size:8pt; font-weight:700;
+      letter-spacing:0.1em; color:#FFFFFF;">
       ${p.name.toUpperCase()}
     </div>
-    <div style="font-size:7pt; color:#64748B; margin-top:2pt; letter-spacing:0.03em;">
+    <div style="font-size:6.5pt; color:#8A8680; margin-top:2pt; letter-spacing:0.04em; font-family:'Courier New',monospace;">
       ${p.title}&nbsp;&nbsp;·&nbsp;&nbsp;${p.location}&nbsp;&nbsp;·&nbsp;&nbsp;${p.email}&nbsp;&nbsp;·&nbsp;&nbsp;${p.linkedin.replace('https://','')}&nbsp;&nbsp;·&nbsp;&nbsp;${p.github.replace('https://','')}
     </div>
   </div>`;
@@ -40,172 +49,425 @@ function headerTpl(p) {
 function footerTpl() {
   return `<div style="
     width:100%; text-align:right; padding:0 0.55in;
-    font-size:7pt; font-family:'Courier New',monospace; color:#94A3B8;">
+    font-family:'Courier New',monospace; font-size:6pt; color:#8A8680;
+    background:#0A0A0A; -webkit-print-color-adjust:exact; print-color-adjust:exact;">
     <span class="pageNumber"></span>&thinsp;/&thinsp;<span class="totalPages"></span>
   </div>`;
 }
 
-// ── HTML body ──────────────────────────────────────────────────────────────────
+// ── Card HTML ──────────────────────────────────────────────────────────────────
+
+function sectionImgs(slug, images, dir) {
+  if (!images || !images.length) return '';
+  const slots = images.map(p => {
+    const uri = imgURI(slug, p);
+    return uri ? `<div class="img-slot"><img src="${uri}"></div>` : '';
+  }).filter(Boolean).join('');
+  if (!slots) return '';
+  return `<div class="section-imgs" style="flex-direction:${dir === 'row' ? 'row' : 'column'}">${slots}</div>`;
+}
+
+function cardHTML(e, n) {
+  const cols = [
+    { label: 'WHAT?',   bullets: e.what,    images: e.what_images    || [], dir: e.what_images_direction    || 'column' },
+    { label: 'HOW?',    bullets: e.how,     images: e.how_images     || [], dir: e.how_images_direction     || 'column' },
+    { label: 'RESULTS', bullets: e.results, images: e.results_images || [], dir: e.results_images_direction || 'column' },
+  ];
+
+  return `
+  <div class="card-hd">
+    <span class="cn">${String(n).padStart(2, '0')}</span>
+    <div class="ct">
+      <div class="ctitle">${e.title}</div>
+      <div class="corg">${e.org}&nbsp;&nbsp;·&nbsp;&nbsp;${e.institution}</div>
+    </div>
+    <div class="cr">
+      <span class="ctag">${e.category}</span>
+      <span class="cper">${e.period}</span>
+    </div>
+  </div>
+  <div class="card-body">
+    ${cols.map(c => `
+      <div class="dcol">
+        <div class="dlabel">${c.label}</div>
+        ${sectionImgs(e.slug, c.images, c.dir)}
+        <ul>${c.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+      </div>`).join('')}
+  </div>`;
+}
+
+// ── Full HTML ──────────────────────────────────────────────────────────────────
 
 function buildHTML(profile, skills, entries) {
   const p = profile;
   return `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><style>${CSS}</style></head>
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>${CSS}</style>
+</head>
 <body>
 
-<section class="intro">
-  <div class="sec-label">ABOUT</div>
-  <p class="bio">${p.bio}</p>
-  <div class="meta">
-    ${[['INSTITUTION', p.institution], ['DEGREE', p.degree], ['LOCATION', p.location]]
-      .map(([l, v]) => `<div class="mrow"><span class="ml">${l}</span><span class="mv">${v}</span></div>`)
-      .join('')}
+<!-- ── About & Skills ── -->
+<div class="apage">
+
+  <div class="identity">
+    <div class="id-name">${p.name.toUpperCase()}</div>
+    <div class="id-title">${p.title}</div>
+    <div class="id-links">
+      <span>${p.email}</span>
+      <span class="dot">·</span>
+      <span>${p.linkedin.replace('https://','')}</span>
+      <span class="dot">·</span>
+      <span>${p.github.replace('https://','')}</span>
+    </div>
   </div>
-</section>
 
-<section class="skills">
-  <div class="sec-label">SKILLS</div>
-  ${skills.map(g => `
-    <div class="sk-row">
-      <span class="sk-cat">${g.category}</span>
-      <span class="sk-items">${g.items.join(' · ')}</span>
-    </div>`).join('')}
-</section>
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="sec-hdr">ABOUT</div>
+      <p class="bio">${p.bio}</p>
+      <div class="meta">
+        ${[['INSTITUTION', p.institution], ['DEGREE', p.degree], ['LOCATION', p.location]]
+          .map(([l, v]) => `<div class="mrow"><span class="ml">${l}</span><span class="mv">${v}</span></div>`)
+          .join('')}
+      </div>
+    </div>
 
-${buildCardsHTML(entries)}
+    <div class="about-right">
+      <div class="sec-hdr">SKILLS</div>
+      ${skills.map(g => `
+        <div class="sk-row">
+          <span class="sk-cat">${g.category}</span>
+          <span class="sk-items">${g.items.join(' · ')}</span>
+        </div>`).join('')}
+    </div>
+  </div>
+
+  <div class="work-index">
+    <div class="sec-hdr">WORK</div>
+    <div class="idx-grid">
+      ${entries.map((e, i) => `
+        <div class="idx-row">
+          <span class="idx-n">${String(i + 1).padStart(2, '0')}</span>
+          <span class="idx-title">${e.title}</span>
+          <span class="idx-tag">${e.category}</span>
+          <span class="idx-org">${e.org}</span>
+          <span class="idx-per">${e.period}</span>
+        </div>`).join('')}
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Project pages ── -->
+${entries.map((e, i) => `
+  <div class="cpage break">
+    ${cardHTML(e, i + 1)}
+  </div>`).join('')}
+
 </body>
 </html>`;
-}
-
-// ── Cards ──────────────────────────────────────────────────────────────────────
-
-function buildCardsHTML(entries) {
-  if (!entries.length) return '';
-  let html = '';
-
-  // First card gets its own page
-  html += `<div class="cpage break">${cardHTML(entries[0], 1)}</div>`;
-
-  // Remaining entries — 2 per page
-  for (let i = 1; i < entries.length; i += 2) {
-    html += `<div class="cpage break">
-      ${cardHTML(entries[i], i + 1)}
-      ${entries[i + 1] ? cardHTML(entries[i + 1], i + 2) : ''}
-    </div>`;
-  }
-  return html;
-}
-
-function cardHTML(e, n) {
-  const li = arr => arr.map(b => `<li>${b}</li>`).join('');
-  return `
-  <article class="card">
-    <div class="card-hd">
-      <span class="cn">${String(n).padStart(2, '0')}</span>
-      <div class="ct">
-        <div class="ctitle">${e.title}</div>
-        <div class="corg">${e.org} · ${e.institution}</div>
-      </div>
-      <div class="cr">
-        <span class="ctag">${e.category}</span>
-        <span class="cper">${e.period}</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="dcol">
-        <div class="dlabel">WHAT</div><ul>${li(e.what)}</ul>
-      </div>
-      <div class="dcol">
-        <div class="dlabel">HOW</div><ul>${li(e.how)}</ul>
-      </div>
-      <div class="dcol res">
-        <div class="dlabel">RESULTS</div><ul>${li(e.results)}</ul>
-      </div>
-    </div>
-  </article>`;
 }
 
 // ── CSS ────────────────────────────────────────────────────────────────────────
 
 const CSS = `
-*  { box-sizing:border-box; margin:0; padding:0 }
-body { font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:9pt; color:#0F172A; line-height:1.55; background:#fff }
-ul   { list-style:none }
-
-/* ── About ── */
-.intro { margin-bottom:1.6em }
-.sec-label {
-  font-family:'Courier New',monospace; font-size:6pt; letter-spacing:0.24em;
-  color:#64748B; text-transform:uppercase;
-  border-bottom:1pt solid #E2E8F0; padding-bottom:4pt; margin-bottom:9pt;
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'Space Grotesk', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size:8.5pt;
+  color:#FFFFFF;
+  background:#0A0A0A;
+  line-height:1.55;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
 }
-.bio { font-size:9.5pt; line-height:1.75; color:#1E293B; margin-bottom:10pt; max-width:76% }
+ul { list-style:none; }
 
-.meta { display:table }
-.mrow { display:table-row }
-.ml, .mv { display:table-cell; padding:1.5pt 0; vertical-align:baseline }
+/* ── Page containers ── */
+.apage {
+  height:calc(11in - 1.05in - 0.5in);
+  display:flex;
+  flex-direction:column;
+  gap:22pt;
+  overflow:hidden;
+}
+.cpage {
+  height:calc(11in - 1.05in - 0.5in);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+.break { page-break-before:always; break-before:page; }
+
+/* ── Identity block (about page) ── */
+.identity {
+  padding-bottom:14pt;
+  border-bottom:1pt solid rgba(96,165,250,0.2);
+}
+.id-name {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:16pt;
+  font-weight:700;
+  letter-spacing:0.08em;
+  color:#FFFFFF;
+  margin-bottom:4pt;
+}
+.id-title {
+  font-size:10pt;
+  color:#E0DDD8;
+  font-weight:500;
+  margin-bottom:5pt;
+}
+.id-links {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:6.5pt;
+  color:#60A5FA;
+  letter-spacing:0.05em;
+  display:flex;
+  gap:7pt;
+  align-items:center;
+}
+.id-links .dot { color:#8A8680; }
+
+/* ── About + Skills two-column ── */
+.about-grid {
+  display:flex;
+  gap:20pt;
+  flex-shrink:0;
+}
+.about-left { flex:1.4; }
+.about-right { flex:1; }
+
+/* ── Section header label ── */
+.sec-hdr {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5.5pt;
+  letter-spacing:0.24em;
+  color:#60A5FA;
+  border-bottom:1pt solid rgba(255,255,255,0.08);
+  padding-bottom:4pt;
+  margin-bottom:10pt;
+}
+
+/* ── Bio ── */
+.bio {
+  font-size:8.5pt;
+  line-height:1.7;
+  color:#E0DDD8;
+  margin-bottom:12pt;
+}
+
+/* ── Meta table ── */
+.meta { display:table; }
+.mrow { display:table-row; }
+.ml,.mv { display:table-cell; padding:2pt 0; vertical-align:baseline; }
 .ml {
-  font-family:'Courier New',monospace; font-size:5.5pt; letter-spacing:0.16em;
-  color:#1D4ED8; text-transform:uppercase; padding-right:16pt; white-space:nowrap;
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5pt;
+  letter-spacing:0.16em;
+  color:#60A5FA;
+  padding-right:14pt;
+  white-space:nowrap;
 }
-.mv { font-size:8pt; color:#334155 }
+.mv { font-size:7.5pt; color:#E0DDD8; }
 
 /* ── Skills ── */
-.skills { margin-bottom:0.6em }
 .sk-row {
-  display:flex; gap:14pt; padding:3pt 0;
-  border-bottom:1pt solid #F8FAFC; align-items:baseline;
+  display:flex;
+  gap:10pt;
+  padding:3pt 0;
+  border-bottom:1pt solid rgba(255,255,255,0.05);
+  align-items:baseline;
 }
 .sk-cat {
-  font-family:'Courier New',monospace; font-size:5.5pt; letter-spacing:0.14em;
-  color:#1D4ED8; text-transform:uppercase; width:165pt; flex-shrink:0;
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5pt;
+  letter-spacing:0.13em;
+  color:#60A5FA;
+  width:130pt;
+  flex-shrink:0;
 }
-.sk-items { font-size:8pt; color:#334155 }
+.sk-items { font-size:7.5pt; color:#E0DDD8; line-height:1.4; }
 
-/* ── Card pages ── */
-.cpage  { display:flex; flex-direction:column; gap:10pt }
-.break  { page-break-before:always; break-before:page }
+/* ── Work index ── */
+.work-index { flex:1; min-height:0; }
+.idx-grid {
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.idx-row {
+  display:flex;
+  align-items:baseline;
+  gap:10pt;
+  padding:4.5pt 0;
+  border-bottom:1pt solid rgba(255,255,255,0.05);
+}
+.idx-n {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:7pt;
+  font-weight:700;
+  color:#60A5FA;
+  flex-shrink:0;
+  width:18pt;
+}
+.idx-title {
+  font-size:8pt;
+  font-weight:600;
+  color:#FFFFFF;
+  flex:1;
+  min-width:0;
+}
+.idx-tag {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5pt;
+  letter-spacing:0.14em;
+  color:#60A5FA;
+  border:0.75pt solid rgba(96,165,250,0.5);
+  padding:1pt 4pt;
+  flex-shrink:0;
+}
+.idx-org {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5.5pt;
+  color:#8A8680;
+  flex-shrink:0;
+  width:120pt;
+  text-align:right;
+}
+.idx-per {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5.5pt;
+  color:#8A8680;
+  flex-shrink:0;
+  width:100pt;
+  text-align:right;
+}
 
-/* ── Card ── */
-.card { border:1pt solid #E2E8F0; padding:13pt 15pt; page-break-inside:avoid; break-inside:avoid }
-
+/* ── Card header ── */
 .card-hd {
-  display:flex; align-items:flex-start; gap:10pt;
-  padding-bottom:8pt; border-bottom:1pt solid #F1F5F9; margin-bottom:9pt;
+  display:flex;
+  align-items:flex-start;
+  gap:10pt;
+  padding-bottom:8pt;
+  border-bottom:1pt solid rgba(255,255,255,0.09);
+  margin-bottom:8pt;
+  flex-shrink:0;
 }
 .cn {
-  font-family:'Courier New',monospace; font-size:8pt; font-weight:700;
-  color:#1D4ED8; flex-shrink:0; margin-top:1pt;
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:9pt;
+  font-weight:700;
+  color:#60A5FA;
+  flex-shrink:0;
+  margin-top:1pt;
 }
-.ct { flex:1; min-width:0 }
+.ct { flex:1; min-width:0; }
 .ctitle {
-  font-size:10.5pt; font-weight:700; color:#0F172A;
-  margin-bottom:2pt; letter-spacing:0.01em; line-height:1.25;
+  font-size:11pt;
+  font-weight:700;
+  color:#FFFFFF;
+  margin-bottom:3pt;
+  letter-spacing:0.02em;
+  line-height:1.2;
 }
-.corg { font-family:'Courier New',monospace; font-size:6.5pt; color:#64748B; letter-spacing:0.04em }
-.cr   { display:flex; flex-direction:column; align-items:flex-end; gap:4pt; flex-shrink:0 }
+.corg {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:6pt;
+  color:#8A8680;
+  letter-spacing:0.05em;
+}
+.cr { display:flex; flex-direction:column; align-items:flex-end; gap:5pt; flex-shrink:0; }
 .ctag {
-  font-family:'Courier New',monospace; font-size:5.5pt; letter-spacing:0.18em;
-  color:#1D4ED8; border:0.75pt solid #1D4ED8; padding:1.5pt 5.5pt;
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5.5pt;
+  letter-spacing:0.18em;
+  color:#60A5FA;
+  border:0.75pt solid rgba(96,165,250,0.6);
+  padding:1.5pt 5pt;
 }
-.cper { font-family:'Courier New',monospace; font-size:6pt; color:#94A3B8; letter-spacing:0.06em }
+.cper {
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:6pt;
+  color:#8A8680;
+  letter-spacing:0.06em;
+}
 
-.card-body { display:flex; gap:6pt }
-.dcol { flex:1; border:1pt solid #F1F5F9; padding:7pt 9pt }
+/* ── Card body: 3 columns ── */
+.card-body {
+  flex:1;
+  display:flex;
+  gap:2pt;
+  min-height:0;
+}
+.dcol {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  border:1pt solid rgba(255,255,255,0.09);
+  min-width:0;
+  overflow:hidden;
+}
 .dlabel {
-  font-family:'Courier New',monospace; font-size:5.5pt; letter-spacing:0.18em;
-  color:#94A3B8; text-transform:uppercase;
-  margin-bottom:5pt; padding-bottom:3pt; border-bottom:1pt solid #F1F5F9;
+  font-family:'Space Mono','Courier New',monospace;
+  font-size:5.5pt;
+  letter-spacing:0.22em;
+  color:#8A8680;
+  padding:5pt 8pt 4pt;
+  border-bottom:1pt solid rgba(255,255,255,0.06);
+  flex-shrink:0;
 }
-.dcol ul { display:flex; flex-direction:column; gap:4pt }
+
+/* ── Section images ── */
+.section-imgs {
+  display:flex;
+  height:2.2in;
+  border-bottom:1pt solid rgba(255,255,255,0.06);
+  overflow:hidden;
+  flex-shrink:0;
+}
+.img-slot {
+  flex:1;
+  overflow:hidden;
+  min-width:0;
+  min-height:0;
+}
+.img-slot img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* ── Bullets ── */
+.dcol ul {
+  flex:1;
+  padding:7pt 8pt;
+  display:flex;
+  flex-direction:column;
+  gap:4pt;
+  overflow:hidden;
+}
 .dcol li {
-  font-size:7.5pt; color:#334155; line-height:1.4;
-  padding-left:10pt; position:relative;
+  font-size:7pt;
+  color:#E0DDD8;
+  line-height:1.45;
+  padding-left:10pt;
+  position:relative;
 }
-.dcol li::before { content:'—'; position:absolute; left:0; color:#94A3B8; font-size:7pt }
-.res li { color:#0F172A; font-weight:500 }
-.res li strong { color:#1D4ED8 }
+.dcol li::before {
+  content:'—';
+  position:absolute;
+  left:0;
+  color:rgba(255,255,255,0.18);
+  font-size:7pt;
+}
+.dcol li strong { color:#60A5FA; font-weight:600; }
 `;
 
 // ── Run ────────────────────────────────────────────────────────────────────────
@@ -221,7 +483,9 @@ ul   { list-style:none }
   });
   try {
     const page = await browser.newPage();
-    await page.setContent(buildHTML(profile, skills, entries), { waitUntil: 'domcontentloaded' });
+    await page.setViewport({ width: 816, height: 1056 });
+    await page.setContent(buildHTML(profile, skills, entries), { waitUntil: 'networkidle0' });
+    await page.evaluate(() => document.fonts.ready);
 
     console.log('[pdf] Rendering...');
     await page.pdf({
