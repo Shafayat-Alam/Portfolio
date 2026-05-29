@@ -378,20 +378,17 @@ section {
 
 .card-section-col {
   display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  align-items: flex-start;
+  flex-direction: column;
   background: transparent;
 }
 
-/* Images: fixed width on left, natural height */
+/* Images: fixed height on top, text below */
 .section-images {
-  flex: 0 0 400px;
-  height: auto;
+  flex: 0 0 clamp(140px, 40svh, 520px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0;
   padding: 0;
 }
 
@@ -403,8 +400,9 @@ section {
   flex: 1;
   min-height: fit-content;
   overflow: visible;
-  background: transparent;
+  background: var(--bg);
   border: none;
+  border-top: 1px solid var(--border);
 }
 
 .section-images[data-direction="row"] {
@@ -412,8 +410,9 @@ section {
 }
 
 .section-img-slot {
-  width: 100%;
-  height: 250px;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
   position: relative;
   overflow: hidden;
 }
