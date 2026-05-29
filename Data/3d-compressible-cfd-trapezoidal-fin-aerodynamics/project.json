@@ -10,10 +10,10 @@
   "what_images_direction": "column",
   "what_images_fit": "diagram",
   "how_images": ["images/02.png", "images/03.png"],
-  "how_images_direction": "row",
+  "how_images_direction": "column",
   "how_images_fit": "diagram",
   "results_images": ["images/04.png", "images/05.png"],
-  "results_images_direction": "row",
+  "results_images_direction": "column",
   "results_images_fit": "diagram",
   "what": [
     "Comparative CFD of blunt-edged vs. streamlined trapezoidal fins at Mach 0.7 (Re = 1.58 × 10⁶, AoA = 0°): blunt — flat 90° edges, 5.50/2.144 in chord, AR = 0.720; aero — curved leading + cusped trailing, identical planform",

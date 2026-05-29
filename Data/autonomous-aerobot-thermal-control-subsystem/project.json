@@ -10,7 +10,7 @@
   "what_images_direction": "column",
   "what_images_fit": "diagram",
   "how_images": ["images/hot.png", "images/cold.png"],
-  "how_images_direction": "row",
+  "how_images_direction": "column",
   "how_images_fit": "diagram",
   "results_images": ["images/03.png"],
   "results_images_direction": "column",
